@@ -1,0 +1,102 @@
+<div class="row-fluid" id="profile_side">
+  <div class="span3">
+    <div id="wrap">
+    <%	@user.photos.profile_pics.each do |p|  %>
+                       <%	 if p == @user.photos.profile_pics.first %>
+         <%=	 image_tag p.image_url(:profpic), :width => 250, :height => 250, :class => 'is-showing'  %>
+                <%	 else %>
+        <%	end  %>
+
+      <%	end  %>
+
+    </div>
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda blanditiis commodi deserunt distinctio dolore dolorum eaque exercitationem inventore iste laborum libero nam nemo nisi possimus soluta, temporibus totam voluptatibus.
+  </div>
+  <div class="span9" id="content">
+
+    <div id="pill-bar">
+      <ul>
+        <li class="active"><a href="#">Profile</a></li>
+        <li class="inactive"><a href="#">Friends</a></li>
+        <li class="inactive"><a href="#">Photos</a></li>
+        <li class="inactive"><a href="#">Videos</a></li>
+        <li class="inactive"><a href="#">Quotes</a></li>
+
+      </ul>
+    </div>
+
+    <div id="pill-content">
+
+      <h6>Profile</h6>
+
+      <section>Here you can put the Content of the Tab 1</section>
+
+      <h6>Friends</h6>
+
+      <section>Tab 2 Content </section>
+
+      <h6>Photos</h6>
+<section>
+        <%=	 link_to 'Add Photo', controller: 'photos', action: 'new' %> <br/>
+        <% @user.photos.each do |photo|  %>
+            <div class="photo">
+              <%=	link_to (image_tag photo.image_url(:profile)) , photo if photo.image %>
+            </div>
+        <%	 end %>
+  <%=	 form_for Photo.new(:user_id => current_user.id) do |f| %>
+  <%=	 f.label :image,  "Upload Photos:" %>
+      <%=	 f.file_field :image, :multiple => true, name: 'photo[image]' %>
+
+  <% end %>
+
+      </section>
+      <%=	 javascript_include_tag "slideshow" %>
+      <h6>Videos</h6>
+
+      <section>Tab 4 Content</section>
+      <h6>Quotes</h6>
+
+
+      <section>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad architecto aut blanditiis dolore et eum, expedita facilis ipsa iste laboriosam obcaecati officia provident quod sapiente sequi similique suscipit voluptatum.</section>
+    </div>
+  <!--  <div class="tabbable">
+     <ul class="nav nav-tabs" id="proftabs">
+      <li><a href="#profile_tab"  data-toggle="tab" >Profile</a></li>
+      <li><a href="#friends_tab" data-toggle="tab">Friends</a></li>
+      <li><a  href="#photos_tab" data-toggle="tab">Photos</a></li>
+      <li><a  href="#videos_tab" data-toggle="tab">Videos</a></li>
+      <li><a  href="#quotes_tab" data-toggle="tab">Quotes</a></li>
+
+   </ul>
+      <div class="tab-content">
+            <div id="profile_tab" class="tab-pane">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid excepturi id, maxime nesciunt recusandae repellat unde veritatis! Eveniet, fugiat, ipsum. Architecto assumenda, culpa impedit molestias natus porro quisquam repudiandae sunt!
+            </div>
+        <div id="friends_tab"  class="tab-pane">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis cupiditate incidunt. Accusantium adipisci architecto dignissimos eligendi est explicabo ipsa molestiae nesciunt optio porro provident, sint soluta, tempore temporibus vitae?
+        </div>
+        <div id="photos_tab"  class="tab-pane">
+          <%= @user.photos.each do |photo|  %>
+          <div class="photo">
+            <%=	 image_tag photo.image_url if photo.image %>
+          </div>
+          <%	 end %>
+        </div>
+        <div id="videos_tab"  class="tab-pane">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at autem dolore, dolorum eaque earum eius, id in iste molestias officia, possimus qui quis recusandae repellat reprehenderit suscipit voluptatum!
+        </div>
+        <div id="quotes_tab"  class="tab-pane">
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consectetur, in necessitatibus qui quidem tenetur unde voluptatum! Aspernatur dolorem earum id labore molestiae nam quas quisquam, sapiente sequi ut voluptatibus.
+        </div>
+      </div>
+      <script>
+          $(document).ready(function() {
+
+              $("#proftabs a:first").tab('show')
+
+          });
+      </script>
+    </div>  -->
+  </div>
+</div>

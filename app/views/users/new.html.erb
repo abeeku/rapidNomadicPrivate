@@ -1,0 +1,61 @@
+<h2>Register</h2>
+<table style="width: 100%">
+  <tr>
+    <td style="width: 47%">
+
+    </td>
+    <td style="width: 48%;">
+      <%=	  %>
+      <div>
+        <%= simple_form_for(@user,
+                            :html => {
+                                    :class => 'form-horizontal' },
+                            :validate => true ) do |f| %>
+
+            <p>
+              <%= f.input :first_name ,
+                          :placeholder => 'First Name' %>
+            </p>
+            <p>
+              <%= f.input :last_name ,
+                          :placeholder => 'Last Name'  %>
+            </p>
+            <p>
+              <%= f.input :username ,
+                          :placeholder => 'Username' %>
+            </p>
+            <p>
+              <%= f.input :email,
+                          :autofocus => true,
+                          :placeholder => 'Email Address' %>
+            </p>
+            <div id="regist">
+              <%=	 f.input :date_of_birth,
+                                 as: :date,
+                                 start_year: Date.today.year - 12,
+                                 end_year: Date.today.year - 110,
+                                 order: [
+                                         :month,
+                                         :day,
+                                         :year] ,
+                                 :default => {
+                                         :year => 1998, :month => 4, :day => 15 }  %>
+            </div>
+            <p>
+              <%= f.input :password,
+                          :placeholder => 'Password' %></p>
+
+            <p>
+              <%= f.input :password_confirmation ,
+                          :placeholder => ' Verify Password' %></p>
+
+
+            <p><%= f.submit 'Make my Account',
+                            :class => 'btn btn-primary' %></p>
+        <% end %>
+
+
+      </div>
+    </td>
+  </tr>
+</table>

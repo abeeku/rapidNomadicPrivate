@@ -1,0 +1,12 @@
+<h1>New Photo for <%= current_user.full_name %></h1>
+<%=	 simple_form_for @photo, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+    <%=	 f.hidden_field :user_id %>
+    <p> <%=	 f.input :name %></p>
+      <p>  <%=	 f.input :image %></p>
+
+    <p><%=	 f.input :profile %></p>
+    <p><%=	 f.input :description, :as => :text, :input_html => { :cols => 15 ,  :rows => 40 } %></p>
+    <p><%=	 f.submit 'Add Photo', :class => 'btn btn-success' %></p>
+<%	 end %>
+
+

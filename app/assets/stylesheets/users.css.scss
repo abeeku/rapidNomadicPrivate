@@ -1,0 +1,187 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(roboto.woff) format('woff');
+}
+h2 {
+  font-family: 'Roboto Condensed';
+}
+
+#remember_me {
+  display: inline;
+}
+#logins label {
+    display: inline;
+  }
+input[type='file'] {
+  line-height: normal !important;
+
+}
+
+#pill-bar {
+  font-weight: bold;
+  width:auto
+}
+/* pill count*/
+span.pill-count {;
+  position: absolute;
+  padding: 5px;
+  margin-top: -6px;
+  color: white;
+  min-width: 15px;
+  text-align: center;
+  border: 1px solid #000;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2a2a2a), to(#222));
+  background: -moz-linear-gradient(top center, #2a2a2a, #222);
+  -webkit-box-shadow: inset 0 0 1px #333;
+  -moz-box-shadow: inset 0 0 1px #333;
+  text-shadow: 0 -1px 1px black;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  margin-left: 10px;
+}
+/* Style of pill Content */
+#pill-content {
+
+    h6 {
+      visibility: hidden;
+    }
+
+
+}
+#pill-content h2 {
+  font-family: Helvetica, tahoma, Sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 1px 1px black;
+}
+#pill-content p {
+  font-family: Helvetica, tahoma, Sans-serif;
+  font-size: 15px;
+}
+
+#pill-bar ul li{
+  display: inline-block;
+}
+
+#pill-bar ul li a {
+  position: relative;
+  display: block;
+  width: 150px;
+  text-align: center;
+}
+
+#pill-bar .active a {
+  padding: 14px 0 10px 0;
+  border: 1px solid #666666;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(6, 6, 146)), to(rgb(0, 213, 231)));
+  background: -moz-linear-gradient(top center, #003366, #0066cc);
+  text-shadow: 0 1px 1px black;
+
+  -webkit-background-clip: padding-box;
+  -webkit-box-shadow: inset 0 0 1px #fd0000;
+  -moz-border-radius: 10px 10px 0 0;
+  -moz-background-clip: padding-box;
+  -moz-box-shadow: inset 0 0 1px #fd0000;
+  margin-left: -5px;
+  z-index: 2;
+  color: white;
+  text-shadow: 0 1px 1px black;
+}
+
+#pill-bar .active a:focus {
+  outline: none;
+}
+
+#pill-bar .inactive a:hover {
+  background: -webkit-gradient(linear, left bottom, left top, from(#eee), to(#ddd));
+  background: -moz-linear-gradient(top center, #ddd, #eee);
+}
+
+#pill-bar .inactive a {
+  color: #222;
+  text-shadow: 0 1px 1px white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#dddddd));
+  background: -moz-linear-gradient(top center, #eeeeee, #dddddd);
+  -webkit-box-shadow: inset 0 0 5px white;
+  -moz-box-shadow: inset 0 0 5px white;
+  padding: 14px 0 10px 0;
+  -webkit-box-shadow: inset 0 0 5px white;
+  -moz-box-shadow: inset 0 0 5px white;
+  border: 1px solid #ccc;
+  margin-left: -5px;
+  z-index: 1;
+}
+a:hover, a:focus {
+  color: #005580;
+  text-decoration: none;
+}
+#pill-bar .inactive a:focus {
+  outline: none;
+}
+
+.photo{
+    background-color: white;
+  padding: 10px;
+  border: 1px solid #3a3a3a;
+  margin: 6px;
+  width: auto;
+  display: inline-block;
+
+  &:hover{
+    background-color:#e8e8e8;
+  }
+}
+
+#comments-box {
+
+  background-color: #ffffff;
+  border: 1px solid #000;
+  border-radius: 7px;
+
+  .comment {
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    &:hover {
+      background-color:#e8e8e8;
+    }
+  }
+
+  .comment-first {
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+
+    &:hover {
+      background-color:#e8e8e8;
+    }
+
+  }
+
+  textarea {
+  margin-right: 10px;
+  width: 350px;
+  height: 20px;
+  border-radius: 0;
+  resize: none;
+
+}
+}
+.span4{
+
+  margin-left: 30px;
+}
+//#wrap {
+//  margin: 0 auto;
+ // overflow: hidden;
+ // img {
+  //  display: none;
+ // }
+//.is-showing {
+//  display: inline;
+//}
+//}

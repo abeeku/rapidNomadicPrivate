@@ -1,0 +1,23 @@
+<h2><%=	 @photo.name %></h2>
+  <%=	 link_to 'Edit Photo' , action: 'change', controller: 'photos', :id => @photo.id %>  <%=	 link_to 'Delete Photo' , edit_photo_path(@photo), :method => :delete %>
+<%= image_tag @photo.image_url %>
+<div class='span4'>
+ <p><b><%=	 link_to @photo.user.full_name, :controller => 'users', :action => 'show', :username => @photo.user.username %></b>
+   <%= @photo.description %>
+
+  <div id="comments-box">
+    <h2>Comments</h2>
+    <%=	 render 'comments/comments' %>
+
+    <p>
+   <% if current_user %>
+          <%=	 render 'comments/form' %>
+ <% else %>
+ <%=	link_to 'Log in', login_path  %> or   <%=	link_to 'Register', register_path  %>  to add a comment
+ <% end %>
+ </p>
+  </div>
+
+
+
+</div>

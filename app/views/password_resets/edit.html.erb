@@ -1,0 +1,6 @@
+<h2>Choose your new password</h2>
+<%=	 simple_form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+<%=	 f.input :password %> <br/>
+<%=	f.input :password_confirmation  %>
+ <%=	 f.submit :class => 'btn btn-primary', :value => 'Change My Password' %>
+<%	 end %>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rapidnomadic</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+
+  <%= javascript_include_tag "application" %>
+
+
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="text/javascript">
+
+
+
+      $(document).ready(function(){
+
+          $('li').click(function(){
+              var number = $(this).index();
+              $('#pill-content h6').hide().eq(number).show();
+              $('#pill-content section').hide().eq(number).show();
+              $(this).toggleClass('active inactive');
+              $('li').not(this).removeClass('active').addClass('inactive');
+          });
+
+          $('#pill-content h6').not(':first').hide();
+          $('#pill-content section ').not(':first').hide();
+
+      });
+
+      $(function () {
+          $('#new_photo').fileupload({
+              dataType: 'json',
+              done: function (e, data) {
+                  $.each(data.result.files, function (index, file) {
+                      $('<p/>').text(file.name).appendTo(document.body);
+                  });
+              }
+          });
+      });
+  </script>
+
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+   <a class="brand" href="#"><%=	 image_tag 'logo_opt.gif', :mouseover => 'logohover_opt.png', :width => '50px', :height => '40px' %><%=	 image_tag 'Untitled-2letters_opt.png', height: '40px' %></a>
+
+    <form class="navbar-form pull-left">
+      <input type="text" class="span2">
+      <button type="submit" class="btn">Submit</button>
+    </form>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+    <ul class="nav pull-right">
+      <% if current_user %>
+           <li><%= link_to "#{current_user.full_name}", controller: 'users', action: 'show', username: current_user.username %></li>
+          <li class="divider-vertical"></li>
+          <li><%=	 link_to 'Log Out', logout_path %></li>
+      <% else %>
+          <li><%=	 link_to 'Register', register_path %></li>
+          <li class="divider-vertical"></li>
+          <li class="dropdown"k>
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
+            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+              <%=	 render 'sessions/form' %>
+            </div>
+          </li>
+      <% end %>
+
+
+    </ul>
+  </div>
+</div>
+
+<% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? 'success' : 'error' %>">
+      <a class="close" data-dismiss="alert" >x</a>
+      <%= msg %>
+    </div>
+<% end %>
+<%= yield %>
+
+</body>
+</html>

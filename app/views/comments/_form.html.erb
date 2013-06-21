@@ -1,0 +1,6 @@
+<%= form_for [@commentable,@comment] do |f| %>
+    <div class="comment-text-box">
+       <%=	 f.text_area :content, :placeholder => 'Add a Comment...', rows: 1 %>
+    </div>
+    <p><%=	 f.submit 'Add Comment' %></p>
+<%	 end %>
