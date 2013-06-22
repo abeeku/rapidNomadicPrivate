@@ -63,16 +63,14 @@
       <% else %>
           <li><%=	 link_to 'Register', register_path %></li>
           <li class="divider-vertical"></li>
-          <li class="dropdown"k>
-            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
+          <li class="dropdown">
+            <a class="dropdown-toggle" href="/login">Log In <strong class="caret"></strong></a>
             <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
               <%=	 render 'sessions/form' %>
             </div>
           </li>
       <% end %>
-
-
-    </ul>
+ </ul>
   </div>
 </div>
 

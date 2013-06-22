@@ -55,7 +55,7 @@
         <ul id="profile_posts">
           <% @all_posts.reverse.each do |post| %>
 
-              <li
+              <li>
               <% if @user != post.user %>
           <!--    style="background-color: <%= post.user.profile.post_color.to_s %>"  -->
               <% end %>
@@ -63,7 +63,7 @@
               <% if @user.posts.last == post %>
               class="first"
               <% end %>
-              >
+
                 <%= image_tag "", :width => 80, :height => 80 %>
                 <%=h link_to post.user.full_name, :controller => 'users', :action => 'show', :username => post.user.username %>
                 <span style="float: right"><%= time_ago_in_words(post.created_at) %> ago</span>
