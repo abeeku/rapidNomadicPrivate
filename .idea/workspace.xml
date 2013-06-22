@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/user.rb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371764104101" ignored="false" />
     <file path="/users_controller.rb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371764315208" ignored="false" />
-    <file path="/new.html.erb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371756740080" ignored="false" />
+    <file path="/new.html.erb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371864391822" ignored="false" />
     <file path="/application.css" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1369448183362" ignored="false" />
     <file path="/application.html.erb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371776402279" ignored="false" />
     <file path="/Gemfile" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1370469906633" ignored="false" />
@@ -108,7 +108,7 @@
       <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/photos/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="11" selection-start="481" selection-end="481" vertical-scroll-proportion="0.47493404">
+            <state line="9" column="11" selection-start="494" selection-end="494" vertical-scroll-proportion="0.35620052">
               <folding />
             </state>
           </provider>
@@ -1030,7 +1030,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/photos/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="11" selection-start="481" selection-end="481" vertical-scroll-proportion="0.47493404">
+        <state line="9" column="11" selection-start="494" selection-end="494" vertical-scroll-proportion="0.35620052">
           <folding />
         </state>
       </provider>
