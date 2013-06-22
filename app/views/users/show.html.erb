@@ -44,11 +44,12 @@
               <%=	link_to (image_tag photo.image_url(:profile)) , photo if photo.image %>
             </div>
         <%	 end %>
-  <%= if current_user %>
+  <%= if current_user != nil %>
   <%=	 form_for Photo.new(:user_id => current_user.id) do |f| %>
   <%=	 f.label :image,  "Upload Photos:" %>
       <%=	 f.file_field :image, :multiple => true, name: 'photo[image]' %>
 
+         <%	 end %>
   <% end %>
 
       </section>

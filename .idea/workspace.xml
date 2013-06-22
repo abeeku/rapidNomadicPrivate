@@ -25,7 +25,7 @@
     <file path="/permission.rb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371766901502" ignored="false" />
     <file path="/seeds.rb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1369704726375" ignored="false" />
     <file path="/_form.html.erb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371691563833" ignored="false" />
-    <file path="/show.html.erb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371774367424" ignored="false" />
+    <file path="/show.html.erb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371863380803" ignored="false" />
     <file path="/application.js" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1370033754249" ignored="false" />
     <file path="/users.js.coffee" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371774886395" ignored="false" />
     <file path="/photo.rb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371765387515" ignored="false" />
@@ -41,6 +41,8 @@
     <file path="/posts_controller.rb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371764229206" ignored="false" />
     <file path="/change.html.erb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371768811017" ignored="false" />
     <file path="/slideshow.js" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371773452647" ignored="false" />
+    <file path="$PROJECT_DIR$/public/assets/application.css" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371842969264" ignored="false" />
+    <file path="$PROJECT_DIR$/public/assets/application.js" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371842969264" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,31 +76,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="16" selection-start="1733" selection-end="1733" vertical-scroll-proportion="-6.875">
+            <state line="46" column="16" selection-start="1535" selection-end="1535" vertical-scroll-proportion="0.59016395">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="slideshow.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/slideshow.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="735" column="0" selection-start="30958" selection-end="30958" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1371776254000" expanded="true" signature="22075:22088" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="21" selection-start="123" selection-end="123" vertical-scroll-proportion="0.20491803">
+            <state line="12" column="27" selection-start="297" selection-end="297" vertical-scroll-proportion="-7.5">
               <folding>
                 <element signature="n#style#0;n#div#0;n#li#5;n#ul#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -109,8 +99,10 @@
       <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="14" column="0" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1371825791000" expanded="true" signature="54:140" placeholder="#..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,7 +128,7 @@
       <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/photos/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="101" selection-start="261" selection-end="261" vertical-scroll-proportion="-3.125">
+            <state line="6" column="101" selection-start="262" selection-end="262" vertical-scroll-proportion="-3.125">
               <folding />
             </state>
           </provider>
@@ -184,8 +176,8 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/users.js.coffee" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/slideshow.js" />
-        <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
       </list>
     </option>
   </component>
@@ -984,8 +976,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="14" column="0" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1371825791000" expanded="true" signature="54:140" placeholder="#..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1024,19 +1018,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/slideshow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="735" column="0" selection-start="30958" selection-end="30958" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1371776254000" expanded="true" signature="22075:22088" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/photos/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="101" selection-start="261" selection-end="261" vertical-scroll-proportion="-3.125">
+        <state line="6" column="101" selection-start="262" selection-end="262" vertical-scroll-proportion="-3.125">
           <folding />
         </state>
       </provider>
@@ -1048,19 +1032,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="16" selection-start="1733" selection-end="1733" vertical-scroll-proportion="-6.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="21" selection-start="123" selection-end="123" vertical-scroll-proportion="0.20491803">
+        <state line="12" column="27" selection-start="297" selection-end="297" vertical-scroll-proportion="-7.5">
           <folding>
             <element signature="n#style#0;n#div#0;n#li#5;n#ul#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="16" selection-start="1535" selection-end="1535" vertical-scroll-proportion="0.59016395">
+          <folding />
         </state>
       </provider>
     </entry>
