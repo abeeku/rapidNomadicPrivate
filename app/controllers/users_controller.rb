@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
      @user = User.find_by_username(params[:username])
+
      @new_post  = current_user.posts.build if current_user
     @all_posts = Post.find_all_by_whose_wall(@user.id)
   end

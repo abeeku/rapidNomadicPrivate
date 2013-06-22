@@ -13,6 +13,7 @@ Rapidnomadic2::Application.routes.draw do
     get '/photos/:id/comments/new' => 'comments#new', :as => 'new_photo_comment'
 
   end
+  resources :posts
   #scope '/:username' do
     resources :photos #, :except => [:show, :edit, :update]
 

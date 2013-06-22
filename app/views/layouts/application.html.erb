@@ -47,14 +47,13 @@
   <div class="navbar-inner">
    <a class="brand" href="#"><%=	 image_tag 'logo_opt.gif', :mouseover => 'logohover_opt.png', :width => '50px', :height => '40px' %><%=	 image_tag 'Untitled-2letters_opt.png', height: '40px' %></a>
 
-    <form class="navbar-form pull-left">
-      <input type="text" class="span2">
-      <button type="submit" class="btn">Submit</button>
+    <form class="navbar-search pull-left">
+      <input type="text" class="search-query" placeholder="Search">
     </form>
     <ul class="nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
+      <li class="active"><a href="#">Discussions</a></li>
+      <li><a href="#">ComeToChat</a></li>
+      <li><a href="#">Games</a></li>
     </ul>
     <ul class="nav pull-right">
       <% if current_user %>

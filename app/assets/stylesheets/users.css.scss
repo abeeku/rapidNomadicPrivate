@@ -185,3 +185,102 @@ a:hover, a:focus {
 //  display: inline;
 //}
 //}
+
+.profile_side {
+  float: left;
+  width: 280px;
+  background: #fffdcd;
+  padding-bottom: 10px;
+  h3 {
+    font-family: 'Roboto Condensed';
+    text-align: center;
+  }
+}
+#profile_pic_box {
+  margin: 0 auto;
+  width: 250px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 7px;
+
+
+
+}#post_form{
+   margin: 0;
+   padding: 0;
+
+   background-color: #cdfff8;
+   width: auto;
+   textarea {
+     width: 80%;
+     margin-left: 10px;
+     margin-top: 10px;
+     background-color: #fffdcd;
+     height: 63px;
+     margin-right: 0px;
+     margin-bottom: 10px;
+     font-size: 15px;
+     font-family: Verdana,Geneva, sans-serif;
+     resize: none;
+
+   }
+
+   #post_but {
+     background-color: #019AD2;
+     border-radius: 6px;
+     color: white;
+     font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+     font-size:15px;
+     display: block;
+     width: 15%;
+     padding-left: 19px;
+     padding-right: 19px;
+     margin-right: 10px;
+     margin-top: 10px;
+     padding-top: 19px;padding-bottom: 19px;
+     margin-bottom: 10px;
+     margin-left: 0px;
+     height: 63px;
+     float: right;
+   }
+ }
+#profile_posts {
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+
+}
+#profile_posts  li {
+  a {
+    font-size: 20px;
+    font-family: 'Roboto Condensed',Arial,"Helvetica Neue", sans-serif;
+    text-decoration: none;
+    color: #019AD2;
+    &:hover {
+      text-decoration: underline;
+    }
+    font-weight: 1000;
+  }
+  img {
+    float: left;
+  }
+  .post_mess {
+    margin-top: 6px;
+  }
+  list-style: none;
+  clear: both;
+  // padding: 20px 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  min-height: 94px;
+  background-color: #fff;
+  //  display: block;
+  border-bottom: 1px dashed #d2dada;
+
+
+}#profile_posts li.first {
+   border-top: 1px dashed #d2dada;
+ }
+
+

@@ -18,7 +18,7 @@
 //= require twitter/bootstrap/bootstrap-dropdown
 // require twitter/bootstrap/bootstrap-scrollspy
 //= require twitter/bootstrap/bootstrap-tab
-//= require jquery-fileupload/basic
+//= require jquery-fileupload
 // require twitter/bootstrap/bootstrap-tooltip
 // require twitter/bootstrap/bootstrap-popover
 // require twitter/bootstrap/bootstrap-button

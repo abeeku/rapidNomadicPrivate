@@ -8,7 +8,7 @@ class Permission
           allow :photos, [:show, :index]
       allow :comments, [:index, :show]
       if user
-
+        allow :posts, [:new, :create]
         allow :comments, [:new, :create,]
         allow :photos , [:new,:create,:index,:change, :update]
         allow :users, [:edit, :update]

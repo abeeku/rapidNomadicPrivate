@@ -1,6 +1,6 @@
 <div class="row-fluid" id="profile_side">
   <div class="span3">
-    <div id="wrap">
+ <!--   <div id="wrap">
     <%	@user.photos.profile_pics.each do |p|  %>
                        <%	 if p == @user.photos.profile_pics.first %>
          <%=	 image_tag p.image_url(:profpic), :width => 250, :height => 250, :class => 'is-showing'  %>
@@ -9,9 +9,27 @@
 
       <%	end  %>
 
-    </div>
+    </div> -->
+ <div class="profile_side">  <div id="profile_pic_box"> 
+   <!--  <% if current_user %>
+            <% if @user.id == current_user.id %>
+                <%=  form_for @user.photos.new , :html => { :multipart => true , :id =>'avatar_form' } do |f| %>
+                    <%= f.file_field :image %>
+                    <%= f.submit 'Submit' %>
+                <%   end %>
+                <a href="#" onclick="return false;" onmousedown="toggleElement('avatar_form');">Change Profile Photo</a>
+            <% end %>
+        <% end %>  -->
+            <%  @user.photos.profile_pics.each do |p|  %>
+                       <%  if p == @user.photos.profile_pics.first %>
+         <%=   image_tag p.image_url(:profpic), :width => 250, :height => 250, :class => 'is-showing'  %>
+                <%   else %>
+        <%  end  %>
 
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda blanditiis commodi deserunt distinctio dolore dolorum eaque exercitationem inventore iste laborum libero nam nemo nisi possimus soluta, temporibus totam voluptatibus.
+      <%  end  %>
+      </div>
+    <h3><%= @user.full_name %></h3>
+     </div>
   </div>
   <div class="span9" id="content">
 
@@ -30,7 +48,33 @@
 
       <h6>Profile</h6>
 
-      <section>Here you can put the Content of the Tab 1</section>
+      <section>
+        <% if current_user %>
+            <%=	 render 'posts/form' %>
+        <% end %>
+        <ul id="profile_posts">
+          <% @all_posts.reverse.each do |post| %>
+
+              <li
+              <% if @user != post.user %>
+          <!--    style="background-color: <%= post.user.profile.post_color.to_s %>"  -->
+              <% end %>
+
+              <% if @user.posts.last == post %>
+              class="first"
+              <% end %>
+              >
+                <%= image_tag "", :width => 80, :height => 80 %>
+                <%=h link_to post.user.full_name, :controller => 'users', :action => 'show', :username => post.user.username %>
+                <span style="float: right"><%= time_ago_in_words(post.created_at) %> ago</span>
+
+
+                <div class="post_mess"><%= post.content %></div>
+              </li>
+          <% end %>
+        </ul>
+
+      </section>
 
       <h6>Friends</h6>
 
@@ -48,7 +92,7 @@
 
 
       </section>
-      <%=	 javascript_include_tag "slideshow" %>
+     
       <h6>Videos</h6>
 
       <section>Tab 4 Content</section>
