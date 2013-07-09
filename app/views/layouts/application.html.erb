@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rapidnomadic</title>
+  <title><%= yield(:title) || 'RapidNomadic' %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
 
   <%= javascript_include_tag "application" %>
-
+<%= favicon_link_tag 'favicon.ico' %>
 
   <%= csrf_meta_tags %>
+
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script type="text/javascript">
@@ -51,20 +53,25 @@
       <input type="text" class="search-query" placeholder="Search">
     </form>
     <ul class="nav">
-      <li class="active"><a href="#">Discussions</a></li>
+      <li>
+          <%= link_to "World Wall", :controller => 'pages', :action => 'world_wall' %>
+      </li>
+      <li><a href="#">Dashboard</a></li>
       <li><a href="#">ComeToChat</a></li>
       <li><a href="#">Games</a></li>
     </ul>
+    
     <ul class="nav pull-right">
       <% if current_user %>
-           <li><%= link_to "#{current_user.full_name}", controller: 'users', action: 'show', username: current_user.username %></li>
+
+          <li><%= image_tag current_user.profile(:menubar).to_s %></li> <li><%= link_to "#{current_user.full_name}", controller: 'users', action: 'show', username: current_user.username %></li>
           <li class="divider-vertical"></li>
           <li><%=	 link_to 'Log Out', logout_path %></li>
       <% else %>
           <li><%=	 link_to 'Register', register_path %></li>
           <li class="divider-vertical"></li>
           <li class="dropdown">
-            <a class="dropdown-toggle" href="/login">Log In <strong class="caret"></strong></a>
+            <a  href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
             <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
               <%=	 render 'sessions/form' %>
             </div>
@@ -80,6 +87,7 @@
       <%= msg %>
     </div>
 <% end %>
+
 <%= yield %>
 
 </body>

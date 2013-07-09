@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
+  has_attached_file :profile, :styles => {  :medium => "250x250>", :thumb => "80x80#", :menubar => "40x40#" } , 
+                  :default_url => '/assets/missing_:style.png'
+  has_one :user_info
   has_many :posts
   has_many :photos
   has_many :comments
@@ -10,7 +13,8 @@ class User < ActiveRecord::Base
                   :username,
                   :password_confirmation,
                   :date_of_birth,
-                  :admin
+                  :admin,
+                  :profile
   #Remember Me Cookie Token
   before_create { generate_token(:cookie_token) }
 

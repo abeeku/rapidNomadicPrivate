@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) || 'RapidNomadic' %></title>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
+<%= stylesheet_link_tag  "profile" %>
+  <%= javascript_include_tag "application" %>
+<%= favicon_link_tag 'favicon.ico' %>
+
+  <%= csrf_meta_tags %>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="text/javascript">
+
+
+
+      $(document).ready(function(){
+
+          $('li').click(function(){
+              var number = $(this).index();
+              $('#pill-content h6').hide().eq(number).show();
+              $('#pill-content section').hide().eq(number).show();
+              $(this).toggleClass('active inactive');
+              $('li').not(this).removeClass('active').addClass('inactive');
+          });
+
+          $('#pill-content h6').not(':first').hide();
+          $('#pill-content section ').not(':first').hide();
+
+      });
+
+      $(function () {
+          $('#new_photo').fileupload({
+              dataType: 'json',
+              done: function (e, data) {
+                  $.each(data.result.files, function (index, file) {
+                      $('<p/>').text(file.name).appendTo(document.body);
+                  });
+              }
+          });
+      });
+  </script>
+
+</head>
+<body>
+
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+   <a class="brand" href="#"><%=	 image_tag 'logo_opt.gif', :mouseover => 'logohover_opt.png', :width => '50px', :height => '40px' %><%=	 image_tag 'Untitled-2letters_opt.png', height: '40px' %></a>
+
+    <form class="navbar-search pull-left">
+      <input type="text" class="search-query" placeholder="Search">
+    </form>
+    <ul class="nav">
+      <li>
+          <%= link_to "World Wall", :controller => 'pages', :action => 'world_wall' %>
+      </li>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">ComeToChat</a></li>
+      <li><a href="#">Games</a></li>
+    </ul>
+    
+    <ul class="nav pull-right">
+      <% if current_user %>
+
+          <li><%= image_tag current_user.profile(:menubar).to_s %></li> <li><%= link_to "#{current_user.full_name}", controller: 'users', action: 'show', username: current_user.username %></li>
+          <li class="divider-vertical"></li>
+          <li><%=	 link_to 'Log Out', logout_path %></li>
+      <% else %>
+          <li><%=	 link_to 'Register', register_path %></li>
+          <li class="divider-vertical"></li>
+          <li class="dropdown">
+            <a  href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
+            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+              <%=	 render 'sessions/form' %>
+            </div>
+          </li>
+      <% end %>
+ </ul>
+  </div>
+</div>
+
+<% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? 'success' : 'error' %>">
+      <a class="close" data-dismiss="alert" >x</a>
+      <%= msg %>
+    </div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

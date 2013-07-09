@@ -1,5 +1,11 @@
 Rapidnomadic2::Application.routes.draw do
 
+  get ':profiles/:username' => 'users#profile'
+  get "pages/dashboard"
+
+  get "pages/world_wall"
+
+  get "pages/friend_activity"
 
   resources :sessions
  # get '/photos/:id' => 'photos#show', :as => 'photo'

@@ -1,46 +1,50 @@
+<% content_for :title do %>
+<%= @user.full_name.to_s + "'s Profile" %>
+<% end %>
 <div class="row-fluid" id="profile_side">
-  <div class="span3">
- <!--   <div id="wrap">
-    <%	@user.photos.profile_pics.each do |p|  %>
-                       <%	 if p == @user.photos.profile_pics.first %>
-         <%=	 image_tag p.image_url(:profpic), :width => 250, :height => 250, :class => 'is-showing'  %>
-                <%	 else %>
-        <%	end  %>
+  <div id="container">
+<script type="text/javascript">
+function _(x) {
+    return document.getElementById(x);
+}
 
-      <%	end  %>
+function toggleElement(x) {
+    var x = _(x);
+    if (x.style.display == 'block') {
+        x.style.display = 'none';
+    }
+    else {
+        x.style.display = 'block';
+    }
+}
+</script>
 
-    </div> -->
  <div class="profile_side">  <div id="profile_pic_box"> 
-   <!--  <% if current_user %>
+     <% if current_user %>
             <% if @user.id == current_user.id %>
-                <%=  form_for @user.photos.new , :html => { :multipart => true , :id =>'avatar_form' } do |f| %>
-                    <%= f.file_field :image %>
+                <%=  form_for @user, :html => { :multipart => true , :id =>'avatar_form' } do |f| %>
+                    <%= f.file_field :profile %>
                     <%= f.submit 'Submit' %>
                 <%   end %>
                 <a href="#" onclick="return false;" onmousedown="toggleElement('avatar_form');">Change Profile Photo</a>
             <% end %>
-        <% end %>  -->
-            <%  @user.photos.profile_pics.each do |p|  %>
-                       <%  if p == @user.photos.profile_pics.first %>
-         <%=   image_tag p.image_url(:profpic), :width => 250, :height => 250, :class => 'is-showing'  %>
-                <%   else %>
-        <%  end  %>
-
-      <%  end  %>
+        <% end %>  
+  <%= image_tag @user.profile.url.to_s, :width => 250, :height => 250 %>
       </div>
     <h3><%= @user.full_name %></h3>
      </div>
-  </div>
-  <div class="span9" id="content">
+  
+  <div id="content">
 
     <div id="pill-bar">
       <ul>
-        <li class="active"><a href="#">Profile</a></li>
-        <li class="inactive"><a href="#">Friends</a></li>
-        <li class="inactive"><a href="#">Photos</a></li>
-        <li class="inactive"><a href="#">Videos</a></li>
-        <li class="inactive"><a href="#">Quotes</a></li>
-
+        <li class="active"><a >Wall</a></li>
+        <li class="inactive"><a >Info</a></li>
+        <li class="inactive"><a >Friends</a></li>
+        <li class="inactive"><a >Photos</a></li>
+        <li class="inactive"><a>Videos</a></li>
+        <li class="inactive"><a >Quotes</a></li>
+        
       </ul>
     </div>
 
@@ -55,16 +59,16 @@
         <ul id="profile_posts">
           <% @all_posts.reverse.each do |post| %>
 
-              <li>
-              <% if @user != post.user %>
-          <!--    style="background-color: <%= post.user.profile.post_color.to_s %>"  -->
-              <% end %>
 
-              <% if @user.posts.last == post %>
+              <% if @user != post.user %>
+          <!--    style="background-color: <#- post.user.profile.post_color.to_s %>"  -->
+              <% end %>
+              <li
+              <% if @all_posts.last == post %>
               class="first"
               <% end %>
-
-                <%= image_tag "", :width => 80, :height => 80 %>
+                >
+                <%= image_tag post.user.profile(:thumb).to_s, :width => 80, :height => 80 %>
                 <%=h link_to post.user.full_name, :controller => 'users', :action => 'show', :username => post.user.username %>
                 <span style="float: right"><%= time_ago_in_words(post.created_at) %> ago</span>
 
@@ -76,27 +80,32 @@
 
       </section>
 
+     
+
+      
       <h6>Friends</h6>
 
       <section>Tab 2 Content </section>
+      <h6>Videos</h6>
 
+      <section>Tab 4 Content</section>
       <h6>Photos</h6>
 <section>
-        <%=	 link_to 'Add Photo', controller: 'photos', action: 'new' %> <br/>
+        <%=  link_to 'Add Photo', controller: 'photos', action: 'new' %> <br/>
         <% @user.photos.each do |photo|  %>
             <div class="photo">
-              <%=	link_to (image_tag photo.image_url(:profile)) , photo if photo.image %>
+              <%= link_to (image_tag photo.image.url(:profile)) , photo if photo.image %>
             </div>
-        <%	 end %>
+        <%   end %>
 
 
 
       </section>
-     
-      <h6>Videos</h6>
-
-      <section>Tab 4 Content</section>
       <h6>Quotes</h6>
+
+
+      <section>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad architecto aut blanditiis dolore et eum, expedita facilis ipsa iste laboriosam obcaecati officia provident quod sapiente sequi similique suscipit voluptatum.</section>
+       <h6>Info</h6>
 
 
       <section>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad architecto aut blanditiis dolore et eum, expedita facilis ipsa iste laboriosam obcaecati officia provident quod sapiente sequi similique suscipit voluptatum.</section>
@@ -120,7 +129,7 @@
         <div id="photos_tab"  class="tab-pane">
           <%= @user.photos.each do |photo|  %>
           <div class="photo">
-            <%=	 image_tag photo.image_url if photo.image %>
+            <%=	 image_tag photo.image.url if photo.image %>
           </div>
           <%	 end %>
         </div>
@@ -139,5 +148,11 @@
           });
       </script>
     </div>  -->
+    </div>
+
+
+
+
+
   </div>
 </div>

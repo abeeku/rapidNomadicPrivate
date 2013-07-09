@@ -4,12 +4,12 @@
 <%=	 simple_form_for @photo , :html => { :multipart => true } do |f| %>
     <%=	 f.hidden_field :user_id %>
     <p><%=	 f.input :name %> </p>
-    <p>  <%=	 f.input :image %></p>
+     <p><%= f.input :image %></p>
 
-    <p><%=	 f.input :profile %></p>
+    
     <p><%=	 f.input :description, :html => { :cols => 15 ,  :rows => 40 } %></p>
     <p><%=	 f.submit 'Change Photo', :class => 'btn btn-success' %></p>
 <%	 end %>
 </div>
-<%= image_tag @photo.image_url %>
+
 </div>

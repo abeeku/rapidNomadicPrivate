@@ -10,7 +10,11 @@
 h2 {
   font-family: 'Roboto Condensed';
 }
+.post_mess {
+margin-left: 87px;
 
+word-wrap: break-word;
+}
 #remember_me {
   display: inline;
 }
@@ -71,10 +75,12 @@ span.pill-count {;
 #pill-bar ul li a {
   position: relative;
   display: block;
-  width: 150px;
+  width: 100px;
   text-align: center;
 }
-
+#pill-bar ul li a:hover {
+  cursor: pointer;
+}
 #pill-bar .active a {
   padding: 14px 0 10px 0;
   border: 1px solid #666666;
@@ -123,7 +129,9 @@ a:hover, a:focus {
 #pill-bar .inactive a:focus {
   outline: none;
 }
-
+body {
+  background-color: #019AD2;
+}
 .photo{
     background-color: white;
   padding: 10px;
@@ -189,6 +197,7 @@ a:hover, a:focus {
 .profile_side {
   float: left;
   width: 280px;
+  height: 700px;
   background: #fffdcd;
   padding-bottom: 10px;
   h3 {
@@ -199,6 +208,7 @@ a:hover, a:focus {
 #profile_pic_box {
   margin: 0 auto;
   width: 250px;
+  margin-top: 7px;
   border: 1px solid black;
   background-color: white;
   padding: 7px;
@@ -212,7 +222,7 @@ a:hover, a:focus {
    background-color: #cdfff8;
    width: auto;
    textarea {
-     width: 80%;
+     width: 77%;
      margin-left: 10px;
      margin-top: 10px;
      background-color: #fffdcd;
@@ -247,6 +257,7 @@ a:hover, a:focus {
 #profile_posts {
   font-family: Arial,sans-serif;
   font-size: 14px;
+  display: inline;
   margin: 0px;
   padding: 0px;
 
@@ -255,6 +266,7 @@ a:hover, a:focus {
   a {
     font-size: 20px;
     font-family: 'Roboto Condensed',Arial,"Helvetica Neue", sans-serif;
+    font-weight: bold;
     text-decoration: none;
     color: #019AD2;
     &:hover {
@@ -264,6 +276,7 @@ a:hover, a:focus {
   }
   img {
     float: left;
+    margin-right: 6px;
   }
   .post_mess {
     margin-top: 6px;
@@ -273,11 +286,13 @@ a:hover, a:focus {
   // padding: 20px 0px;
   margin-bottom: 0px;
   margin-top: 0px;
-  min-height: 94px;
+  min-height: 79px;
   background-color: #fff;
   //  display: block;
   border-bottom: 1px dashed #d2dada;
-
+.first {
+   border-top: 1px dashed #d2dada;
+}
 
 }#profile_posts li.first {
    border-top: 1px dashed #d2dada;
@@ -286,3 +301,70 @@ a:hover, a:focus {
  .nav a {
    font-family: 'Roboto Condensed';
  }
+
+ #container {
+background-color: #ffffff;
+margin: 0 auto;
+position: relative;
+width: 1008px;
+height: 1000px;
+min-height: 100%;
+}
+#content {
+width: 720px;
+min-height: 960px;
+float: right;
+}
+div#profile_pic_box > img{z-index:2000; }
+div#profile_pic_box > a {
+  display: none;
+  position:absolute;
+  margin:140px 0px 0px 120px;
+  z-index:4000;
+  background: #0315f0;
+  border: #fffa08 1px solid;
+  border-radius:3px;
+  padding:5px;
+  font-size:12px;
+  font-family: arial,helvetica,sans-serif;
+  text-decoration:none;
+  color: #fffa08;
+  &:hover {
+    background-color: yellow;
+    color: blue;
+  }
+}
+div#profile_pic_box > form{
+  display:none;
+  position:absolute;
+  z-index:3000;
+  padding:10px;
+  opacity:.8;
+  background: #91fef7;
+  width:180px;
+  height:180px;
+}
+div#profile_pic_box:hover a {
+  display: block;
+}
+#regist {
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+background: #fff;
+background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#fff),color-stop(100%,#ddd));
+background: -webkit-linear-gradient(top,#fff 0,#ddd 100%);
+background: -moz-linear-gradient(top,#fff 0,#ddd 100%);
+background: -ms-linear-gradient(top,#fff 0,#ddd 100%);
+background: -o-linear-gradient(top,#fff 0,#ddd 100%);
+background: linear-gradient(top,#fff 0,#ddd 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#dddddd',GradientType=0);
+border-left: solid 1px #eee;
+border-right: solid 1px #eee;
+border-bottom: solid 1px #ccc;
+-webkit-box-shadow: 0 1px 0 rgba(0,0,0,.1);
+-moz-box-shadow: 0 1px 0 rgba(0,0,0,.1);
+box-shadow: 0 1px 0 rgba(0,0,0,.1);
+width: 550px;
+height: auto;
+}

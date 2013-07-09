@@ -1,0 +1,502 @@
+#mainContainer {
+border-right: 1px solid #ccc;
+min-height: 600px;
+margin-left: -1px;
+display: block;
+width: 100%;
+}
+#leftCol {
+color: rgb(51, 51, 51);
+direction: ltr;
+display: block;
+float: left;
+background: #fffdcd;
+font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+font-size: 11px;
+height: 622px;
+line-height: 14px;
+padding-bottom: 0px;
+padding-left: 2px;
+padding-right: 0px;
+padding-top: 20px;
+position: relative;
+text-align: left;
+width: 280px;
+word-wrap: break-word;
+zoom: 1;
+}
+#contentCol {
+background-color: rgb(255, 255, 255);
+border-left-color: rgb(204, 204, 204);
+border-left-style: solid;
+border-left-width: 1px;
+color: rgb(51, 51, 51);
+direction: ltr;
+display: block;
+font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+font-size: 11px;
+height: 26994px;
+line-height: 14px;
+margin-left: 181px;
+min-height: 600px;
+padding-left: 0px;
+padding-right: 0px;
+
+text-align: left;
+width: 1092px;
+zoom: 1;
+}
+#rightCol {
+color: rgb(51, 51, 51);
+direction: ltr;
+display: block;
+float: right;
+background: #fffdcd;
+font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+font-size: 11px;
+height: 274px;
+line-height: 14px;
+margin-top: 0px;
+padding-right: 0px;
+padding-top: 40px;
+text-align: left;
+width: 225px;
+word-wrap: break-word;
+zoom: 1;
+}
+#contentArea {
+color: rgb(51, 51, 51);
+direction: ltr;
+display: block;
+float: left;
+
+font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+font-size: 11px;
+height: 33824.5px;
+line-height: 14px;
+margin-right: 0px;
+outline-color: rgb(51, 51, 51);
+outline-style: none;
+outline-width: 0px;
+padding-bottom: 20px;
+padding-left: 18px;
+padding-right: 25px;
+padding-top: 0px;
+text-align: left;
+width: 720px;
+word-wrap: break-word;
+zoom: 1;
+}
+#content {
+color: rgb(51, 51, 51);
+direction: ltr;
+display: block;
+font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+font-size: 11px;
+height: 17938px;
+line-height: 14px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+min-height: 100px;
+outline-color: rgb(51, 51, 51);
+outline-style: none;
+outline-width: 0px;
+padding-bottom: 0px;
+padding-left: 0px;
+padding-right: 0px;
+padding-top: 0px;
+text-align: left;
+width: 1291px;
+zoom: 1;
+
+}
+
+#globalContainer {
+color: rgb(51, 51, 51);
+direction: ltr;
+display: block;
+font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+font-size: 11px;
+height: 18009px;
+line-height: 14px;
+margin: 0 auto;
+padding-right: 205px;
+position: relative;
+text-align: left;
+width: 1077px;
+zoom: 1;
+
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto Condensed Regular"), local("RobotoCondensed-Regular"), url(roboto.woff) format("woff");
+}
+
+/* line 10, ../../app/assets/stylesheets/users.css.scss */
+h2 {
+  font-family: 'Roboto Condensed';
+}
+
+/* line 14, ../../app/assets/stylesheets/users.css.scss */
+#remember_me {
+  display: inline;
+}
+
+/* line 17, ../../app/assets/stylesheets/users.css.scss */
+#logins label {
+  display: inline;
+}
+
+/* line 20, ../../app/assets/stylesheets/users.css.scss */
+input[type='file'] {
+  line-height: normal !important;
+}
+
+/* line 25, ../../app/assets/stylesheets/users.css.scss */
+#pill-bar {
+  font-weight: bold;
+  width: auto;
+}
+
+/* pill count*/
+/* line 30, ../../app/assets/stylesheets/users.css.scss */
+span.pill-count {
+  position: absolute;
+  padding: 5px;
+  margin-top: -6px;
+  color: white;
+  min-width: 15px;
+  text-align: center;
+  border: 1px solid #000;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2a2a2a), to(#222222));
+  background: -moz-linear-gradient(top center, #2a2a2a, #222222);
+  -webkit-box-shadow: inset 0 0 1px #333;
+  -moz-box-shadow: inset 0 0 1px #333;
+  text-shadow: 0 -1px 1px black;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  margin-left: 10px;
+}
+
+/* Style of pill Content */
+/* line 50, ../../app/assets/stylesheets/users.css.scss */
+#pill-content h6 {
+  visibility: hidden;
+}
+
+/* line 56, ../../app/assets/stylesheets/users.css.scss */
+#pill-content h2 {
+  font-family: Helvetica, tahoma, Sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 1px 1px black;
+}
+
+/* line 62, ../../app/assets/stylesheets/users.css.scss */
+#pill-content p {
+  font-family: Helvetica, tahoma, Sans-serif;
+  font-size: 15px;
+}
+
+/* line 67, ../../app/assets/stylesheets/users.css.scss */
+#pill-bar ul li {
+  display: inline-block;
+}
+
+/* line 71, ../../app/assets/stylesheets/users.css.scss */
+#pill-bar ul li a {
+  position: relative;
+  display: block;
+  width: 100px;
+  text-align: center;
+}
+
+/* line 77, ../../app/assets/stylesheets/users.css.scss */
+#pill-bar ul li a:hover {
+  cursor: pointer;
+}
+
+/* line 80, ../../app/assets/stylesheets/users.css.scss */
+#pill-bar .active a {
+  padding: 14px 0 10px 0;
+  border: 1px solid #666666;
+  background: -webkit-gradient(linear, left top, left bottom, from(#060692), to(#00d5e7));
+  background: -moz-linear-gradient(top center, #003366, #0066cc);
+  text-shadow: 0 1px 1px black;
+  -webkit-background-clip: padding-box;
+  -webkit-box-shadow: inset 0 0 1px #fd0000;
+  -moz-border-radius: 10px 10px 0 0;
+  -moz-background-clip: padding-box;
+  -moz-box-shadow: inset 0 0 1px #fd0000;
+  margin-left: -5px;
+  z-index: 2;
+  color: white;
+  text-shadow: 0 1px 1px black;
+}
+
+/* line 98, ../../app/assets/stylesheets/users.css.scss */
+#pill-bar .active a:focus {
+  outline: none;
+}
+
+/* line 102, ../../app/assets/stylesheets/users.css.scss */
+#pill-bar .inactive a:hover {
+  background: -webkit-gradient(linear, left bottom, left top, from(#eeeeee), to(#dddddd));
+  background: -moz-linear-gradient(top center, #dddddd, #eeeeee);
+}
+
+/* line 107, ../../app/assets/stylesheets/users.css.scss */
+#pill-bar .inactive a {
+  color: #222;
+  text-shadow: 0 1px 1px white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#dddddd));
+  background: -moz-linear-gradient(top center, #eeeeee, #dddddd);
+  -webkit-box-shadow: inset 0 0 5px white;
+  -moz-box-shadow: inset 0 0 5px white;
+  padding: 14px 0 10px 0;
+  -webkit-box-shadow: inset 0 0 5px white;
+  -moz-box-shadow: inset 0 0 5px white;
+  border: 1px solid #ccc;
+  margin-left: -5px;
+  z-index: 1;
+}
+
+/* line 121, ../../app/assets/stylesheets/users.css.scss */
+a:hover, a:focus {
+  color: #005580;
+  text-decoration: none;
+}
+
+/* line 125, ../../app/assets/stylesheets/users.css.scss */
+#pill-bar .inactive a:focus {
+  outline: none;
+}
+
+/* line 128, ../../app/assets/stylesheets/users.css.scss */
+body {
+  background-color: #019AD2;
+}
+
+/* line 131, ../../app/assets/stylesheets/users.css.scss */
+.photo {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #3a3a3a;
+  margin: 6px;
+  width: auto;
+  display: inline-block;
+}
+/* line 139, ../../app/assets/stylesheets/users.css.scss */
+.photo:hover {
+  background-color: #e8e8e8;
+}
+
+/* line 144, ../../app/assets/stylesheets/users.css.scss */
+#comments-box {
+  background-color: #ffffff;
+  border: 1px solid #000;
+  border-radius: 7px;
+}
+/* line 150, ../../app/assets/stylesheets/users.css.scss */
+#comments-box .comment {
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+}
+/* line 153, ../../app/assets/stylesheets/users.css.scss */
+#comments-box .comment:hover {
+  background-color: #e8e8e8;
+}
+/* line 158, ../../app/assets/stylesheets/users.css.scss */
+#comments-box .comment-first {
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+/* line 163, ../../app/assets/stylesheets/users.css.scss */
+#comments-box .comment-first:hover {
+  background-color: #e8e8e8;
+}
+/* line 169, ../../app/assets/stylesheets/users.css.scss */
+#comments-box textarea {
+  margin-right: 10px;
+  width: 350px;
+  height: 20px;
+  border-radius: 0;
+  resize: none;
+}
+
+/* line 178, ../../app/assets/stylesheets/users.css.scss */
+.span4 {
+  margin-left: 30px;
+}
+
+/* line 193, ../../app/assets/stylesheets/users.css.scss */
+.profile_side {
+  float: left;
+  width: 280px;
+  height: 700px;
+  background: #fffdcd;
+  padding-bottom: 10px;
+}
+/* line 199, ../../app/assets/stylesheets/users.css.scss */
+.profile_side h3 {
+  font-family: 'Roboto Condensed';
+  text-align: center;
+}
+
+/* line 204, ../../app/assets/stylesheets/users.css.scss */
+#profile_pic_box {
+  margin: 0 auto;
+  width: 250px;
+  margin-top: 7px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 7px;
+}
+
+/* line 214, ../../app/assets/stylesheets/users.css.scss */
+#post_form {
+  margin: 0;
+  margin-bottom:15px;
+  padding: 0;
+  background-color: #cdfff8;
+  width: 700px;
+}
+/* line 220, ../../app/assets/stylesheets/users.css.scss */
+#post_form textarea {
+  width: 77%;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #fffdcd;
+  height: 63px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-family: Verdana,Geneva, sans-serif;
+  resize: none;
+}
+/* line 234, ../../app/assets/stylesheets/users.css.scss */
+#post_form #post_but {
+  background-color: #019AD2;
+  border-radius: 6px;
+  color: white;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  display: block;
+  width: 15%;
+  padding-left: 19px;
+  padding-right: 19px;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding-top: 19px;
+  padding-bottom: 19px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  height: 63px;
+  float: right;
+}
+
+/* line 253, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts {
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  display: inline;
+  width: 700px;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 261, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li {
+  list-style: none;
+  clear: both;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  width: 700px;
+  min-height: 79px;
+  background-color: #fff;
+  border-bottom: 1px dashed #d2dada;
+}
+/* line 262, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li a {
+  font-size: 20px;
+  font-family: 'Roboto Condensed',Arial,"Helvetica Neue", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #019AD2;
+  font-weight: 1000;
+}
+/* line 268, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li a:hover {
+  text-decoration: underline;
+}
+/* line 273, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li img {
+  float: left;
+  margin-right: 6px;
+}
+/* line 277, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li .post_mess {
+  margin-top: 6px;
+}
+
+/* line 291, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li.first {
+  border-top: 1px dashed #d2dada;
+}
+
+/* line 295, ../../app/assets/stylesheets/users.css.scss */
+.nav a {
+  font-family: 'Roboto Condensed';
+}
+
+/* line 299, ../../app/assets/stylesheets/users.css.scss */
+
+
+/* line 307, ../../app/assets/stylesheets/users.css.scss */
+
+/* line 312, ../../app/assets/stylesheets/users.css.scss */
+div#profile_pic_box > img {
+  z-index: 2000;
+}
+
+/* line 313, ../../app/assets/stylesheets/users.css.scss */
+div#profile_pic_box > a {
+  display: none;
+  position: absolute;
+  margin: 140px 0px 0px 120px;
+  z-index: 4000;
+  background: #0315f0;
+  border: #fffa08 1px solid;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 12px;
+  font-family: arial,helvetica,sans-serif;
+  text-decoration: none;
+  color: #fffa08;
+}
+
+/* line 327, ../../app/assets/stylesheets/users.css.scss */
+div#profile_pic_box > form {
+  display: none;
+  position: absolute;
+  z-index: 3000;
+  padding: 10px;
+  opacity: .8;
+  background: #91fef7;
+  width: 180px;
+  height: 180px;
+}
+
+/* line 337, ../../app/assets/stylesheets/users.css.scss */
+div#profile_pic_box:hover a {
+  display: block;
+}
+
+/* line 340, ../../app/assets/stylesheets/users.css.scss */
+
+ 

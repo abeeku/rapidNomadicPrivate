@@ -1,8 +1,6 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :name, :privacy, :profile, :image, :user_id, :description
+  attr_accessible :name, :privacy, :user_id, :description, :image
+  has_attached_file :image, :styles => { :profile => "150x150", :orig => "800x800" }
   belongs_to :user
   has_many :comments, :as => :commentable
-  mount_uploader :image, ImageUploader
-
-  scope :profile_pics, where(:profile => true)
 end

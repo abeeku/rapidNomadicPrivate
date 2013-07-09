@@ -3,17 +3,36 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-
   def new
     @user = User.new
   end
-
-  def show
+   def profile
+    render :layout => 'profile'
      @user = User.find_by_username(params[:username])
 
      @new_post  = current_user.posts.build if current_user
+     @all_posts = Post.find_all_by_whose_wall(@user.id)
+   end
+  def show
+     @user = User.find_by_username!(params[:username])
+
+     @new_post  = current_user.posts.build if current_user
     @all_posts = Post.find_all_by_whose_wall(@user.id)
+
   end
+ def update
+   @user = User.find(params[:id])
+ #   render :text => params[:user][:profile].inspect
+    
+ if @user.update_attribute(:profile, params[:user][:profile])
+      flash[:success] = 'Profile Picture updated'
+      redirect_to request.referrer
+    else
+      flash[:success] = 'Profile Picture unsuccessful update'
+      redirect_to request.referrer
+    end 
+    
+ end
 
   def create
 @user = User.new(params[:user])
