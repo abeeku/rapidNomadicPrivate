@@ -128,7 +128,7 @@
                         "Send friend request to #{@user.full_name}?", class: 'btn btn-info'  %>
             <% end %>
             <%	 end %>
-        <% if current_user.requested_friends.include?(@user) %>
+        <% if current_user && current_user.requested_friends.include?(@user) %>
             <%=	 link_to 'Accept', {:controller => 'friendships', action: 'accept', :id => @user.id } , class: 'btn btn-info' %>
 <%	 end %>
             <% if current_user and current_user == @user %>
