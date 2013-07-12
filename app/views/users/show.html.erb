@@ -1,158 +1,558 @@
-<% content_for :title do %>
-<%= @user.full_name.to_s + "'s Profile" %>
-<% end %>
-<div class="row-fluid" id="profile_side">
-  <div id="container">
-<script type="text/javascript">
-function _(x) {
-    return document.getElementById(x);
-}
+<head>
+<% title @user.full_name.to_s + "'s Profile" %>
+<style type="text/css">
+    body {
+        margin:0;
+    }
 
-function toggleElement(x) {
-    var x = _(x);
-    if (x.style.display == 'block') {
-        x.style.display = 'none';
+    @font-face {
+        font-family: 'Roboto Condensed';
+        font-style: normal;
+        font-weight: 400;
+        src: local("Roboto Condensed Regular"), local("RobotoCondensed-Regular"), url(roboto.woff) format("woff");
     }
-    else {
-        x.style.display = 'block';
+
+        /* line 10, ../../app/assets/stylesheets/users.css.scss */
+    h2 {
+        font-family: 'Roboto Condensed';
     }
-}
+
+        /* line 14, ../../app/assets/stylesheets/users.css.scss */
+    #remember_me {
+        display: inline;
+    }
+
+        /* line 17, ../../app/assets/stylesheets/users.css.scss */
+    #logins label {
+        display: inline;
+    }
+
+        /* line 20, ../../app/assets/stylesheets/users.css.scss */
+    input[type='file'] {
+        line-height: normal !important;
+    }
+
+        /* line 25, ../../app/assets/stylesheets/users.css.scss */
+    #pill-bar {
+        font-weight: bold;
+        width: auto;
+    }
+
+        /* pill count*/
+        /* line 30, ../../app/assets/stylesheets/users.css.scss */
+    span.pill-count {
+        position: absolute;
+        padding: 5px;
+        margin-top: -6px;
+        color: white;
+        min-width: 15px;
+        text-align: center;
+        border: 1px solid #000;
+        background: -webkit-gradient(linear, left top, left bottom, from(#2a2a2a), to(#222222));
+        background: -moz-linear-gradient(top center, #2a2a2a, #222222);
+        -webkit-box-shadow: inset 0 0 1px #333;
+        -moz-box-shadow: inset 0 0 1px #333;
+        text-shadow: 0 -1px 1px black;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        margin-left: 10px;
+    }
+
+        /* Style of pill Content */
+        /* line 50, ../../app/assets/stylesheets/users.css.scss */
+    #pill-content h6 {
+        visibility: hidden;
+    }
+
+        /* line 56, ../../app/assets/stylesheets/users.css.scss */
+    #pill-content h2 {
+        font-family: Helvetica, tahoma, Sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow: 0 1px 1px black;
+    }
+
+        /* line 62, ../../app/assets/stylesheets/users.css.scss */
+    #pill-content p {
+        font-family: Helvetica, tahoma, Sans-serif;
+        font-size: 15px;
+    }
+
+        /* line 67, ../../app/assets/stylesheets/users.css.scss */
+    #pill-bar ul li {
+        display: inline-block;
+    }
+
+        /* line 71, ../../app/assets/stylesheets/users.css.scss */
+    #pill-bar ul li a {
+        position: relative;
+        display: block;
+        width: 100px;
+        text-align: center;
+    }
+
+        /* line 77, ../../app/assets/stylesheets/users.css.scss */
+    #pill-bar ul li a:hover {
+        cursor: pointer;
+    }
+
+        /* line 80, ../../app/assets/stylesheets/users.css.scss */
+    #pill-bar .active a {
+        padding: 14px 0 10px 0;
+        border: 1px solid #666666;
+        background: -webkit-gradient(linear, left top, left bottom, from(#060692), to(#00d5e7));
+        background: -moz-linear-gradient(top center, #003366, #0066cc);
+        text-shadow: 0 1px 1px black;
+        -webkit-background-clip: padding-box;
+        -webkit-box-shadow: inset 0 0 1px #fd0000;
+        -moz-border-radius: 10px 10px 0 0;
+        -moz-background-clip: padding-box;
+        -moz-box-shadow: inset 0 0 1px #fd0000;
+        margin-left: -5px;
+        z-index: 2;
+        color: white;
+        text-shadow: 0 1px 1px black;
+    }
+
+        /* line 98, ../../app/assets/stylesheets/users.css.scss */
+    #pill-bar .active a:focus {
+        outline: none;
+    }
+
+        /* line 102, ../../app/assets/stylesheets/users.css.scss */
+    #pill-bar .inactive a:hover {
+        background: -webkit-gradient(linear, left bottom, left top, from(#eeeeee), to(#dddddd));
+        background: -moz-linear-gradient(top center, #dddddd, #eeeeee);
+    }
+
+        /* line 107, ../../app/assets/stylesheets/users.css.scss */
+    #pill-bar .inactive a {
+        color: #222;
+        text-shadow: 0 1px 1px white;
+        background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#dddddd));
+        background: -moz-linear-gradient(top center, #eeeeee, #dddddd);
+        -webkit-box-shadow: inset 0 0 5px white;
+        -moz-box-shadow: inset 0 0 5px white;
+        padding: 14px 0 10px 0;
+        -webkit-box-shadow: inset 0 0 5px white;
+        -moz-box-shadow: inset 0 0 5px white;
+        border: 1px solid #ccc;
+        margin-left: -5px;
+        z-index: 1;
+    }
+
+        /* line 121, ../../app/assets/stylesheets/users.css.scss */
+    a:hover, a:focus {
+        color: #005580;
+        text-decoration: none;
+    }
+
+        /* line 125, ../../app/assets/stylesheets/users.css.scss */
+    #pill-bar .inactive a:focus {
+        outline: none;
+    }
+
+        /* line 128, ../../app/assets/stylesheets/users.css.scss */
+    body {
+        background-color: #019AD2;
+    }
+
+        /* line 131, ../../app/assets/stylesheets/users.css.scss */
+    .photo {
+        background-color: white;
+        padding: 10px;
+        border: 1px solid #3a3a3a;
+        margin: 6px;
+        width: auto;
+        display: inline-block;
+    }
+        /* line 139, ../../app/assets/stylesheets/users.css.scss */
+    .photo:hover {
+        background-color: #e8e8e8;
+    }
+
+        /* line 144, ../../app/assets/stylesheets/users.css.scss */
+    #comments-box {
+        background-color: #ffffff;
+        border: 1px solid #000;
+        border-radius: 7px;
+    }
+        /* line 150, ../../app/assets/stylesheets/users.css.scss */
+    #comments-box .comment {
+        height: 40px;
+        border-bottom: 1px solid #ccc;
+    }
+        /* line 153, ../../app/assets/stylesheets/users.css.scss */
+    #comments-box .comment:hover {
+        background-color: #e8e8e8;
+    }
+        /* line 158, ../../app/assets/stylesheets/users.css.scss */
+    #comments-box .comment-first {
+        height: 40px;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+    }
+        /* line 163, ../../app/assets/stylesheets/users.css.scss */
+    #comments-box .comment-first:hover {
+        background-color: #e8e8e8;
+    }
+        /* line 169, ../../app/assets/stylesheets/users.css.scss */
+    #comments-box textarea {
+        margin-right: 10px;
+        width: 350px;
+        height: 20px;
+        border-radius: 0;
+        resize: none;
+    }
+
+        /* line 178, ../../app/assets/stylesheets/users.css.scss */
+    .span4 {
+        margin-left: 30px;
+    }
+
+        /* line 193, ../../app/assets/stylesheets/users.css.scss */
+    .profile_side {
+        float: left;
+        width: 280px;
+        height: 700px;
+        background: #fffdcd;
+        padding-bottom: 10px;
+    }
+        /* line 199, ../../app/assets/stylesheets/users.css.scss */
+    .profile_side h3 {
+        font-family: 'Roboto Condensed';
+        text-align: center;
+    }
+
+        /* line 204, ../../app/assets/stylesheets/users.css.scss */
+    #profile_pic_box {
+        margin: 0 auto;
+        width: 250px;
+        margin-top: 7px;
+        border: 1px solid black;
+        background-color: white;
+        padding: 7px;
+    }
+
+        /* line 214, ../../app/assets/stylesheets/users.css.scss */
+    #post_form {
+        margin: 0;
+        margin-bottom:15px;
+        padding: 0;
+        background-color: #cdfff8;
+        width: 700px;
+    }
+        /* line 220, ../../app/assets/stylesheets/users.css.scss */
+    #post_form textarea {
+        width: 77%;
+        margin-left: 10px;
+        margin-top: 10px;
+        background-color: #fffdcd;
+        height: 63px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-family: Verdana,Geneva, sans-serif;
+        resize: none;
+    }
+        /* line 234, ../../app/assets/stylesheets/users.css.scss */
+    #post_form #post_but {
+        background-color: #019AD2;
+        border-radius: 6px;
+        color: white;
+        font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        display: block;
+        width: 15%;
+        padding-left: 19px;
+        padding-right: 19px;
+        margin-right: 10px;
+        margin-top: 10px;
+        padding-top: 19px;
+        padding-bottom: 19px;
+        margin-bottom: 10px;
+        margin-left: 0px;
+        height: 63px;
+        float: right;
+    }
+
+        /* line 253, ../../app/assets/stylesheets/users.css.scss */
+    #profile_posts {
+        font-family: Arial,sans-serif;
+        font-size: 14px;
+        display: inline;
+        width: 700px;
+        margin: 0px;
+        padding: 0px;
+    }
+
+        /* line 261, ../../app/assets/stylesheets/users.css.scss */
+    #profile_posts li {
+        list-style: none;
+        clear: both;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        width: 700px;
+        min-height: 79px;
+        background-color: #fff;
+        border-bottom: 1px dashed #d2dada;
+    }
+        /* line 262, ../../app/assets/stylesheets/users.css.scss */
+    #profile_posts li a {
+        font-size: 20px;
+        font-family: 'Roboto Condensed',Arial,"Helvetica Neue", sans-serif;
+        font-weight: bold;
+        text-decoration: none;
+        color: #019AD2;
+        font-weight: 1000;
+    }
+        /* line 268, ../../app/assets/stylesheets/users.css.scss */
+    #profile_posts li a:hover {
+        text-decoration: underline;
+    }
+        /* line 273, ../../app/assets/stylesheets/users.css.scss */
+    #profile_posts li img {
+        float: left;
+        margin-right: 6px;
+    }
+        /* line 277, ../../app/assets/stylesheets/users.css.scss */
+    #profile_posts li .post_mess {
+        margin-top: 6px;
+    }
+
+        /* line 291, ../../app/assets/stylesheets/users.css.scss */
+    #profile_posts li.first {
+        border-top: 1px dashed #d2dada;
+    }
+
+        /* line 295, ../../app/assets/stylesheets/users.css.scss */
+    .nav a {
+        font-family: 'Roboto Condensed';
+    }
+
+        /* line 299, ../../app/assets/stylesheets/users.css.scss */
+
+
+        /* line 307, ../../app/assets/stylesheets/users.css.scss */
+
+        /* line 312, ../../app/assets/stylesheets/users.css.scss */
+    div#profile_pic_box > img {
+        z-index: 2000;
+    }
+
+        /* line 313, ../../app/assets/stylesheets/users.css.scss */
+    div#profile_pic_box > a {
+        display: none;
+        position: absolute;
+        margin: 140px 0px 0px 120px;
+        z-index: 4000;
+        background: #0315f0;
+        border: #fffa08 1px solid;
+        border-radius: 3px;
+        padding: 5px;
+        font-size: 12px;
+        font-family: arial,helvetica,sans-serif;
+        text-decoration: none;
+        color: #fffa08;
+    }
+
+        /* line 327, ../../app/assets/stylesheets/users.css.scss */
+    div#profile_pic_box > form {
+        display: none;
+        position: absolute;
+        z-index: 3000;
+        padding: 10px;
+        opacity: .8;
+        background: #91fef7;
+        width: 180px;
+        height: 180px;
+    }
+
+        /* line 337, ../../app/assets/stylesheets/users.css.scss */
+    div#profile_pic_box:hover a {
+        display: block;
+    }
+
+        /* line 340, ../../app/assets/stylesheets/users.css.scss */
+    #regist {
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        background: #fff;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #dddddd));
+        background: -webkit-linear-gradient(top, white 0, #dddddd 100%);
+        background: -moz-linear-gradient(top, white 0, #dddddd 100%);
+        background: -ms-linear-gradient(top, white 0, #dddddd 100%);
+        background: -o-linear-gradient(top, white 0, #dddddd 100%);
+        background: linear-gradient(top, white 0, #dddddd 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#dddddd',GradientType=0);
+        border-left: solid 1px #eee;
+        border-right: solid 1px #eee;
+        border-bottom: solid 1px #ccc;
+        -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+        width: 550px;
+        height: auto;
+    }
+
+</style>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<script>
+    $(function() {
+        $( "#tabs" ).tabs({
+            beforeLoad: function( event, ui ) {
+                ui.jqXHR.error(function() {
+                    ui.panel.html(
+                            "Couldn't load this tab. We'll try to fix this as soon as possible. " +
+                                    "If this wouldn't be a demo." );
+                });
+            }
+        });
+    });
+</script><script type="text/javascript">
+
+
+
+    $(document).ready(function(){
+
+        $('li').click(function(){
+            var number = $(this).index();
+            $('#pill-content h6').hide().eq(number).show();
+            $('#pill-content section').hide().eq(number).show();
+            $(this).toggleClass('active inactive');
+            $('li').not(this).removeClass('active').addClass('inactive');
+        });
+
+        $('#pill-content h6').not(':first').hide();
+        $('#pill-content section ').not(':first').hide();
+
+    });
+
+    $(function () {
+        $('#new_photo').fileupload({
+            dataType: 'json',
+            done: function (e, data) {
+                $.each(data.result.files, function (index, file) {
+                    $('<p/>').text(file.name).appendTo(document.body);
+                });
+            }
+        });
+    });
 </script>
+</head>
 
- <div class="profile_side">  <div id="profile_pic_box"> 
-     <% if current_user %>
-            <% if @user.id == current_user.id %>
-                <%=  form_for @user, :html => { :multipart => true , :id =>'avatar_form' } do |f| %>
-                    <%= f.file_field :profile %>
-                    <%= f.submit 'Submit' %>
-                <%   end %>
-                <a href="#" onclick="return false;" onmousedown="toggleElement('avatar_form');">Change Profile Photo</a>
-            <% end %>
-        <% end %>  
-  <%= image_tag @user.profile.url.to_s, :width => 250, :height => 250 %>
-      </div>
-    <h3><%= @user.full_name %></h3>
-     </div>
-  
+<body>
+<div id="globalContainer">
   <div id="content">
-
-    <div id="pill-bar">
-      <ul>
-        <li class="active"><a >Wall</a></li>
-        <li class="inactive"><a >Info</a></li>
-        <li class="inactive"><a >Friends</a></li>
-        <li class="inactive"><a >Photos</a></li>
-        <li class="inactive"><a>Videos</a></li>
-        <li class="inactive"><a >Quotes</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="pill-content">
-
-      <h6>Profile</h6>
-
-      <section>
-        <% if current_user %>
-            <%=	 render 'posts/form' %>
-        <% end %>
-        <ul id="profile_posts">
-          <% @all_posts.reverse.each do |post| %>
-
-
-              <% if @user != post.user %>
-          <!--    style="background-color: <#- post.user.profile.post_color.to_s %>"  -->
+    <div id="mainContainer">
+      <div id="leftCol" class="profile_side">
+        <div id="profile_pic_box">
+          <% if current_user %>
+              <% if @user.id == current_user.id %>
+                  <%=  form_for @user, :html => { :multipart => true , :id =>'avatar_form' } do |f| %>
+                      <%= f.file_field :profile, accept: 'image/jpeg, image/png, image/gif' %>
+                      <%= f.submit 'Change' %>
+                  <%   end %>
+                  <a href="#" onclick="return false;" onmousedown="toggleElement('avatar_form');">Change Profile Photo</a>
               <% end %>
-              <li
-              <% if @all_posts.last == post %>
-              class="first"
-              <% end %>
-                >
-                <%= image_tag post.user.profile(:thumb).to_s, :width => 80, :height => 80 %>
-                <%=h link_to post.user.full_name, :controller => 'users', :action => 'show', :username => post.user.username %>
-                <span style="float: right"><%= time_ago_in_words(post.created_at) %> ago</span>
-
-
-                <div class="post_mess"><%= post.content %></div>
-              </li>
           <% end %>
-        </ul>
-
-      </section>
-
-     
-
-      
-      <h6>Friends</h6>
-
-      <section>Tab 2 Content </section>
-      <h6>Videos</h6>
-
-      <section>Tab 4 Content</section>
-      <h6>Photos</h6>
-<section>
-        <%=  link_to 'Add Photo', controller: 'photos', action: 'new' %> <br/>
-        <% @user.photos.each do |photo|  %>
-            <div class="photo">
-              <%= link_to (image_tag photo.image.url(:profile)) , photo if photo.image %>
-            </div>
-        <%   end %>
-
-
-
-      </section>
-      <h6>Quotes</h6>
-
-
-      <section>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad architecto aut blanditiis dolore et eum, expedita facilis ipsa iste laboriosam obcaecati officia provident quod sapiente sequi similique suscipit voluptatum.</section>
-       <h6>Info</h6>
-
-
-      <section>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad architecto aut blanditiis dolore et eum, expedita facilis ipsa iste laboriosam obcaecati officia provident quod sapiente sequi similique suscipit voluptatum.</section>
-    </div>
-  <!--  <div class="tabbable">
-     <ul class="nav nav-tabs" id="proftabs">
-      <li><a href="#profile_tab"  data-toggle="tab" >Profile</a></li>
-      <li><a href="#friends_tab" data-toggle="tab">Friends</a></li>
-      <li><a  href="#photos_tab" data-toggle="tab">Photos</a></li>
-      <li><a  href="#videos_tab" data-toggle="tab">Videos</a></li>
-      <li><a  href="#quotes_tab" data-toggle="tab">Quotes</a></li>
-
-   </ul>
-      <div class="tab-content">
-            <div id="profile_tab" class="tab-pane">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid excepturi id, maxime nesciunt recusandae repellat unde veritatis! Eveniet, fugiat, ipsum. Architecto assumenda, culpa impedit molestias natus porro quisquam repudiandae sunt!
-            </div>
-        <div id="friends_tab"  class="tab-pane">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis cupiditate incidunt. Accusantium adipisci architecto dignissimos eligendi est explicabo ipsa molestiae nesciunt optio porro provident, sint soluta, tempore temporibus vitae?
+          <%= image_tag @user.profile.url.to_s, :width => 250, :height => 250 %>
         </div>
-        <div id="photos_tab"  class="tab-pane">
-          <%= @user.photos.each do |photo|  %>
-          <div class="photo">
-            <%=	 image_tag photo.image.url if photo.image %>
+        <h3><%= @user.full_name %></h3>
+
+        <% if current_user and current_user.id == @user.id %>
+            <%=	 friendship_status(@user,current_user) %>
+        <% else %>
+            <%=  sent_status(current_user,@user)  %>
+        <% end %>
+
+
+        <%	 unless Friendship.exists?(current_user, @user) or current_user == @user %>
+            <%= form_for Friendship.new do |f| %>
+                <%= f.hidden_field :friend_id, :value => @user.id  %>
+                <%= f.submit "Add #{@user.first_name} as a Friend" , :confirm =>
+                        "Send friend request to #{@user.full_name}?", class: 'btn btn-info'  %>
+            <% end %>
+
+        <%	 end %>
+        <% if current_user and current_user == @user %>
+            <h2> Friend Requests </h2>
+            <ul id="requested_friends_list">
+              <%	 @user.requested_friends.each do |rf| %>
+                  <div class="friendship_friend">
+                    <li>   <%=	 image_tag rf.profile(:menubar) %>   <%=	link_to rf.full_name, profile_for(rf) %>
+                      <%=	 link_to 'Accept', {:controller => 'friendships', action: 'accept', :id => rf.id } , class: 'btn btn-info' %>
+                    </li>
+                  </div>
+              <%	 end %>
+            </ul>
+        <% end %>
+
+      </div>
+      <div id="contentCol">
+        <div id="contentArea">
+          <!-- start content -->
+          <div id="content2">
+
+            <div id="tabs">
+              <ul>
+                <li><a href="#tabs-1">Preloaded</a></li>
+                <li><a href="<%= @user.username %>/wall">Tab 1</a></li>
+                <li><a href="ajax/content2.html">Tab 2</a></li>
+                <li><a href="ajax/content3-slow.php">Tab 3 (slow)</a></li>
+                <li><a href="ajax/content4-broken.php">Tab 4 (broken)</a></li>
+              </ul>
+              <div id="tabs-1">
+                <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+              </div>
+            </div>
+            <!--  <div class="tabbable">
+               <ul class="nav nav-tabs" id="proftabs">
+                <li><a href="#profile_tab"  data-toggle="tab" >Profile</a></li>
+                <li><a href="#friends_tab" data-toggle="tab">Friends</a></li>
+                <li><a  href="#photos_tab" data-toggle="tab">Photos</a></li>
+                <li><a  href="#videos_tab" data-toggle="tab">Videos</a></li>
+                <li><a  href="#quotes_tab" data-toggle="tab">Quotes</a></li>
+
+             </ul>
+                <div class="tab-content">
+                      <div id="profile_tab" class="tab-pane">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid excepturi id, maxime nesciunt recusandae repellat unde veritatis! Eveniet, fugiat, ipsum. Architecto assumenda, culpa impedit molestias natus porro quisquam repudiandae sunt!
+                      </div>
+                  <div id="friends_tab"  class="tab-pane">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis cupiditate incidunt. Accusantium adipisci architecto dignissimos eligendi est explicabo ipsa molestiae nesciunt optio porro provident, sint soluta, tempore temporibus vitae?
+                  </div>
+                  <div id="photos_tab"  class="tab-pane">
+                    []        </div>
+                  <div id="videos_tab"  class="tab-pane">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at autem dolore, dolorum eaque earum eius, id in iste molestias officia, possimus qui quis recusandae repellat reprehenderit suscipit voluptatum!
+                  </div>
+                  <div id="quotes_tab"  class="tab-pane">
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consectetur, in necessitatibus qui quidem tenetur unde voluptatum! Aspernatur dolorem earum id labore molestiae nam quas quisquam, sapiente sequi ut voluptatibus.
+                  </div>
+                </div>
+                <script>
+                    $(document).ready(function() {
+
+                        $("#proftabs a:first").tab('show')
+
+                    });
+                </script>
+              </div>  -->
           </div>
-          <%	 end %>
+          <!-- end content -->
         </div>
-        <div id="videos_tab"  class="tab-pane">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at autem dolore, dolorum eaque earum eius, id in iste molestias officia, possimus qui quis recusandae repellat reprehenderit suscipit voluptatum!
-        </div>
-        <div id="quotes_tab"  class="tab-pane">
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consectetur, in necessitatibus qui quidem tenetur unde voluptatum! Aspernatur dolorem earum id labore molestiae nam quas quisquam, sapiente sequi ut voluptatibus.
+        <div id="rightCol">
+          Pellentesque congue dui turpis, et rhoncus urna auctor ut. Aliquam tincidunt ligula non vestibulum accumsan. Donec tincidunt ultrices nibh nec tristique. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris tristique suscipit rhoncus.
         </div>
       </div>
-      <script>
-          $(document).ready(function() {
 
-              $("#proftabs a:first").tab('show')
-
-          });
-      </script>
-    </div>  -->
     </div>
-
-
-
-
-
   </div>
 </div>
+</body>
+</html>

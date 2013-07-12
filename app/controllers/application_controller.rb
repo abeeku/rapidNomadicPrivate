@@ -3,17 +3,22 @@ class ApplicationController < ActionController::Base
   before_filter :authorize
 
   delegate :allow? , :to => :current_permission
+helper :layout
 
   helper_method :allow?
 
 private
-  def current_prof_pic
-    @current_prof_pic = current_user.photos.where(:profile => true) if current_user
+  def title(page_title)
+    content_for (:title) { page_title }
+  end
+
+  def yield_or_default(section, default = "")
+    content_for?(section) ? content_for(section) : default
   end
   def current_user
   @current_user ||=  User.find_by_cookie_token!(cookies[:cookie_token]) if cookies[:cookie_token]
   end
-  helper_method :current_user, :current_prof_pic
+  helper_method :current_user, :yield_or_default
 
 #  def not_logged_in
 #      redirect_to request.referrer, alert: 'You are already logged in' if current_user

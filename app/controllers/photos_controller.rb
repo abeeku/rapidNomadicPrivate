@@ -20,6 +20,15 @@ class PhotosController < ApplicationController
     render 'edit'
     end
   end
+  def destroy
+    @user = User.find_by_username(params[:username])
+    if @user == current_user
+      @photo = Photo.find(params[:id])
+      if @photo.destroy
+        redirect_to request.referrer
+      end
+    end
+  end
   def create
        @photo = Photo.new(params[:photo])
     if @photo.save
@@ -28,14 +37,6 @@ class PhotosController < ApplicationController
 
 
 
-    def destroy
-       @user = User.find_by_username(params[:username])
-      if @user == current_user
-           @photo = Photo.find(params[:id])
-       if @photo.destroy
-         redirect_to request.referrer
-       end
-      end
-    end
+
   end
 end

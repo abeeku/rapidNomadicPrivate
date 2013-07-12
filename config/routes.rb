@@ -1,11 +1,16 @@
 Rapidnomadic2::Application.routes.draw do
 
-  get ':profiles/:username' => 'users#profile'
-  get "pages/dashboard"
+  resources :friendships
 
-  get "pages/world_wall"
+  match '/accept_friend' => 'friendships#accept'
+  get 'profiles/:username' => 'users#profile'
+  get "/dashboard" => 'pages#dashboard'
 
-  get "pages/friend_activity"
+
+
+  get "/world_wall"  => 'pages#world_wall'
+
+  get "/friend_activity"   => 'pages#friend_activity'
 
   resources :sessions
  # get '/photos/:id' => 'photos#show', :as => 'photo'
@@ -95,5 +100,7 @@ Rapidnomadic2::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-match '/:username' => 'users#show'
+#match '/:username' => redirect('/:username/wall')
+#match '/:username' => 'users#show', as: 'profile'
+  match '/:username' => 'users#wall', as: 'profile'
 end

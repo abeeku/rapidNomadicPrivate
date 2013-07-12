@@ -368,3 +368,37 @@ box-shadow: 0 1px 0 rgba(0,0,0,.1);
 width: 550px;
 height: auto;
 }
+#requested_friends_list {
+  margin: 0;
+}
+.friendship_friend {
+  li {
+    padding-right: 15px;
+    padding-top: 9px;
+    padding-bottom: 7px;
+    border : 1px solid #000000 ;
+    border-radius: 3px;
+    list-style-type: none;
+    background-color: white;
+    a {
+      color : #019AD2;
+      font-weight: bold;
+      text-decoration: none;
+       &:hover {
+         text-decoration: underline;
+       }
+    }
+    a.btn.btn-info {
+      color: white;
+      float: right;
+      font-weight: normal;
+      &:hover {
+        font-weight: normal;
+        text-decoration: none;
+      }
+    }
+  }
+}
+#menubar_drop {
+  padding : 0 15px 0;
+}

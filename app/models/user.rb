@@ -1,11 +1,20 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_attached_file :profile, :styles => {  :medium => "250x250>", :thumb => "80x80#", :menubar => "40x40#" } , 
+  has_attached_file :profile, :styles => {  :medium => ["250x250>", :jpg], :thumb => ["80x80#", :jpg ], :menubar => ["40x40#", :jpg] } , 
                   :default_url => '/assets/missing_:style.png'
   has_one :user_info
-  has_many :posts
-  has_many :photos
-  has_many :comments
+  has_many :friendships, dependent: :destroy
+  has_many :friends, :through => :friendships,:source => :friend, :conditions => "status ='accepted'"
+  has_many :pending_friends, :through => :friendships,:source => :friend, :conditions => "status ='pending'"
+  has_many :requested_friends, :through => :friendships,:source => :friend, :conditions => "status ='requested'"
+
+  has_many :posts, dependent: :destroy
+  has_many :photos, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  validates_attachment_content_type :profile,
+  :content_type => ['image/jpeg', 'image/pjpeg',
+                                   'image/jpg', 'image/png', 'image/tif', 'image/gif'], :message => "has to be in a proper format"
   attr_accessible :email,
                   :first_name,
                   :last_name,
@@ -14,7 +23,7 @@ class User < ActiveRecord::Base
                   :password_confirmation,
                   :date_of_birth,
                   :admin,
-                  :profile
+                  :profile, :requested_friends, :pending_friends
   #Remember Me Cookie Token
   before_create { generate_token(:cookie_token) }
 

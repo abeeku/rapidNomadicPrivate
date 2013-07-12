@@ -1,0 +1,199 @@
+
+<% title @user.full_name.to_s + "'s Profile" %>
+
+<div class="row-fluid" id="profile_side">
+  <div id="container">
+<script type="text/javascript">
+function _(x) {
+    return document.getElementById(x);
+}
+
+function toggleElement(x) {
+    var x = _(x);
+    if (x.style.display == 'block') {
+        x.style.display = 'none';
+    }
+    else {
+        x.style.display = 'block';
+    }
+}
+</script>
+
+ <div class="profile_side">  <div id="profile_pic_box"> 
+     <% if current_user %>
+            <% if @user.id == current_user.id %>
+                <%=  form_for @user, :html => { :multipart => true , :id =>'avatar_form' } do |f| %>
+                    <%= f.file_field :profile, accept: 'image/jpeg, image/png, image/gif' %>
+                    <%= f.submit 'Change' %>
+                <%   end %>
+                <a href="#" onclick="return false;" onmousedown="toggleElement('avatar_form');">Change Profile Photo</a>
+            <% end %>
+        <% end %>  
+  <%= image_tag @user.profile.url.to_s, :width => 250, :height => 250 %>
+      </div>
+    <h3><%= @user.full_name %></h3>
+
+       <% if current_user and current_user.id == @user.id %>
+           <%=	 friendship_status(@user,current_user) %>
+       <% else %>
+                <%=  sent_status(current_user,@user)  %>
+       <% end %>
+
+
+   <%	 unless Friendship.exists?(current_user, @user) or current_user == @user %>
+   <%= form_for Friendship.new do |f| %>
+     <%= f.hidden_field :friend_id, :value => @user.id  %>
+      <%= f.submit "Add #{@user.first_name} as a Friend" , :confirm =>
+"Send friend request to #{@user.full_name}?", class: 'btn btn-info'  %>
+   <% end %>
+
+   <%	 end %>
+                 <% if current_user and current_user == @user %>
+                     <h2> Friend Requests </h2>
+      <ul id="requested_friends_list">
+        <%	 @user.requested_friends.each do |rf| %>
+    <div class="friendship_friend">
+           <li>   <%=	 image_tag rf.profile(:menubar) %>   <%=	link_to rf.full_name, profile_for(rf) %>
+            <%=	 link_to 'Accept', {:controller => 'friendships', action: 'accept', :id => rf.id } , class: 'btn btn-info' %>
+            </li>
+    </div>
+        <%	 end %>
+      </ul>
+                 <% end %>
+
+     </div>
+  
+  <div id="content">
+
+    <div id="pill-bar">
+      <ul>
+        <li class="active"><a >Wall</a></li>
+        <li class="inactive"><a >Info</a></li>
+        <li class="inactive"><a >Friends</a></li>
+        <li class="inactive"><a >Photos</a></li>
+        <li class="inactive"><a>Videos</a></li>
+        <li class="inactive"><a >Quotes</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="pill-content">
+
+      <h6>Profile</h6>
+
+      <section>
+        <% if current_user %>
+            <%=	 render 'posts/form' %>
+        <% end %>
+        <ul id="profile_posts">
+          <%=	 render @all_posts %>
+          <!--   <% @all_posts.each do |post| %>
+
+
+              <% if @user != post.user %>
+          <!--    style="background-color: <#- post.user.profile.post_color.to_s %>"  -->
+              <% end %>
+              <%=	  %>
+             <li
+              <% if @all_posts.first == post %>
+              class="first"
+              <% end %>
+                >
+                <%= image_tag post.user.profile(:thumb).to_s, :width => 80, :height => 80 %>
+                <%=h link_to post.user.full_name, :controller => 'users', :action => 'show', :username => post.user.username %>
+                <span style="float: right"><%= time_ago_in_words(post.created_at) %> ago</span>
+
+
+                <div class="post_mess"><%= post.content %></div>
+              </li>
+          <% end %> -->
+        </ul>
+           <%= will_paginate @all_posts %>
+      </section>
+
+     
+
+      
+      <h6>Friends</h6>
+
+      <section>Tab 2 Content </section>
+      <h6>Videos</h6>
+
+      <section>Tab 4 Content</section>
+      <h6>Photos</h6>
+<section>
+  <%= simple_form_for Photo.new , :html => { :multipart => true } do |f| %>
+    <%#  f.hidden_field :user_id %>
+    <p> <%#  f.input :name %></p>
+
+ <p><input id="photo_image" multiple="multiple" name="photo[image]" type="file">
+  
+  <%# f.file_field :image, multiple: true, name: 'photo[image]' %></p>
+    <p><%#   f.input :description, :as => :text, :input_html => { :cols => 15 ,  :rows => 40 } %></p>
+    <p><%=   f.submit 'Add Photo', :class => 'btn btn-success' %></p>
+  <% end %>
+        <%=  link_to 'Add Photo', controller: 'photos', action: 'new' %> <br/>
+        <% @user.photos.each do |photo|  %>
+            <div class="photo">
+              <%= link_to (image_tag photo.image.url(:profile)) , photo if photo.image %>
+            </div>
+        <%   end %>
+
+
+
+      </section>
+      <h6>Quotes</h6>
+
+
+      <section>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad architecto aut blanditiis dolore et eum, expedita facilis ipsa iste laboriosam obcaecati officia provident quod sapiente sequi similique suscipit voluptatum.</section>
+       <h6>Info</h6>
+
+
+      <section>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad architecto aut blanditiis dolore et eum, expedita facilis ipsa iste laboriosam obcaecati officia provident quod sapiente sequi similique suscipit voluptatum.</section>
+    </div>
+  <!--  <div class="tabbable">
+     <ul class="nav nav-tabs" id="proftabs">
+      <li><a href="#profile_tab"  data-toggle="tab" >Profile</a></li>
+      <li><a href="#friends_tab" data-toggle="tab">Friends</a></li>
+      <li><a  href="#photos_tab" data-toggle="tab">Photos</a></li>
+      <li><a  href="#videos_tab" data-toggle="tab">Videos</a></li>
+      <li><a  href="#quotes_tab" data-toggle="tab">Quotes</a></li>
+
+   </ul>
+      <div class="tab-content">
+            <div id="profile_tab" class="tab-pane">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid excepturi id, maxime nesciunt recusandae repellat unde veritatis! Eveniet, fugiat, ipsum. Architecto assumenda, culpa impedit molestias natus porro quisquam repudiandae sunt!
+            </div>
+        <div id="friends_tab"  class="tab-pane">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis cupiditate incidunt. Accusantium adipisci architecto dignissimos eligendi est explicabo ipsa molestiae nesciunt optio porro provident, sint soluta, tempore temporibus vitae?
+        </div>
+        <div id="photos_tab"  class="tab-pane">
+          <%= @user.photos.each do |photo|  %>
+          <div class="photo">
+            <%=	 image_tag photo.image.url if photo.image %>
+          </div>
+          <%	 end %>
+        </div>
+        <div id="videos_tab"  class="tab-pane">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at autem dolore, dolorum eaque earum eius, id in iste molestias officia, possimus qui quis recusandae repellat reprehenderit suscipit voluptatum!
+        </div>
+        <div id="quotes_tab"  class="tab-pane">
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consectetur, in necessitatibus qui quidem tenetur unde voluptatum! Aspernatur dolorem earum id labore molestiae nam quas quisquam, sapiente sequi ut voluptatibus.
+        </div>
+      </div>
+      <script>
+          $(document).ready(function() {
+
+              $("#proftabs a:first").tab('show')
+
+          });
+      </script>
+    </div>  -->
+    </div>
+
+
+
+
+
+  </div>
+</div>

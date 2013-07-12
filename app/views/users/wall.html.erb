@@ -1,0 +1,36 @@
+<% title @user.full_name.to_s + "'s Profile" %>
+<ul class="nav nav-tabs" id ="profile_sidebar">
+              <li class="active"><%= link_to 'Wall', profile_for(@user) %></li>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Messages</a></li>
+            </ul>
+  <% if current_user %>
+      <%=	 render 'posts/form' %>
+  <% end %>
+  <ul id="profile_posts">
+    <%=	 render @all_posts %>
+    <!--   <%# @all_posts.each do |post| %>
+
+
+              <%# if @user != post.user %>
+             style="background-color: <#- post.user.profile.post_color.to_s %>"
+        <%# end %>
+        <%#	  %>
+        <li
+        <%# if @all_posts.first == post %>
+        class="first"
+        <%# end %>
+        >
+          <%# image_tag post.user.profile(:thumb).to_s, :width => 80, :height => 80 %>
+          <%#h link_to post.user.full_name, :controller => 'users', :action => 'wall', :username => post.user.username %>
+          <span style="float: right"><%# time_ago_in_words(post.created_at) %> ago</span>
+
+
+          <div class="post_mess"><%# post.content %></div>
+        </li>
+    <%# end %> -->
+  </ul>
+<div style="width: 100%;margin-top: 10px">
+<center>  <button style="margin: 0 auto;" id="loadMore" class="btn btn-warning">Load More Posts</button>
+</center></div>
+  <%= will_paginate @all_posts %>

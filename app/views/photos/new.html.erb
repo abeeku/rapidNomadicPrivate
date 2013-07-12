@@ -2,7 +2,7 @@
 <%=	 simple_form_for @photo, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
     <%=	 f.hidden_field :user_id %>
     <p> <%=	 f.input :name %></p>
- <p><%= f.file_field :image %></p>
+ <p><input id="photo_image" multiple="multiple" name="photo[image]" type="file"></p>
     <p><%=	 f.input :description, :as => :text, :input_html => { :cols => 15 ,  :rows => 40 } %></p>
     <p><%=	 f.submit 'Add Photo', :class => 'btn btn-success' %></p>
 <%	 end %>

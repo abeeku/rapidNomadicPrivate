@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) || 'RapidNomadic' %></title>
+  <title><%=  content_for?(:title) ? yield(:title) : 'RapidNomadic' %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-
+        <%=	 stylesheet_link_tag "users" %>
   <%= javascript_include_tag "application" %>
+
 <%= favicon_link_tag 'favicon.ico' %>
 
   <%= csrf_meta_tags %>
@@ -64,14 +65,20 @@
     <ul class="nav pull-right">
       <% if current_user %>
 
-          <li><%= image_tag current_user.profile(:menubar).to_s %></li> <li><%= link_to "#{current_user.full_name}", controller: 'users', action: 'show', username: current_user.username %></li>
+          <li class="dropdown"><a href="#" id="menubar_drop" role="button" class="dropdown-toggle" data-toggle="dropdown"><%=  image_tag current_user.profile(:menubar).to_s %> <%=  "#{current_user.full_name}" %><strong style="color: white" class="caret"></strong></a>
+
+                  <ul class="dropdown-menu" role='menu'>
+                    <li role="presentation"><%=	 link_to 'View My Profile', profile_for(current_user) %></li>
+                  </ul>
+
+          </li>
           <li class="divider-vertical"></li>
           <li><%=	 link_to 'Log Out', logout_path %></li>
       <% else %>
           <li><%=	 link_to 'Register', register_path %></li>
           <li class="divider-vertical"></li>
           <li class="dropdown">
-            <a  href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
+            <a  href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Log In <b class="caret"></b></a>
             <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
               <%=	 render 'sessions/form' %>
             </div>

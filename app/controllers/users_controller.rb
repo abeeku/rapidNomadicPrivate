@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+layout 'profile', :only => :wall
 #  before_filter :not_logged_in , only: [:new,:create]
   def index
     @users = User.all
@@ -6,19 +7,28 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
    def profile
-    render :layout => 'profile'
+
      @user = User.find_by_username(params[:username])
 
      @new_post  = current_user.posts.build if current_user
      @all_posts = Post.find_all_by_whose_wall(@user.id)
+
    end
+
+
   def show
-     @user = User.find_by_username!(params[:username])
-
+ @user = User.find_by_username!(params[:username])
+     require 'will_paginate/array'
      @new_post  = current_user.posts.build if current_user
-    @all_posts = Post.find_all_by_whose_wall(@user.id)
+     @all_posts = Post.where(:whose_wall => @user.id).paginate(:page => params[:page], :per_page => 10).order('id DESC')
 
+     respond_to do |format|
+       format.js
+       format.html # show.html.erb
+       format.xml  { render :xml => @all_posts }
+     end
   end
  def update
    @user = User.find(params[:id])
@@ -33,7 +43,18 @@ class UsersController < ApplicationController
     end 
     
  end
+   def wall
 
+     @user = User.find_by_username!(params[:username])
+     require 'will_paginate/array'
+     @new_post  = current_user.posts.build if current_user
+     @all_posts = Post.where(:whose_wall => @user.id).paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
+     respond_to do |format|
+       format.js
+       format.html # show.html.erb
+       format.xml  { render :xml => @all_posts }
+     end
+   end
   def create
 @user = User.new(params[:user])
     if @user.save

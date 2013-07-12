@@ -1,132 +1,129 @@
 #mainContainer {
-border-right: 1px solid #ccc;
-min-height: 600px;
-margin-left: -1px;
-display: block;
-width: 100%;
+  border-right: 1px solid #ccc;
+  min-height: 600px;
+  margin-left: -6px;
+  display: block;
+  width: 100%;
 }
 #leftCol {
-color: rgb(51, 51, 51);
-direction: ltr;
-display: block;
-float: left;
-background: #fffdcd;
-font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-font-size: 11px;
-height: 622px;
-line-height: 14px;
-padding-bottom: 0px;
-padding-left: 2px;
-padding-right: 0px;
-padding-top: 20px;
-position: relative;
-text-align: left;
-width: 280px;
-word-wrap: break-word;
-zoom: 1;
+  color: rgb(51, 51, 51);
+  direction: ltr;
+  display: block;
+  float: left;
+  background: #fffdcd;
+  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  height: 865px;
+  line-height: 14px;
+  padding-bottom: 0px;
+  padding-left: 2px;
+  padding-right: 0px;
+  padding-top: 20px;
+  position: relative;
+  text-align: left;
+  width: 280px;
+  word-wrap: break-word;
+  zoom: 1;
 }
 #contentCol {
-background-color: rgb(255, 255, 255);
-border-left-color: rgb(204, 204, 204);
-border-left-style: solid;
-border-left-width: 1px;
-color: rgb(51, 51, 51);
-direction: ltr;
-display: block;
-font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-font-size: 11px;
-height: 26994px;
-line-height: 14px;
-margin-left: 181px;
-min-height: 600px;
-padding-left: 0px;
-padding-right: 0px;
-
-text-align: left;
-width: 1092px;
-zoom: 1;
+  background-color: rgb(255, 255, 255);
+  border-left-color: rgb(204, 204, 204);
+  border-left-style: solid;
+  border-left-width: 1px;
+  color: rgb(51, 51, 51);
+  direction: ltr;
+  display: block;
+  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  height: 994px;
+  line-height: 14px;
+  margin-left: 181px;
+  min-height: 600px;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: left;
+  width: 1090px;
+  zoom: 1;
 }
 #rightCol {
-color: rgb(51, 51, 51);
-direction: ltr;
-display: block;
-float: right;
-background: #fffdcd;
-font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-font-size: 11px;
-height: 274px;
-line-height: 14px;
-margin-top: 0px;
-padding-right: 0px;
-padding-top: 40px;
-text-align: left;
-width: 225px;
-word-wrap: break-word;
-zoom: 1;
+  color: rgb(51, 51, 51);
+  direction: ltr;
+  display: block;
+  float: right;
+  background: #fffdcd;
+  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  height: 274px;
+  line-height: 14px;
+  margin-top: 0px;
+  padding-right: 0px;
+  padding-top: 40px;
+  text-align: left;
+  width: 241px;
+  word-wrap: break-word;
+  zoom: 1;
 }
 #contentArea {
-color: rgb(51, 51, 51);
-direction: ltr;
-display: block;
-float: left;
-
-font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-font-size: 11px;
-height: 33824.5px;
-line-height: 14px;
-margin-right: 0px;
-outline-color: rgb(51, 51, 51);
-outline-style: none;
-outline-width: 0px;
-padding-bottom: 20px;
-padding-left: 18px;
-padding-right: 25px;
-padding-top: 0px;
-text-align: left;
-width: 720px;
-word-wrap: break-word;
-zoom: 1;
+  color: rgb(51, 51, 51);
+  direction: ltr;
+  display: block;
+  float: left;
+  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  height: 824.5px;
+  line-height: 14px;
+  margin-right: 0px;
+  outline-color: rgb(51, 51, 51);
+  outline-style: none;
+  outline-width: 0px;
+  padding-bottom: 20px;
+  padding-left: 18px;
+  padding-right: 25px;
+  padding-top: 0px;
+  text-align: left;
+  width: 692px;
+  word-wrap: break-word;
+  zoom: 1;
 }
 #content {
-color: rgb(51, 51, 51);
-direction: ltr;
-display: block;
-font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-font-size: 11px;
-height: 17938px;
-line-height: 14px;
-margin-bottom: 0px;
-margin-left: 0px;
-margin-right: 0px;
-margin-top: 0px;
-min-height: 100px;
-outline-color: rgb(51, 51, 51);
-outline-style: none;
-outline-width: 0px;
-padding-bottom: 0px;
-padding-left: 0px;
-padding-right: 0px;
-padding-top: 0px;
-text-align: left;
-width: 1291px;
-zoom: 1;
-
+  color: rgb(51, 51, 51);
+  direction: ltr;
+  display: block;
+  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  height: 1038px;
+  line-height: 14px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  min-height: 100px;
+  outline-color: rgb(51, 51, 51);
+  outline-style: none;
+  outline-width: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  text-align: left;
+  width: 724px;
+  zoom: 1;
 }
 
 #globalContainer {
-color: rgb(51, 51, 51);
-direction: ltr;
-display: block;
-font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-font-size: 11px;
-height: 18009px;
-line-height: 14px;
-margin: 0 auto;
-padding-right: 205px;
-position: relative;
-text-align: left;
-width: 1077px;
-zoom: 1;
+  color: rgb(51, 51, 51);
+  direction: ltr;
+  display: block;
+  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  height: 100%;
+  line-height: 14px;
+  margin: 0 auto;
+  padding-right: 205px;
+  position: relative;
+  text-align: left;
+  width: 1077px;
+  zoom: 1;
 
 }
 @font-face {
@@ -499,4 +496,96 @@ div#profile_pic_box:hover a {
 
 /* line 340, ../../app/assets/stylesheets/users.css.scss */
 
- 
+#requested_friends_list {
+  margin: 0;
+}
+.friendship_friend {
+  li {
+    padding-right: 15px;
+    padding-top: 9px;
+    padding-bottom: 7px;
+    border : 1px solid #000000 ;
+    border-radius: 3px;
+    list-style-type: none;
+    background-color: white;
+    a {
+      color : #019AD2;
+      font-weight: bold;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    a.btn.btn-info {
+      color: white;
+      float: right;
+      font-weight: normal;
+      &:hover {
+        font-weight: normal;
+        text-decoration: none;
+      }
+    }
+  }
+}
+#menubar_drop {
+  padding : 0 15px 0;
+}
+
+#profile_sidebar {
+  font-size: 15px;
+}
+#profile_posts {
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+
+}
+#profile_posts  li {
+  span {
+    border-bottom: 1px solid black;
+    border-left: 1px solid #000000;
+    padding:  1px 3px;
+    font-size: 11px;
+    background-color: rgba(255, 100, 2, 0.17);
+  }
+  a {
+    font-size: 20px;
+    font-family: 'Roboto Condensed',Arial,"Helvetica Neue", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: #019AD2;
+    &:hover {
+      text-decoration: underline;
+    }
+    font-weight: 1000;
+  }
+  img {
+    float: left;
+    margin-right: 6px;
+  }
+  .post_mess {
+    margin-top: 6px;
+  }
+  list-style: none;
+  clear: both;
+  // padding: 20px 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  min-height: 79px;
+  background-color: #fff;
+  //  display: block;
+  border-bottom: 1px dashed #d2dada;
+  .first {
+    border-top: 1px dashed #d2dada;
+  }
+
+}#profile_posts li.first {
+   border-top: 1px dashed #d2dada;
+ }
+.post_mess {
+  margin-left: 87px;
+
+  word-wrap: break-word;
+}

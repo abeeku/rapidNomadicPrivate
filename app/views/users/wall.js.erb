@@ -1,0 +1,18 @@
+//new_posts =  '<%= j render (@all_posts) %>'
+//$('#profile_posts').append('<%= j render (@all_posts) %>').fadeIn(2000)         ;
+//$('#profile_posts').append(new_posts);
+//new_posts.fadeIn(2000);
+<% @all_posts.each do |post|  %>
+    new_post = '<%= j render (post) %>';
+$(new_post).hide().appendTo("#profile_posts").fadeIn(1000);
+
+<%= sleep 0.2 %>
+<% end %>
+
+<% if @all_posts.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@all_posts) %>') ;
+
+<% else %>
+$('.pagination').remove();
+<% end %>
+<%# sleep 1 %>

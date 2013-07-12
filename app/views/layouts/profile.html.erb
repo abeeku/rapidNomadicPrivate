@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) || 'RapidNomadic' %></title>
+  <title><%= content_for?(:title) ? yield(:title) : 'RapidNomadic' %></title>
   <%= stylesheet_link_tag  "application", :media => "all" %>
 <%= stylesheet_link_tag  "profile" %>
   <%= javascript_include_tag "application" %>
+  <%=	 javascript_include_tag 'posts' %>
 <%= favicon_link_tag 'favicon.ico' %>
 
   <%= csrf_meta_tags %>
@@ -49,37 +50,43 @@
 
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-   <a class="brand" href="#"><%=	 image_tag 'logo_opt.gif', :mouseover => 'logohover_opt.png', :width => '50px', :height => '40px' %><%=	 image_tag 'Untitled-2letters_opt.png', height: '40px' %></a>
+    <a class="brand" href="<%=	 root_url %>"><%=	 image_tag 'logo_opt.gif', :mouseover => 'logohover_opt.png', :width => '50px', :height => '40px' %><%=	 image_tag 'Untitled-2letters_opt.png', height: '40px' %></a>
 
     <form class="navbar-search pull-left">
       <input type="text" class="search-query" placeholder="Search">
     </form>
     <ul class="nav">
       <li>
-          <%= link_to "World Wall", :controller => 'pages', :action => 'world_wall' %>
+        <%= link_to 'World Wall', :controller => 'pages', :action => 'world_wall' %>
       </li>
       <li><a href="#">Dashboard</a></li>
       <li><a href="#">ComeToChat</a></li>
       <li><a href="#">Games</a></li>
     </ul>
-    
+
     <ul class="nav pull-right">
       <% if current_user %>
 
-          <li><%= image_tag current_user.profile(:menubar).to_s %></li> <li><%= link_to "#{current_user.full_name}", controller: 'users', action: 'show', username: current_user.username %></li>
+          <li class="dropdown"><a href="#" id="menubar_drop" role="button" class="dropdown-toggle" data-toggle="dropdown"><%=  image_tag current_user.profile(:menubar).to_s %> <%=  "#{current_user.full_name}" %><strong style="color: white" class="caret"></strong></a>
+
+            <ul class="dropdown-menu" role='menu'>
+              <li role="presentation"><%=	 link_to 'View My Profile', profile_for(current_user) %></li>
+            </ul>
+
+          </li>
           <li class="divider-vertical"></li>
           <li><%=	 link_to 'Log Out', logout_path %></li>
       <% else %>
           <li><%=	 link_to 'Register', register_path %></li>
           <li class="divider-vertical"></li>
           <li class="dropdown">
-            <a  href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
+            <a  href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Log In <b class="caret"></b></a>
             <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
               <%=	 render 'sessions/form' %>
             </div>
           </li>
       <% end %>
- </ul>
+    </ul>
   </div>
 </div>
 
@@ -89,8 +96,110 @@
       <%= msg %>
     </div>
 <% end %>
+<div id="globalContainer">
+  <div id="content">
+    <div id="mainContainer">
+      <div id="leftCol" class="profile_side">
+        <div id="profile_pic_box">
+          <% if current_user %>
+              <% if @user.id == current_user.id %>
+                  <%=  form_for @user, :html => { :multipart => true , :id =>'avatar_form' } do |f| %>
+                      <%= f.file_field :profile, accept: 'image/jpeg, image/png, image/gif' %>
+                      <%= f.submit 'Change' %>
+                  <%   end %>
+                  <a href="#" onclick="return false;" onmousedown="toggleElement('avatar_form');">Change Profile Photo</a>
+              <% end %>
+          <% end %>
+          <%= image_tag @user.profile.url.to_s, :width => 250, :height => 250 %>
+        </div>
+        <h3><%= @user.full_name %></h3>
 
-<%= yield %>
+        <% if current_user and current_user.id == @user.id %>
+            <%=	 friendship_status(@user,current_user) %>
+        <% else %>
+            <%=  sent_status(current_user,@user)  %>
+        <% end %>
+
+
+        <%	 unless Friendship.exists?(current_user, @user) or current_user == @user %>
+            <%= form_for Friendship.new do |f| %>
+                <%= f.hidden_field :friend_id, :value => @user.id  %>
+                <%= f.submit "Add #{@user.first_name} as a Friend" , :confirm =>
+                        "Send friend request to #{@user.full_name}?", class: 'btn btn-info'  %>
+            <% end %>
+            <%	 end %>
+        <% if current_user.requested_friends.include?(@user) %>
+            <%=	 link_to 'Accept', {:controller => 'friendships', action: 'accept', :id => @user.id } , class: 'btn btn-info' %>
+<%	 end %>
+            <% if current_user and current_user == @user %>
+            <h2> Friend Requests </h2>
+            <ul id="requested_friends_list">
+              <%	 @user.requested_friends.each do |rf| %>
+                  <div class="friendship_friend">
+                    <li>   <%=	 image_tag rf.profile(:menubar) %>   <%=	link_to rf.full_name, profile_for(rf) %>
+                      <%=	 link_to 'Accept', {:controller => 'friendships', action: 'accept', :id => rf.id } , class: 'btn btn-info' %>
+                    </li>
+                  </div>
+              <%	 end %>
+            </ul>
+        <% end %>
+
+      </div>
+      <div id="contentCol">
+        <div id="contentArea">
+          <!-- start content -->
+          <div id="content2">
+            <%= yield %>
+            <!--  <div class="tabbable">
+               <ul class="nav nav-tabs" id="proftabs">
+                <li><a href="#profile_tab"  data-toggle="tab" >Profile</a></li>
+                <li><a href="#friends_tab" data-toggle="tab">Friends</a></li>
+                <li><a  href="#photos_tab" data-toggle="tab">Photos</a></li>
+                <li><a  href="#videos_tab" data-toggle="tab">Videos</a></li>
+                <li><a  href="#quotes_tab" data-toggle="tab">Quotes</a></li>
+
+             </ul>
+                <div class="tab-content">
+                      <div id="profile_tab" class="tab-pane">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid excepturi id, maxime nesciunt recusandae repellat unde veritatis! Eveniet, fugiat, ipsum. Architecto assumenda, culpa impedit molestias natus porro quisquam repudiandae sunt!
+                      </div>
+                  <div id="friends_tab"  class="tab-pane">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis cupiditate incidunt. Accusantium adipisci architecto dignissimos eligendi est explicabo ipsa molestiae nesciunt optio porro provident, sint soluta, tempore temporibus vitae?
+                  </div>
+                  <div id="photos_tab"  class="tab-pane">
+                    []        </div>
+                  <div id="videos_tab"  class="tab-pane">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at autem dolore, dolorum eaque earum eius, id in iste molestias officia, possimus qui quis recusandae repellat reprehenderit suscipit voluptatum!
+                  </div>
+                  <div id="quotes_tab"  class="tab-pane">
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consectetur, in necessitatibus qui quidem tenetur unde voluptatum! Aspernatur dolorem earum id labore molestiae nam quas quisquam, sapiente sequi ut voluptatibus.
+                  </div>
+                </div>
+                <script>
+                    $(document).ready(function() {
+
+                        $("#proftabs a:first").tab('show')
+
+                    });
+                </script>
+              </div>  -->
+          </div>
+          <!-- end content -->
+        </div>
+        <div id="rightCol">
+       <h2>Online Users</h2>
+             <%	 User.all.each do |u| %>
+        <div class="side-user-box" style="display: inline;margin: 4px 6px;border: 1px dashed #000000;width:81px;height: 81px;">
+          <%= link_to (image_tag	u.profile(:thumb).to_s), profile_for(u)  %>
+        </div>
+          <%	 end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>
