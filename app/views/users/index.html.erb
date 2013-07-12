@@ -2,7 +2,7 @@
 <div id="regist">
 <ul>
   <%	 @users.each do |user| %>
-      <li><%=	 link_to user.full_name, profile_for(@user) %></li>
+      <li><%=	 link_to user.full_name, profile_for(user) %></li>
 <%	 end %>
 </ul>
 </div>
