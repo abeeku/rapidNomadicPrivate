@@ -1,5 +1,9 @@
 Rapidnomadic2::Application.routes.draw do
 
+  get "user_info/index"
+
+  get "user_info/edit"
+
   resources :friendships
 
   match '/accept_friend' => 'friendships#accept'
@@ -103,4 +107,7 @@ Rapidnomadic2::Application.routes.draw do
 #match '/:username' => redirect('/:username/wall')
 #match '/:username' => 'users#show', as: 'profile'
   match '/:username' => 'users#wall', as: 'profile'
+  match '/:username/info' => 'user_info#index', as: 'user_info'
+  match '/:username/friends' => 'friendships#show', as: 'show_friends'
+  match '/:username/photos' => 'photos#index', as: 'user_photos'
 end

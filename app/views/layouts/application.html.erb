@@ -4,8 +4,8 @@
   <title><%=  content_for?(:title) ? yield(:title) : 'RapidNomadic' %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
         <%=	 stylesheet_link_tag "users" %>
-  <%= javascript_include_tag "application" %>
-
+  <%# javascript_include_tag "application" %>
+  <%= javascript_include_tag "menubar" %>
 <%= favicon_link_tag 'favicon.ico' %>
 
   <%= csrf_meta_tags %>
@@ -69,6 +69,18 @@
 
                   <ul class="dropdown-menu" role='menu'>
                     <li role="presentation"><%=	 link_to 'View My Profile', profile_for(current_user) %></li>
+                    <li>
+                <h4> Friend Requests </h4>
+            <ul id="requested_friends_list">
+              <%   current_user.requested_friends.each do |rf| %>
+                  <div class="friendship_friend">
+                    <li>   <%=   image_tag rf.profile(:menubar) %>   <%=  link_to rf.full_name, profile_for(rf) %>
+                      <%=  link_to 'Accept', {:controller => 'friendships', action: 'accept', :id => rf.id } , class: 'btn btn-info' %>
+                    </li>
+                  </div>
+              <%   end %>
+            </ul>
+              </li>
                   </ul>
 
           </li>

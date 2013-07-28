@@ -1,0 +1,43 @@
+<% title @user.full_name.to_s + "'s Photos" %>
+
+<ul class="nav nav-tabs" id ="profile_sidebar" style="margin: 0 auto;">
+  <li>
+    <%= link_to 'Wall', profile_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Info', info_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Friends', friends_for(@user) %>
+  </li>
+  <li  class="active">
+    <%= link_to 'Photos', photos_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Videos', '#' %>
+  </li>
+  <li>
+    <%= link_to 'Quotes', '#' %>
+  </li>
+</ul>
+
+
+  <%= simple_form_for Photo.new , :html => { :multipart => true } do |f| %>
+      <%#  f.hidden_field :user_id %>
+      <p> <%#  f.input :name %></p>
+
+      <p><input id="photo_image" multiple="multiple" name="photo[image]" type="file">
+
+        <%# f.file_field :image, multiple: true, name: 'photo[image]' %></p>
+      <p><%#   f.input :description, :as => :text, :input_html => { :cols => 15 ,  :rows => 40 } %></p>
+      <p><%=   f.submit 'Add Photo', :class => 'btn btn-success' %></p>
+  <% end %>
+  <%=  link_to 'Add Photo', controller: 'photos', action: 'new' %> <br/>
+  <% @user.photos.each do |photo|  %>
+      <div class="photo">
+        <%= link_to (image_tag photo.image.url(:profile)) , photo if photo.image %>
+      </div>
+  <%   end %>
+
+
+

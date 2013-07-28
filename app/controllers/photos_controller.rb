@@ -1,5 +1,8 @@
 class PhotosController < ApplicationController
-
+  layout 'profile', only: :index
+  def index
+    @user = User.find_by_username(params[:username])
+  end
   def new
    @photo = Photo.new(:user_id => current_user.id)
   end

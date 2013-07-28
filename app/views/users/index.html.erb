@@ -1,8 +1,11 @@
 <h2>All the Users</h2>
-<div id="regist">
-<ul>
+
+<div id="allUsersBox">
   <%	 @users.each do |user| %>
-      <li><%=	 link_to user.full_name, profile_for(user) %></li>
+      <div class="regist" style="display:inline-block; padding:7px;width: 250px">
+      <%= thumb(user) %>
+      <%=	 link_to user.full_name, profile_for(user) %>
+   	  <br/><%= pluralize(user.friends.count, "friend") %>
+      </div>
 <%	 end %>
-</ul>
 </div>

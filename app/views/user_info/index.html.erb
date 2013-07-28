@@ -1,0 +1,22 @@
+<% title @user.full_name.to_s + "'s Info" %>
+
+<ul class="nav nav-tabs" id ="profile_sidebar" style="margin: 0 auto;">
+  <li>
+    <%= link_to 'Wall', profile_for(@user) %>
+  </li>
+  <li  class="active">
+    <%= link_to 'Info', '#' %>
+  </li>
+  <li>
+    <%= link_to 'Friends', friends_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Photos', photos_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Videos', '#' %>
+  </li>
+  <li>
+    <%= link_to 'Quotes', '#' %>
+  </li>
+</ul>

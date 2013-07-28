@@ -1,9 +1,26 @@
 <% title @user.full_name.to_s + "'s Profile" %>
-<ul class="nav nav-tabs" id ="profile_sidebar">
-              <li class="active"><%= link_to 'Wall', profile_for(@user) %></li>
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">Messages</a></li>
-            </ul>
+
+<ul class="nav nav-tabs" id ="profile_sidebar" style="margin: 0 auto;">
+              <li class="active">
+                <%= link_to 'Wall', profile_for(@user) %>
+              </li>
+              <li>
+                <%= link_to 'Info', info_for(@user) %>
+              </li>
+              <li>
+                <%= link_to 'Friends', friends_for(@user) %>
+              </li>
+                  <li>
+                    <%= link_to 'Photos', photos_for(@user) %>
+                  </li>
+  <li>
+    <%= link_to 'Videos', '#' %>
+  </li>
+  <li>
+    <%= link_to 'Quotes', '#' %>
+  </li>
+</ul>
+
   <% if current_user %>
       <%=	 render 'posts/form' %>
   <% end %>
@@ -30,7 +47,7 @@
         </li>
     <%# end %> -->
   </ul>
-<div style="width: 100%;margin-top: 10px">
+<!--<div style="width: 100%;margin-top: 10px">
 <center>  <button style="margin: 0 auto;" id="loadMore" class="btn btn-warning">Load More Posts</button>
-</center></div>
+</center></div>        -->
   <%= will_paginate @all_posts %>

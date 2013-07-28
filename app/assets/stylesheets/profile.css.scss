@@ -27,9 +27,7 @@
 }
 #contentCol {
   background-color: rgb(255, 255, 255);
-  border-left-color: rgb(204, 204, 204);
-  border-left-style: solid;
-  border-left-width: 1px;
+
   color: rgb(51, 51, 51);
   direction: ltr;
   display: block;
@@ -122,7 +120,7 @@
   padding-right: 205px;
   position: relative;
   text-align: left;
-  width: 1077px;
+  width: 1057px;
   zoom: 1;
 
 }
@@ -275,7 +273,7 @@ a:hover, a:focus {
 
 /* line 128, ../../app/assets/stylesheets/users.css.scss */
 body {
-  background-color: #019AD2;
+ // background-color: #019AD2;
 }
 
 /* line 131, ../../app/assets/stylesheets/users.css.scss */
@@ -378,7 +376,7 @@ body {
 }
 /* line 234, ../../app/assets/stylesheets/users.css.scss */
 #post_form #post_but {
-  background-color: #019AD2;
+  
   border-radius: 6px;
   color: white;
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
@@ -571,21 +569,37 @@ div#profile_pic_box:hover a {
   list-style: none;
   clear: both;
   // padding: 20px 0px;
-  margin-bottom: 0px;
-  margin-top: 0px;
+  padding-bottom: 10px;
+
+  margin-top: 10px;
   min-height: 79px;
   background-color: #fff;
   //  display: block;
   border-bottom: 1px dashed #d2dada;
-  .first {
-    border-top: 1px dashed #d2dada;
-  }
+  
 
 }#profile_posts li.first {
+ padding-top:10px;
    border-top: 1px dashed #d2dada;
  }
 .post_mess {
   margin-left: 87px;
 
   word-wrap: break-word;
+}
+.side-user-box {
+  img {
+    border: 1px dashed #000000;
+  }
+  &:hover {
+    background-color: #e8e8e8;
+  }
+  background-color: #ffffff;
+  display: inline-block;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 7px;
+  margin: 4px 6px;
+
+
 }

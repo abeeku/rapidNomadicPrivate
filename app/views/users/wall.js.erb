@@ -6,7 +6,7 @@
     new_post = '<%= j render (post) %>';
 $(new_post).hide().appendTo("#profile_posts").fadeIn(1000);
 
-<%= sleep 0.2 %>
+<%= sleep 0.1 %>
 <% end %>
 
 <% if @all_posts.next_page %>

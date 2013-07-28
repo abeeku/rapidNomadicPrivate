@@ -1,0 +1,31 @@
+<% title @user.full_name.to_s + "'s Friends" %>
+
+<ul class="nav nav-tabs" id ="profile_sidebar" style="margin: 0 auto;">
+  <li>
+    <%= link_to 'Wall', profile_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Info', info_for(@user) %>
+  </li>
+  <li class="active">
+    <%= link_to 'Friends', friends_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Photos', photos_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Videos', '#' %>
+  </li>
+  <li>
+    <%= link_to 'Quotes', '#' %>
+  </li>
+</ul>
+
+<table>
+  <%	 @user.friends.each do |friend| %>
+    <tr>
+      <td><%=	 link_to thumb(friend, 70, 70), profile_for(friend) %></td>
+      <td><%=	 link_to friend.full_name, profile_for(friend) %></td>
+    </tr>
+  <%	 end %>
+</table>

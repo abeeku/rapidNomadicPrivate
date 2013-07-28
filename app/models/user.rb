@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
+   
   has_attached_file :profile, :styles => {  :medium => ["250x250>", :jpg], :thumb => ["80x80#", :jpg ], :menubar => ["40x40#", :jpg] } , 
                   :default_url => '/assets/missing_:style.png'
   has_one :user_info
@@ -72,4 +73,12 @@ class User < ActiveRecord::Base
  # def create_remember_token
  #   self.remember_token = SecureRandom.urlsafe_base64
  # end
+ private
+
+  def randomize_file_name
+    
+    extension = File.extname(profile_file_name).downcase
+    self.image.instance_write(:file_name, "#{ActiveSupport::SecureRandom.hex(16)}#{extension}")
+  end
+  
 end

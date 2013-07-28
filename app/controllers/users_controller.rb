@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  layout 'application'
 layout 'profile', :only => :wall
 #  before_filter :not_logged_in , only: [:new,:create]
   def index

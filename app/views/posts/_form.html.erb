@@ -3,6 +3,6 @@
   <%=	 form_for (@new_post) do |f| %>
       <%= f.hidden_field :whose_wall, :value => @user.id %>
       <%=	 f.text_area :content, :placeholder => 'How are you doing?' %>
-      <%=	 f.submit "POST", :id => 'post_but' %>
+      <%=	 f.submit "POST", :id => 'post_but', :class => 'btn btn-info' %>
   <%	 end %>
 </div>
