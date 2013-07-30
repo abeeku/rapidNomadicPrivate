@@ -1,5 +1,9 @@
 Rapidnomadic2::Application.routes.draw do
 
+  get "games/index"
+
+  get "games/show"
+
   get "user_info/index"
 
   get "user_info/edit"

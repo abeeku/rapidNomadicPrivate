@@ -7,11 +7,13 @@ allow :pages, [:world_wall]
          allow :sessions, [:new, :create]
           allow :photos, [:show, :index]
       allow :comments, [:index, :show]
+      allow :games, [:index, :show]
       if user
         allow :friendships, [:create,:accept,:show]
         allow :posts, [:new, :create]
         allow :comments, [:new, :create,]
         allow :user_info, [:index,:edit]
+
         allow :photos , [:new,:create,:index]
         allow :photos, [:change, :update, :destroy] 
         allow :pages, [:world_wall, :dashboard, :friend_activity]

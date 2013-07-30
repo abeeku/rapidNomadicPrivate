@@ -12,7 +12,7 @@
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<%= yield :head %>
   <script type="text/javascript">
 
 
@@ -59,7 +59,9 @@
       </li>
       <li><a href="#">Dashboard</a></li>
       <li><a href="#">ComeToChat</a></li>
-      <li><a href="#">Games</a></li>
+      <li>
+ <%= link_to "Games", :controller => 'games', :action => 'index' %>
+      </li>
     </ul>
     
     <ul class="nav pull-right">
