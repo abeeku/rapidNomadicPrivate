@@ -38,7 +38,7 @@
     <file path="/20130620014417_add_user_id_to_comments.rb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371692676233" ignored="false" />
     <file path="/20130620213009_create_posts.rb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371763839919" ignored="false" />
     <file path="/post.rb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371764076449" ignored="false" />
-    <file path="/posts_controller.rb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371912604738" ignored="false" />
+    <file path="/posts_controller.rb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1375219417716" ignored="false" />
     <file path="/change.html.erb" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371768811017" ignored="false" />
     <file path="/slideshow.js" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371773452647" ignored="false" />
     <file path="$PROJECT_DIR$/public/assets/application.css" changelist="a737e0e1-7637-4ec0-9150-bb1441984b77" time="1371842969264" ignored="false" />
@@ -100,15 +100,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="photos_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/photos_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="51" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user_info_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/user_info_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -157,10 +148,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="permission.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="permission.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/permission.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="35" selection-start="320" selection-end="320" vertical-scroll-proportion="0.28753993">
+            <state line="9" column="35" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="posts_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/posts_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="32" selection-start="491" selection-end="491" vertical-scroll-proportion="0.6070288">
               <folding />
             </state>
           </provider>
@@ -187,7 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/javascripts/posts.js.coffee" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/users.css.scss" />
         <option value="$PROJECT_DIR$/app/controllers/friendships_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/photos_controller.rb" />
@@ -203,6 +202,7 @@
         <option value="dbtable:/1e5b38d7/c963e493-2c29-49d1-b1c4-daa56e560a34/..users" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/profile.css.scss" />
         <option value="$PROJECT_DIR$/app/models/permission.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/posts_controller.rb" />
       </list>
     </option>
   </component>
@@ -1062,7 +1062,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/permission.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="35" selection-start="320" selection-end="320" vertical-scroll-proportion="0.28753993">
+        <state line="9" column="35" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/posts_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="32" selection-start="491" selection-end="491" vertical-scroll-proportion="0.6070288">
           <folding />
         </state>
       </provider>
