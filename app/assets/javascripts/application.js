@@ -20,7 +20,7 @@
 //= require twitter/bootstrap/bootstrap-tab
 
 // require twitter/bootstrap/bootstrap-tooltip
-// require twitter/bootstrap/bootstrap-popover
+//= require twitter/bootstrap/bootstrap-popover
 // require twitter/bootstrap/bootstrap-button
 // require twitter/bootstrap/bootstrap-collapse
 // require twitter/bootstrap/bootstrap-carousel
@@ -36,7 +36,7 @@
 //= require jquery-fileupload/jquery.fileupload-ui
 //= require jquery-fileupload/locale
 
-
+$(".popover").popover({ trigger: "hover" });
 /*
 $(window).scroll(function() {
     if($(window).scrollTop() + $(window).height() >= $(document).height()) {

@@ -1,3 +1,274 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto Condensed Regular"), local("RobotoCondensed-Regular"), url(roboto.woff) format("woff");
+}
+
+/* line 10, ../../app/assets/stylesheets/users.css.scss */
+h2 {
+  font-family: 'Roboto Condensed';
+}
+
+/* line 14, ../../app/assets/stylesheets/users.css.scss */
+#remember_me {
+  display: inline;
+}
+
+/* line 17, ../../app/assets/stylesheets/users.css.scss */
+#logins label {
+  display: inline;
+}
+
+/* line 20, ../../app/assets/stylesheets/users.css.scss */
+input[type='file'] {
+  line-height: normal !important;
+}
+
+/* line 25, ../../app/assets/stylesheets/users.css.scss */
+
+
+
+/* line 128, ../../app/assets/stylesheets/users.css.scss */
+body {
+  // background-color: #019AD2;
+}
+
+/* line 131, ../../app/assets/stylesheets/users.css.scss */
+.photo {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #3a3a3a;
+  margin: 6px;
+  width: auto;
+  display: inline-block;
+}
+/* line 139, ../../app/assets/stylesheets/users.css.scss */
+.photo:hover {
+  background-color: #e8e8e8;
+}
+
+/* line 144, ../../app/assets/stylesheets/users.css.scss */
+#comments-box {
+  background-color: #ffffff;
+  border: 1px solid #000;
+  border-radius: 7px;
+}
+/* line 150, ../../app/assets/stylesheets/users.css.scss */
+#comments-box .comment {
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+}
+/* line 153, ../../app/assets/stylesheets/users.css.scss */
+#comments-box .comment:hover {
+  background-color: #e8e8e8;
+}
+/* line 158, ../../app/assets/stylesheets/users.css.scss */
+#comments-box .comment-first {
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+/* line 163, ../../app/assets/stylesheets/users.css.scss */
+#comments-box .comment-first:hover {
+  background-color: #e8e8e8;
+}
+/* line 169, ../../app/assets/stylesheets/users.css.scss */
+#comments-box textarea {
+  margin-right: 10px;
+  width: 350px;
+  height: 20px;
+  border-radius: 0;
+  resize: none;
+}
+
+/* line 178, ../../app/assets/stylesheets/users.css.scss */
+.span4 {
+  margin-left: 30px;
+}
+
+/* line 193, ../../app/assets/stylesheets/users.css.scss */
+.profile_side {
+  float: left;
+  width: 280px;
+  height: 700px;
+  background: #fffdcd;
+  padding-bottom: 10px;
+}
+/* line 199, ../../app/assets/stylesheets/users.css.scss */
+.profile_side h3 {
+  font-family: 'Roboto Condensed';
+  text-align: center;
+}
+
+/* line 204, ../../app/assets/stylesheets/users.css.scss */
+#profile_pic_box {
+  margin: 0 auto;
+  width: 250px;
+  margin-top: 7px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 7px;
+}
+
+/* line 214, ../../app/assets/stylesheets/users.css.scss */
+#post_form {
+  margin: 0;
+  margin-bottom:15px;
+  padding: 0;
+  background-color: #cdfff8;
+  width: 700px;
+}
+/* line 220, ../../app/assets/stylesheets/users.css.scss */
+#post_form textarea {
+  width: 77%;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #fffdcd;
+  height: 63px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-family: Verdana,Geneva, sans-serif;
+  resize: none;
+}
+/* line 234, ../../app/assets/stylesheets/users.css.scss */
+#post_form #post_but {
+
+  border-radius: 6px;
+  color: white;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  display: block;
+  width: 15%;
+  padding-left: 19px;
+  padding-right: 19px;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding-top: 19px;
+  padding-bottom: 19px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  height: 63px;
+  float: right;
+}
+
+/* line 253, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts {
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  display: inline;
+  width: 700px;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 261, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li {
+  list-style: none;
+  clear: both;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  width: 700px;
+  min-height: 79px;
+  background-color: #fff;
+  border-bottom: 1px dashed #d2dada;
+}
+/* line 262, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li a {
+  font-size: 20px;
+  font-family: 'Roboto Condensed',Arial,"Helvetica Neue", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #019AD2;
+  font-weight: 1000;
+}
+/* line 268, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li a:hover {
+  text-decoration: underline;
+}
+/* line 273, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li img {
+  float: left;
+  margin-right: 6px;
+}
+/* line 277, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li .post_mess {
+  margin-top: 6px;
+}
+
+/* line 291, ../../app/assets/stylesheets/users.css.scss */
+#profile_posts li.first {
+  border-top: 1px dashed #d2dada;
+}
+
+/* line 295, ../../app/assets/stylesheets/users.css.scss */
+.nav a {
+  font-family: 'Roboto Condensed';
+}
+
+/* line 299, ../../app/assets/stylesheets/users.css.scss */
+
+
+/* line 307, ../../app/assets/stylesheets/users.css.scss */
+
+/* line 312, ../../app/assets/stylesheets/users.css.scss */
+
+
+
+#profile_posts {
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+
+}
+#profile_posts  li {
+  span {
+    border-bottom: 1px solid black;
+    border-left: 1px solid #000000;
+    padding:  1px 3px;
+    font-size: 11px;
+    background-color: rgba(255, 100, 2, 0.17);
+  }
+  a {
+    font-size: 20px;
+    font-family: 'Roboto Condensed',Arial,"Helvetica Neue", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: #019AD2;
+    &:hover {
+      text-decoration: underline;
+    }
+    font-weight: 1000;
+  }
+  img {
+    float: left;
+    margin-right: 6px;
+  }
+  .post_mess {
+    margin-top: 6px;
+  }
+  list-style: none;
+  clear: both;
+  // padding: 20px 0px;
+  padding-bottom: 10px;
+
+  margin-top: 10px;
+  min-height: 79px;
+  background-color: #fff;
+  //  display: block;
+  border-bottom: 1px dashed #d2dada;
+
+
+}#profile_posts li.first {
+   padding-top:10px;
+   border-top: 1px dashed #d2dada;
+ }
+.post_mess {
+  margin-left: 87px;
+
+  word-wrap: break-word;
+}
