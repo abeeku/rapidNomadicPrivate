@@ -15,9 +15,9 @@ gem 'simple_form'
 
 gem 'will_paginate', '~> 3.0'
 
-gem 'jquery-turbolinks'
+#gem 'jquery-turbolinks'
 
-gem 'turbolinks'
+#gem 'turbolinks'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
