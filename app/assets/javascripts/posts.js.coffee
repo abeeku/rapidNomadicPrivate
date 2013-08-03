@@ -11,4 +11,5 @@ jQuery ->
 
         $('.pagination').text('Loading more posts...')
         $.getScript(url)
+      #  url = '';
     $(window).scroll()

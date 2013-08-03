@@ -35,7 +35,7 @@ class PhotosController < ApplicationController
   def create
        @photo = Photo.new(params[:photo])
     if @photo.save
-      redirect_to :controller => 'users', :action => 'show', :username => current_user.username
+      redirect_to profile_for(current_user.username)
     end
 
 

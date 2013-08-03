@@ -1,3 +1,42 @@
-// Place all the styles related to the Friendships controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.friendbox {
+	display: inline-block;
+margin: 10px;
+
+border-radius: 9px;
+height: 200px;
+width: 300px;
+border: 1px dashed black;
+background-color: white;
+}
+.friendbox:hover {
+	 position: relative; 
+            // top: -6px;
+}
+.friendbox h2 {
+	color: #ffd700;
+	background-color:black;
+	width:auto;
+	font-family:'Roboto Condensed',Helvetica;
+	display:inline;font-size:18px;
+}
+#menubar li a:hover {
+	
+background-color:#000f3b;
+	border:1px solid 000f3b;
+}
+.right {
+	float:right !important;
+}
+.friendbox p {
+	
+	text-align:right;
+	display:inline;
+	font-family:Arial, Helvetica, sans-serif;
+	
+}
+.friendbox img {
+	margin-right:6px;
+	margin-left:0px;
+	display:inline;
+	float:left;
+}

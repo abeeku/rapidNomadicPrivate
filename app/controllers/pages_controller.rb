@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout '3col'
+  layout '3col', :except => 'friend_activity'
   def dashboard
   end
 
@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   end
 
   def friend_activity
+    @friends_posts = Post.where("user_id IN (?)", current_user.friends)
   end
 end

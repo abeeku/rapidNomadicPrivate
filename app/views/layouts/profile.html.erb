@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag  "application", :media => "all" %>
 <%= stylesheet_link_tag  "profile" %>
 <%= javascript_include_tag "profile" %>
-  <%= javascript_include_tag "application" %>
+  <%# javascript_include_tag "application" %>
   
   <%=	 javascript_include_tag 'posts' %>
 <%= favicon_link_tag 'favicon.ico' %>
@@ -66,7 +66,7 @@
 
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <a class="brand" href="<%=	 root_url %>"><%=	 image_tag 'logo_opt.gif', :mouseover => 'logohover_opt.png', :width => '50px', :height => '40px' %><%=	 image_tag 'Untitled-2letters_opt.png', height: '40px' %></a>
+    <a class="brand" href="<%=root_url %>"><%=	 image_tag 'logo_opt.gif', :mouseover => 'logohover_opt.png', :width => '50px', :height => '40px' %><%=	 image_tag 'Untitled-2letters_opt.png', height: '40px' %></a>
 
     <form class="navbar-search pull-left">
       <input type="text" class="search-query" placeholder="Search">
@@ -219,10 +219,12 @@
         <div id="rightCol">
        <h2>No New Friends?</h2>
              <%	 User.all.each do |u| %>
-        <div class="side-user-box">
-          <%= link_to (thumb(u, 60, 60)), profile_for(u)  %>
-        <p><%=	 link_to u.full_name, profile_for(u) %></p>
-        </div>
+        <% unless u == current_user %>
+            <div class="side-user-box">
+              <%= link_to (thumb(u, 60, 60)), profile_for(u)  %>
+            <p><%=	 link_to u.full_name, profile_for(u) %></p>
+            </div>
+        <% end %>
           <%	 end %>
         </div>
       </div>

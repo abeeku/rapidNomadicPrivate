@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   has_secure_password
    
   has_attached_file :profile, :styles => {  :medium => ["250x250>", :jpg], :thumb => ["80x80#", :jpg ], :menubar => ["40x40#", :jpg] } , 
-                  :default_url => '/assets/missing_:style.png'
+                  :default_url => '/assets/missing_:style.png',
+                   :path => ":rails_root/public/system/:class/:attachment/:id/:style_:basename.:extension"
+
   has_one :user_info
   has_many :friendships, dependent: :destroy
   has_many :friends, :through => :friendships,:source => :friend, :conditions => "status ='accepted'"
@@ -13,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :messages, dependent: :destroy
+validates_attachment_presence :profile
+validates_attachment_size :profile, :less_than => 6.megabytes
   validates_attachment_content_type :profile,
   :content_type => ['image/jpeg', 'image/pjpeg',
                                    'image/jpg', 'image/png', 'image/tif', 'image/gif'], :message => "has to be in a proper format"
@@ -75,10 +79,10 @@ class User < ActiveRecord::Base
  # end
  private
 
-  def randomize_file_name
+ # def randomize_file_name
     
-    extension = File.extname(profile_file_name).downcase
-    self.image.instance_write(:file_name, "#{ActiveSupport::SecureRandom.hex(16)}#{extension}")
-  end
+  #  extension = File.extname(profile_file_name).downcase
+  #  self.image.instance_write(:file_name, "#{ActiveSupport::SecureRandom.hex(16)}#{extension}")
+ # end
   
 end

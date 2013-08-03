@@ -1,8 +1,11 @@
 $('#profile_posts').append('<%= j render (@all_posts) %>')         ;
-   <% if @all_posts.next_page %>
+
+<% if @all_posts.next_page %>
 $('.pagination').replaceWith('<%= j will_paginate(@all_posts) %>') ;
 
 <% else %>
+$('.pagination').text('');
+
 $('.pagination').remove();
 <% end %>
-<% sleep 2 %>
+<% sleep 1 %>
