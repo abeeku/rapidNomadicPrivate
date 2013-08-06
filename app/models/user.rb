@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
-   
+  before_save { |user| user.email = email.downcase }
   has_attached_file :profile, :styles => {  :medium => ["250x250>", :jpg], :thumb => ["80x80#", :jpg ], :menubar => ["40x40#", :jpg] } , 
-                  :default_url => '/assets/missing_:style.png',
-                   :path => ":rails_root/public/system/:class/:attachment/:id/:style_:basename.:extension"
+                  :default_url => '/assets/missing_:style.png'
 
   has_one :user_info
   has_many :friendships, dependent: :destroy
@@ -74,7 +73,7 @@ validates_attachment_size :profile, :less_than => 6.megabytes
     [first_name, last_name].join(' ')
   end
 
-  before_save { |user| user.email = email.downcase }
+ 
 
 
  # def create_remember_token
