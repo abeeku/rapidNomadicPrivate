@@ -11,6 +11,15 @@ end
 group :production do
   gem 'pg'
 end
+
+
+gem "rspec-rails", :group => [:test, :development]
+
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+end
 gem 'simple_form'
 
 gem 'will_paginate', '~> 3.0'

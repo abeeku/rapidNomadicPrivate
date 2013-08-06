@@ -20,9 +20,9 @@ private
   end
   helper_method :current_user, :yield_or_default
 
-#  def not_logged_in
-#      redirect_to request.referrer, alert: 'You are already logged in' if current_user
-#  end
+  def not_logged_in
+      redirect_to request.referrer, alert: 'You are already logged in' if current_user
+  end
 
   def current_permission
    @current_permission ||= Permission.new(current_user)

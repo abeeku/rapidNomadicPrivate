@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :messages, dependent: :destroy
-validates_attachment_presence :profile
+#validates_attachment_presence :profile
 validates_attachment_size :profile, :less_than => 6.megabytes
   validates_attachment_content_type :profile,
   :content_type => ['image/jpeg', 'image/pjpeg',
@@ -32,6 +32,9 @@ validates_attachment_size :profile, :less_than => 6.megabytes
   #Remember Me Cookie Token
   before_create { generate_token(:cookie_token) }
 
+
+ VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, :uniqueness => { case_sensitive: false }
   def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64

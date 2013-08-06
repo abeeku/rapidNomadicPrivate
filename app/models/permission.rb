@@ -5,6 +5,7 @@ class Permission
 allow :pages, [:world_wall]
          allow :users, [:new, :create, :wall]
          allow :sessions, [:new, :create]
+allow :password_resets, [:new, :create, :index, :edit]
           allow :photos, [:show, :index]
       allow :comments, [:index, :show]
       allow :games, [:index, :show]

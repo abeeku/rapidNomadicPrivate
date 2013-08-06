@@ -113,6 +113,7 @@
             <a  href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Log In <b class="caret"></b></a>
             <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
               <%=	 render 'sessions/form' %>
+              <%= link_to 'Forgotten Password?', new_password_reset_path %>
             </div>
           </li>
       <% end %>
