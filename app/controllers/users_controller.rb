@@ -36,7 +36,7 @@ layout 'profile', :only => :wall
  #   render :text => params[:user][:profile].inspect
     
  if @user.update_attribute(:profile, params[:user][:profile])
-      flash[:success] = 'Profile Picture updated'
+      flash[:notice] = 'Profile Picture updated'
       redirect_to request.referrer
     else
       flash[:success] = 'Profile Picture unsuccessful update'
