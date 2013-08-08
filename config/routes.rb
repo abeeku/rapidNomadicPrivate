@@ -9,7 +9,7 @@ Rapidnomadic2::Application.routes.draw do
   get "user_info/edit"
 
   resources :friendships
-
+  resources :messages
   match '/accept_friend' => 'friendships#accept'
   get 'profiles/:username' => 'users#profile'
   get "/dashboard" => 'pages#dashboard'

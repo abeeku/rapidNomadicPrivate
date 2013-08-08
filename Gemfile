@@ -12,6 +12,10 @@ group :production do
   gem 'pg'
 end
 
+gem 'faye'
+
+gem 'thin'
+
 
 gem "rspec-rails", :group => [:test, :development]
 

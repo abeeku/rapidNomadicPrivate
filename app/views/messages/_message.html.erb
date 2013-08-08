@@ -1,0 +1,10 @@
+
+<li <%= "class = right" if message.user == current_user %>>
+	
+	<%= image_tag message.user.profile(:menubar) %>
+	<div style ="display:inline-block;"><%= link_to message.user.full_name, profile_for(message.user) %>
+	<br />
+	 <%= message.content %></div>
+	 
+<span class="created_at"><%= message.created_at.strftime("%l:%M") %></span>
+</li>

@@ -1,9 +1,19 @@
 class User < ActiveRecord::Base
   has_secure_password
   before_save { |user| user.email = email.downcase }
-  has_attached_file :profile, :styles => {  :medium => ["250x250>", :jpg], :thumb => ["80x80#", :jpg ], :menubar => ["40x40#", :jpg] } , 
-                  :default_url => '/assets/missing_:style.png'
+  
 
+  
+ has_attached_file :profile, :styles => {  :medium => ["250x250>", :jpg], :thumb => ["80x80#", :jpg ], :menubar => ["40x40#", :jpg] } , 
+                  :default_url => '/assets/missing_:style.png',
+                  :path => ":rails_root/app/assets/:class/:attachment/:id/:hash_:style.:extension",
+                  :hash_secret => "spongetianabob"#,
+                  #:url => "/:class/:attachment/:id/:hash_:style.:extension" 
+                  
+     
+                
+
+  
   has_one :user_info
   has_many :friendships, dependent: :destroy
   has_many :friends, :through => :friendships,:source => :friend, :conditions => "status ='accepted'"
@@ -79,12 +89,13 @@ validates_attachment_size :profile, :less_than => 6.megabytes
  # def create_remember_token
  #   self.remember_token = SecureRandom.urlsafe_base64
  # end
- private
+
+
 
  # def randomize_file_name
     
-  #  extension = File.extname(profile_file_name).downcase
-  #  self.image.instance_write(:file_name, "#{ActiveSupport::SecureRandom.hex(16)}#{extension}")
- # end
+ #   extension = File.extname(profile_file_name).downcase
+ #   self.image.instance_write(:file_name, "#{SecureRandom.urlsafe_base64}#{extension}")
+  #end
   
 end

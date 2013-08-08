@@ -14,7 +14,7 @@ allow :password_resets, [:new, :create, :index, :edit]
         allow :posts, [:new, :create]
         allow :comments, [:new, :create,]
         allow :user_info, [:index,:edit]
-
+        allow :messages, [:index, :create, :new]
         allow :photos , [:new,:create,:index]
         allow :photos, [:change, :update, :destroy] 
         allow :pages, [:world_wall, :dashboard, :friend_activity]

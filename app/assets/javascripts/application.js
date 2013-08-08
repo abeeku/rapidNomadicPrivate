@@ -35,7 +35,12 @@
 //= require jquery-fileupload/jquery.fileupload-fp
 //= require jquery-fileupload/jquery.fileupload-ui
 //= require jquery-fileupload/locale
-
+$(function() {
+  var faye = new Faye.Client('http://68.116.171.81:9292/faye');
+  faye.subscribe("/messages", function(data) {
+    alert(data);
+  });
+});
 $(".popover").popover({ trigger: "hover" });
 /*
 $(window).scroll(function() {

@@ -66,62 +66,7 @@
 <body>
 
 
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <a class="brand" href="<%=	 root_url %>"><%=	 image_tag 'logo_opt.gif', :mouseover => 'logohover_opt.png', :width => '50px', :height => '40px' %><%=	 image_tag 'Untitled-2letters_opt.png', height: '40px' %></a>
-
-    <form class="navbar-search pull-left">
-      <input type="text" class="search-query" placeholder="Search">
-    </form>
-    <ul class="nav">
-      <li>
-        <%= link_to 'World Wall', :controller => 'pages', :action => 'world_wall' %>
-      </li>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">ComeToChat</a></li>
-      <li>
-        <%= link_to "Games", :controller => 'games', :action => 'index' %>
-      </li>
-    </ul>
-
-    <ul class="nav pull-right">
-      <% if current_user %>
-
-          <li class="dropdown"><a href="#" id="menubar_drop" role="button" class="dropdown-toggle" data-toggle="dropdown"><%=  image_tag current_user.profile(:menubar).to_s %> <%=  "#{current_user.full_name}" %><strong style="color: white" class="caret"></strong></a>
-
-            <ul class="dropdown-menu" role='menu'>
-              <li role="presentation"><%=	 link_to 'View My Profile', profile_for(current_user) %></li>
-              <li>
-                <h3> Friend Requests </h3>
-                <ul id="requested_friends_list">
-                  <%   current_user.requested_friends.each do |rf| %>
-                      <div class="friendship_friend">
-                        <li>   <%=   image_tag rf.profile(:menubar) %>   <%=  link_to rf.full_name, profile_for(rf) %>
-                          <%=  link_to 'Accept', {:controller => 'friendships', action: 'accept', :id => rf.id } , class: 'btn btn-info' %>
-                        </li>
-                      </div>
-                  <%   end %>
-                </ul>
-              </li>
-            </ul>
-
-          </li>
-          <li class="divider-vertical"></li>
-          <li><%=	 link_to 'Log Out', logout_path %></li>
-      <% else %>
-          <li><%=	 link_to 'Register', register_path %></li>
-          <li class="divider-vertical"></li>
-          <li class="dropdown">
-            <a  href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Log In <b class="caret"></b></a>
-            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-              <%=	 render 'sessions/form' %>
-               <%= link_to 'Forgotten Password?', new_password_reset_path %>
-            </div>
-          </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+<%= render "shared/menu" %>
 
 <% flash.each do |name, msg| %>
     <div class="alert alert-<%= name == :notice ? 'success' : 'error' %>">

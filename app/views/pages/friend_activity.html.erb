@@ -1,10 +1,15 @@
+<% content_for :head do %>
+  <%=	 stylesheet_link_tag "friendships" %>
+<% end %>
+
+
 <h1 style="font-family: 'Roboto Condensed',arial,helvetica,san-serif;text-align: center">Friend Activity</h1>
 <hr/>
 
   <%	 @friends_posts.each do |post| %>
 
 
-     
+ <div class="box-soft">    
 <div class="friendbox">
   <br>
   <h2><%=h link_to post.user.full_name, :controller => 'users', :action => 'wall', :username => post.user.username  if post.user %></h2>
@@ -14,10 +19,10 @@
   <%=h truncate post.content, length:160 %>
   </p>
   <span style="float: right">
-    <%= post.created_at.strftime('%I:%M %p %b %d') %>
+    <%= post.created_at.strftime('%l:%M %p %b %d') %>
   </span>
 
-</div>
+</div></div>
     <!--    <%# image_tag post.user.profile(:thumb).to_s, :width => 80, :height => 80 if post.user %>
         <%#h link_to post.user.full_name, :controller => 'users', :action => 'wall', :username => post.user.username  if post.user %>
         <span style="float: right"><%# time_ago_in_words(post.created_at).gsub('about','') + ' ago' %></span>

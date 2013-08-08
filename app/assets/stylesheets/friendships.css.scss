@@ -10,14 +10,15 @@ background-color: white;
 }
 .friendbox:hover {
 	 position: relative; 
-            // top: -6px;
+             top: -6px;
 }
 .friendbox h2 {
 	color: #ffd700;
 	background-color:black;
 	width:auto;
 	font-family:'Roboto Condensed',Helvetica;
-	display:inline;font-size:18px;
+	display:inline;
+	font-size:18px;
 }
 #menubar li a:hover {
 	
@@ -39,4 +40,9 @@ background-color:#000f3b;
 	margin-left:0px;
 	display:inline;
 	float:left;
+}
+.box-soft {
+	display: inline;
+	height: 200px;
+width: 300px;
 }

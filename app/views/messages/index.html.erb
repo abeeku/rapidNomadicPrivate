@@ -1,0 +1,27 @@
+<% content_for :head do %>
+	<%=	 stylesheet_link_tag "messages" %>
+	<%= javascript_include_tag "messages" %>
+	<%= javascript_include_tag "http://68.116.171.81:9292/faye.js" %>
+	<style type="text/css" media="screen" id="test">
+		body {
+			background-color: #ffffff;
+		}
+		img {
+	vertical-align: top;
+  }
+	</style>
+<% end %>
+
+<% title "Chat" %>
+
+<ul id="chat">
+	<%= render @messages %>
+</ul>
+<%=  %>
+<%= form_for Message.new, :remote => true do |f| %>
+	<%= f.text_field :content %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	
+	<%# f.hidden_field :reciever_id, :value => @user %>
+	<%= f.submit "Send" %>
+<% end %>
