@@ -30,7 +30,7 @@
 
 
               <%# if @user != post.user %>
-             style="background-color: <#- post.user.profile.post_color.to_s %>"
+             style="background-color: <#- post.user.avatar_url.post_color.to_s %>"
         <%# end %>
         <%#	  %>
         <li
@@ -38,7 +38,7 @@
         class="first"
         <%# end %>
         >
-          <%# image_tag post.user.profile(:thumb).to_s, :width => 80, :height => 80 %>
+          <%# image_tag post.user.avatar_url(:thumb).to_s, :width => 80, :height => 80 %>
           <%#h link_to post.user.full_name, :controller => 'users', :action => 'wall', :username => post.user.username %>
           <span style="float: right"><%# time_ago_in_words(post.created_at) %> ago</span>
 

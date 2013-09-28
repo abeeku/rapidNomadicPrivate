@@ -19,7 +19,7 @@
 // require twitter/bootstrap/bootstrap-scrollspy
 //= require twitter/bootstrap/bootstrap-tab
 
-// require twitter/bootstrap/bootstrap-tooltip
+//= require twitter/bootstrap/bootstrap-tooltip
 //= require twitter/bootstrap/bootstrap-popover
 // require twitter/bootstrap/bootstrap-button
 // require twitter/bootstrap/bootstrap-collapse

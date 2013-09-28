@@ -15,10 +15,32 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript">
+      $(document).ready(function() {
+          alert('hi');
+          $('.popover-but').popover();
+      });
+
       function _(x) {
           return document.getElementById(x);
       }
-
+      function bio() {
+          var x = _('user_bio_text');
+          var two = _('user_info_bio');
+           toggleElement(x);
+          toggleElement(two);
+          /*if (two.style.display == 'block') {
+              two.style.display = 'none';
+          }
+          else {
+              two.style.display = 'block';
+          }
+          if (x.style.display == 'block') {
+              x.style.display = 'none';
+          }
+          else {
+              x.style.display = 'block';
+          } */
+      }
       function toggleElement(x) {
           var x = _(x);
           if (x.style.display == 'block') {
@@ -80,30 +102,34 @@
           <% if current_user %>
               <% if @user.id == current_user.id %>
                   <%=  form_for @user, :html => { :multipart => true , :id =>'avatar_form' } do |f| %>
-                      <%= f.file_field :profile, accept: 'image/jpeg, image/png, image/gif' %>
+                      <%= f.file_field :avatar, accept: 'image/jpeg, image/png, image/gif' %>
                       <%= f.submit 'Change' %>
                   <%   end %>
-                  <a href="#" onclick="return false;" onmousedown="toggleElement('avatar_form');">Change Profile Photo</a>
+                  <a href="#" onclick="return false;" class='btn btn-inverse' onmousedown="toggleElement('avatar_form');">Change Profile Photo</a>
               <% end %>
           <% end %>
-          <%= image_tag @user.profile.url.to_s, :width => 250, :height => 250 %>
+          <%=	 image_tag @user.avatar_url(:medium)  %>
         </div>
         <h3><%= @user.full_name %></h3>
 
-        <% if current_user and current_user.id == @user.id %>
-            <%=	 friendship_status(@user,current_user) %>
-        <% else %>
-            <%=  sent_status(current_user,@user)  %>
+        <% if current_user %>
+            <% if current_user and current_user.id == @user.id %>
+                <%=	 friendship_status(@user,current_user) %>
+            <% else %>
+                <%=  sent_status(current_user,@user)  %>
+            <% end %>
         <% end %>
 
 
-        <%	 unless Friendship.exists?(current_user, @user) or current_user == @user %>
-            <%= form_for Friendship.new do |f| %>
-                <%= f.hidden_field :friend_id, :value => @user.id  %>
-                <%= f.submit "Add #{@user.first_name} as a Friend" , :confirm =>
-                        "Send friend request to #{@user.full_name}?", class: 'btn btn-info'  %>
-            <% end %>
-            <%	 end %>
+        <% if current_user %>
+            <%	 unless Friendship.exists?(current_user, @user) or current_user == @user %>
+                <%= form_for Friendship.new do |f| %>
+                    <%= f.hidden_field :friend_id, :value => @user.id  %>
+                    <%= f.submit "Add #{@user.first_name} as a Friend" , :confirm =>
+                            "Send friend request to #{@user.full_name}?", class: 'btn btn-info'  %>
+                <% end %>
+                <%	 end %>
+        <% end %>
         <% if current_user && current_user.requested_friends.include?(@user) %>
             <%=	 link_to 'Accept', {:controller => 'friendships', action: 'accept', :id => @user.id } , class: 'btn btn-info' %>
 <%	 end %>
@@ -112,14 +138,23 @@
             <ul id="requested_friends_list">
               <%	 @user.requested_friends.each do |rf| %>
                   <div class="friendship_friend">
-                    <li>   <%=	 image_tag rf.profile(:menubar) %>   <%=	link_to rf.full_name, profile_for(rf) %>
+                    <li>   <%=	 image_tag rf.avatar_url(:menubar) %>   <%=	link_to rf.full_name, profile_for(rf) %>
                       <%=	 link_to 'Accept', {:controller => 'friendships', action: 'accept', :id => rf.id } , class: 'btn btn-info' %>
                     </li>
                   </div>
               <%	 end %>
             </ul>
         <% end %>
+         <h3 class="bottom-not-name">Info</h3>
+        <% if current_user == @user %>
+            <%=	 form_for @user_info do |f| %>
+                       <%=	 f.text_area :bio %>
+                <%=	 f.submit 'Update', :id => "submit_bio", :class => 'btn btn-inverse' %>
+                <%	 end %>
+        <% end %>
 
+        <p class="info-para" id="user_bio_text" style="display: block;">
+          <%= @user.user_info.bio.to_s %><br/> <a href="#" onclick="return false;" class="btn btn-inverse" onmousedown="toggleElement('user_info_bio');toggleElement('user_bio_text');toggleElement('submit_bio');">Change Bio</a></p>
       </div>
       <div id="contentCol">
         <div id="contentArea">

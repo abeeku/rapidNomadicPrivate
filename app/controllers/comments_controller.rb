@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(params[:comment])
     if @comment.save
-      redirect_to @commentable
+      redirect_to request.referrer
     end
   end
 
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   def load_commentable
   ###  resource, id = request.path.split('/')[1, 2]
-    @commentable = resource.singularize.classify.constantize.find(id)###
+
      @commentable = if params[:post_id]
     Post.find(params[:post_id])
   elsif params[:photo_id]

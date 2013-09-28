@@ -10,7 +10,16 @@
   <div id="comments-box">
   
     <h2>Comments</h2>
-    <%=	 render 'comments/comments' %>
+   <%	 post.comments.each do |comment| %>
+        <% if post.comments.first == comment %>
+            <div class="comment-first">
+        <%	 else %>
+            <div class="comment">
+
+        <% end %>
+        <%=	link_to comment.commentable.user.full_name, :controller => 'users', :action => 'show', :username => comment.commentable.user.username %> <%=	 comment.content %>
+        </div>
+        <%	 end %>
 
     <p>
    <% if current_user %>

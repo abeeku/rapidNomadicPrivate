@@ -1,4 +1,20 @@
 <h2>All Posts</h2>
-<ul><% @posts.each do |p| %>
-   <li><%=	 p.content %></li>
-<%	 end %></ul>
+<%=	 form_tag posts_path, method: :get do %>
+<%=	 text_field_tag :search, params[:search] %>
+    <%=	 submit_tag "Search", name: nil %>
+<%	end %>
+<% if @posts %>
+    <div id='posts list'>
+    <ul style="list-style-type: none;"><% @posts.each do |p| %>
+       <li style="height: 87px;border-radius: 6px;border: 1px solid black;">
+         <%= link_to p  do %>
+       <div id="post_search_result_<%= p.id %>" style="background-color: white;">
+       <%= p.user.full_name %>  <div id='post-<%= p.id %>-content' style="color: #000000;"><%=	 p.content %></div>
+        </div>
+             <%	 end %>
+       </li>
+    <%	 end %></ul>
+    </div>
+<% else %>
+    <p>Enter a part of a post to search for it</p>
+<% end %>

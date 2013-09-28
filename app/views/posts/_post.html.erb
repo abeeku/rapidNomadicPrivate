@@ -3,10 +3,109 @@
 class="first"
 <% end %>
 >
-  <%= image_tag post.user.profile(:thumb).to_s, :width => 80, :height => 80  if post.user  %>
+  <%= image_tag post.user.avatar_url(:thumb).to_s, :width => 80, :height => 80  if post.user  %>
   <%=h link_to post.user.full_name, :controller => 'users', :action => 'wall', :username => post.user.username  if post.user %>
-  <span style="float: right"><%= time_ago_in_words(post.created_at).gsub('about','') + ' ago' %></span>
+  <span style="float: right">
+   <span class="time-box"> <%= time_ago_in_words(post.created_at).gsub('about','') + ' ago' %></span>
 
+   <table class="interactions-tbl">
+     <tr>
+       <td>
+     <% if current_user %>
+         <% if current_user.liked? post %>
+            <%=	 link_to 'Unlike', {:controller => :posts, action: 'unlike', :post_id => post.id }, {:id => 'like_post_'+post.id.to_s } %>
+
+         <% else %>
+            <span class="like-group" id="like-group-post-<%= post.id %>" >
+          <a href="<%= like_post_path(:post_id => post.id) %>" data-toggle="popover" data-placement="left" data-trigger='hover' class="popover-but" title="Like"><i class="icon-thumbs-up icon-large"></i></a>
+            <%#	 link_to '', {:controller => :posts, action: 'like', :post_id => post.id }, {:id => 'like_post_'+post.id.to_s } %>
+</span>
+     <% end %>
+     <% end %>
+       </td>
+
+
+    <td style="border-left: 1px solid black;
+            border-right: 1px solid black;">
+      <!--<a href="#"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-trigger='hover' class="btn popover-but" data-original-title="Popover on top">Popover on top</a>   -->
+      <a href="<%= dislike_post_path(:post_id => post.id) %>" data-toggle="popover" data-trigger='hover' class="popover-but" title="Dislike"><i class="icon-thumbs-down icon-large"></i></a>
+</td>
+       <td>
+         <a href="<%= share_post_path(:post_id => post.id) %>" ><i class="icon-share icon-search"></i></a>
+       </td>
+        <%#	 link_to 'Dislike', {:controller => :posts, action: 'dislike', :post_id => post.id } %>
+ </tr>
+     <tr><td colspan="100%" >
+  <%=	 pluralize(post.likes.size, "like") %></td>
+       <% if post.dislikes.size != 0 %>
+           <td>
+             <%=	 pluralize(post.dislikes.size, "like") %>
+           </td>
+       <% end %>
+
+       <script type="text/javascript">
+           $('.popover-but').popover();
+       </script>
+</tr>
+     <tr>
+       <td colspan="100%"><a href="#" class="showCommentsLink" id="post-<%= post.id.to_s %>-comment-link" onclick="
+
+    if (_('comment-box-<%= post.id.to_s %>').style.display == 'none')
+            {
+                    var minus ='<i class=\'icon-minus\'></i>';
+               $('#post-<%= post.id.to_s %>-comment-link').html(minus + ' Comments')
+     _('comment-box-<%= post.id.to_s %>').style.display = 'block'
+               }
+               else {
+            var plus = '<i class=\'icon-plus\'></i>';
+            $('#post-<%= post.id.to_s %>-comment-link').html(plus+'Comments');
+         _('comment-box-<%= post.id.to_s %>').style.display = 'none'
+
+                   }
+            return false;
+       "><i class='icon-plus'></i>Comments</a> </td>
+     </tr>
+   </table>
+  </span>
+
+       <%#	 image_tag 'twitter/bootstrap/glyphicons-halflings.png' %>
 
   <div class="post_mess"><%= post.content %></div>
+  <% if  post.content.length < 35 %>
+      <br/><br/><br/>
+  <% end %>
+  <div class="comments-box" style="margin-left: 87px;display: none;" id="comment-box-<%= post.id.to_s %>">
+    <%	 post.comments.each do |comment| %>
+        <% if post.comments.first == comment %>
+            <div class="comment-first">
+        <%	 else %>
+            <div class="comment">
+
+        <% end %>
+      <%=	 image_tag comment.user.avatar_url(:menubar).to_s %>  <%=	link_to comment.user.full_name, profile_for(comment.user) %> <%=	 comment.content %>
+        </div>
+    <%	 end %>
+
+    <p>
+   <% if current_user %>
+          <%= form_for [post,@comment], :id => post.id.to_s+ '-new-comment'  do |f| %>
+
+           <div class="comment-text-box" style="display: inline;">
+             <%=	 f.hidden_field :user_id, :value => current_user.id %>
+              <%=	 f.text_area :content, :placeholder => 'Add a Comment...', rows: 1, onKeyPress: '
+              if (event.keyCode == 13) {
+                   this.form.submit();
+                   return false;
+               }' %>
+            </div>
+            <%=	 f.submit 'Add Comment' %>
+        <%	 end %>
+ <% else %>
+ <%=	link_to 'Log in', login_path  %> or   <%=	link_to 'Register', register_path  %>  to add a comment
+ <% end %>
+ </p>
+  </div>
+    <script type="text/javascript">
+          $('')
+    </script>
 </li>

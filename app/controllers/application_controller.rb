@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :authorize
-
+ def root_url(*options)
+    if current_user.nil?
+      register_url
+    else
+      super(*options)
+    end
+  end
   delegate :allow? , :to => :current_permission
 helper :layout
 
@@ -11,7 +17,7 @@ private
   def title(page_title)
     content_for (:title) { page_title }
   end
-
+ 
   def yield_or_default(section, default = "")
     content_for?(section) ? content_for(section) : default
   end

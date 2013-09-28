@@ -9,6 +9,7 @@ class FriendshipsController < ApplicationController
   end
     def show
   @user = User.find_by_username(params[:username])
+  @user_info = @user.user_info
     end
    def accept
      @friend_id = params[:id]

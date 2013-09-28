@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+
+  
+
+
 describe do
  before do
     @user = User.new(first_name: "Example",username: "exampel" ,last_name: "User", email: "user@example.com", password: "secret", password_confirmation: "secret")
@@ -18,7 +22,32 @@ describe do
     before { @user.email = " " }
     it { should_not be_valid }
   end
-
+  
+  
+  
+  
+  
+  
+  describe User do
+    it 'is invalid without username' do 
+        user = User.new
+        user.should_not be_valid
+      end
+  
+    it 'include posts ' do
+        post1 = Post.new(content: 'hgfdhfhghghgh')
+        post2 = Post.new(content: 'hgfdhfhghghgh')
+        user = User.new(username: "Ash", posts: [post1, post2])
+        user.posts.should include(post1)
+    end  
+  end
+  
+  
+  
+  
+  
+  
+  
    describe "when username is too long" do
     before { @user.username = "a" * 51 }
     it { should_not be_valid }

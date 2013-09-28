@@ -4,18 +4,18 @@ Rapidnomadic2::Application.routes.draw do
 
   get "games/show"
 
-  get "user_info/index"
-
-  get "user_info/edit"
-
+ resources :user_info
   resources :friendships
   resources :messages
+
   match '/accept_friend' => 'friendships#accept'
   get 'profiles/:username' => 'users#profile'
   get "/dashboard" => 'pages#dashboard'
 
-
-
+  match 'like/post/:post_id' => 'posts#like', :as => 'like_post'
+  match 'unlike/post/:post_id' => 'posts#unlike', :as => 'unlike_post'
+  match 'dislike/post/:post_id' => 'posts#dislike', :as => 'dislike_post'
+  match 'share/post/:post_id' => 'posts#share', :as => 'share_post'
   get "/world_wall"  => 'pages#world_wall'
 
   get "/friend_activity"   => 'pages#friend_activity'
@@ -32,16 +32,16 @@ Rapidnomadic2::Application.routes.draw do
     get '/photos/:id/comments/new' => 'comments#new', :as => 'new_photo_comment'
 
   end
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   #scope '/:username' do
     resources :photos #, :except => [:show, :edit, :update]
-
+  resources :comments
  # end
   resources :users, :except => :show do
-    resources :posts do
-      resources :comments
-    end
-  end
+    resources :posts
+end
 
   resources :password_resets
 
@@ -101,7 +101,7 @@ Rapidnomadic2::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'users#index'
+   root :to => 'pages#world_wall'
 
   # See how all your routes lay out with "rake routes"
 
@@ -111,7 +111,9 @@ Rapidnomadic2::Application.routes.draw do
 #match '/:username' => redirect('/:username/wall')
 #match '/:username' => 'users#show', as: 'profile'
   match '/:username' => 'users#wall', as: 'profile'
-  match '/:username/info' => 'user_info#index', as: 'user_info'
+  match '/:username/messages' => 'messages#show', as: 'user_messages'
+  match '/:username/messages/:friend' => 'messages#show', as: 'user_messages'
+  match '/:username/info' => 'user_info#index', as: 'show_user_info'
   match '/:username/friends' => 'friendships#show', as: 'show_friends'
   match '/:username/photos' => 'photos#index', as: 'user_photos'
 end

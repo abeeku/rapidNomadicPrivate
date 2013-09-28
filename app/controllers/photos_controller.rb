@@ -2,6 +2,7 @@ class PhotosController < ApplicationController
   layout 'profile', only: :index
   def index
     @user = User.find_by_username(params[:username])
+    @user_info = @user.user_info
   end
   def new
    @photo = Photo.new(:user_id => current_user.id)
@@ -10,7 +11,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
    def show
-      @photo = Photo.find(params[:id])
+      @photo =c Photo.find(params[:id])
       @comment = Comment.new
       @commentable = @photo
       @comments = @commentable.comments

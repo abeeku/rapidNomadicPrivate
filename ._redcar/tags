@@ -1,0 +1,205 @@
+1376058284
+AddAcceptedAtToFriendships	T:/rapidnomadic2/db/migrate/20130710160937_add_accepted_at_to_friendships.rb	class AddAcceptedAtToFriendships 
+AddAdminToUsers	T:/rapidnomadic2/db/migrate/20130528011739_add_admin_to_users.rb	class AddAdminToUsers 
+AddAttachmentImageToPhotos	T:/rapidnomadic2/db/migrate/20130626182351_add_attachment_image_to_photos.rb	class AddAttachmentImageToPhotos 
+AddAttachmentProfileToUsers	T:/rapidnomadic2/db/migrate/20130627220250_add_attachment_profile_to_users.rb	class AddAttachmentProfileToUsers 
+AddCookieTokenToUsers	T:/rapidnomadic2/db/migrate/20130527140137_add_cookie_token_to_users.rb	class AddCookieTokenToUsers 
+AddDateOfBirthToUsers	T:/rapidnomadic2/db/migrate/20130525162207_add_date_of_birth_to_users.rb	class AddDateOfBirthToUsers 
+AddDescriptonToPhotos	T:/rapidnomadic2/db/migrate/20130606190011_add_descripton_to_photos.rb	class AddDescriptonToPhotos 
+AddImageToPhotos	T:/rapidnomadic2/db/migrate/20130605220806_add_image_to_photos.rb	class AddImageToPhotos 
+AddIndexToFriendships	T:/rapidnomadic2/db/migrate/20130710155536_add_index_to_friendships.rb	class AddIndexToFriendships 
+AddPasswordResetToUsers	T:/rapidnomadic2/db/migrate/20130527172744_add_password_reset_to_users.rb	class AddPasswordResetToUsers 
+AddPrivacyToComments	T:/rapidnomadic2/db/migrate/20130706024145_add_privacy_to_comments.rb	class AddPrivacyToComments 
+AddUserIdToComments	T:/rapidnomadic2/db/migrate/20130620014514_add_user_id_to_comments.rb	class AddUserIdToComments 
+AddUserIdToPhotos	T:/rapidnomadic2/db/migrate/20130606185345_add_user_id_to_photos.rb	class AddUserIdToPhotos 
+Application	T:/rapidnomadic2/config/application.rb	  class Application 
+ApplicationController	T:/rapidnomadic2/app/controllers/application_controller.rb	class ApplicationController 
+ApplicationHelper	T:/rapidnomadic2/app/helpers/application_helper.rb	module ApplicationHelper
+BrowsingTest	T:/rapidnomadic2/test/performance/browsing_test.rb	class BrowsingTest 
+Comment	T:/rapidnomadic2/app/models/comment.rb	class Comment 
+CommentTest	T:/rapidnomadic2/test/unit/comment_test.rb	class CommentTest 
+CommentsController	T:/rapidnomadic2/app/controllers/comments_controller.rb	class CommentsController 
+CommentsControllerTest	T:/rapidnomadic2/test/functional/comments_controller_test.rb	class CommentsControllerTest 
+CommentsHelper	T:/rapidnomadic2/app/helpers/comments_helper.rb	module CommentsHelper
+CommentsHelperTest	T:/rapidnomadic2/test/unit/helpers/comments_helper_test.rb	class CommentsHelperTest 
+CreateComments	T:/rapidnomadic2/db/migrate/20130619213507_create_comments.rb	class CreateComments 
+CreateFriendships	T:/rapidnomadic2/db/migrate/20130710154758_create_friendships.rb	class CreateFriendships 
+CreateMessages	T:/rapidnomadic2/db/migrate/20130709230709_create_messages.rb	class CreateMessages 
+CreatePhotos	T:/rapidnomadic2/db/migrate/20130605220146_create_photos.rb	class CreatePhotos 
+CreatePosts	T:/rapidnomadic2/db/migrate/20130620213009_create_posts.rb	class CreatePosts 
+CreateUserInfos	T:/rapidnomadic2/db/migrate/20130705200215_create_user_infos.rb	class CreateUserInfos 
+CreateUsers	T:/rapidnomadic2/db/migrate/20130524223017_create_users.rb	class CreateUsers 
+Friendship	T:/rapidnomadic2/app/models/friendship.rb	class Friendship 
+FriendshipTest	T:/rapidnomadic2/test/unit/friendship_test.rb	class FriendshipTest 
+FriendshipsController	T:/rapidnomadic2/app/controllers/friendships_controller.rb	class FriendshipsController 
+FriendshipsControllerTest	T:/rapidnomadic2/test/functional/friendships_controller_test.rb	class FriendshipsControllerTest 
+FriendshipsHelper	T:/rapidnomadic2/app/helpers/friendships_helper.rb	module FriendshipsHelper
+FriendshipsHelperTest	T:/rapidnomadic2/test/unit/helpers/friendships_helper_test.rb	class FriendshipsHelperTest 
+GamesController	T:/rapidnomadic2/app/controllers/games_controller.rb	class GamesController 
+GamesControllerTest	T:/rapidnomadic2/test/functional/games_controller_test.rb	class GamesControllerTest 
+GamesHelper	T:/rapidnomadic2/app/helpers/games_helper.rb	module GamesHelper
+GamesHelperTest	T:/rapidnomadic2/test/unit/helpers/games_helper_test.rb	class GamesHelperTest 
+LayoutHelper	T:/rapidnomadic2/app/helpers/layout_helper.rb	module LayoutHelper
+MailerMacros	T:/rapidnomadic2/spec/support/mailer_macros.rb	module MailerMacros
+Message	T:/rapidnomadic2/app/models/message.rb	class Message 
+MessageTest	T:/rapidnomadic2/test/unit/message_test.rb	class MessageTest 
+MessagesController	T:/rapidnomadic2/app/controllers/messages_controller.rb	class MessagesController 
+MessagesControllerTest	T:/rapidnomadic2/test/functional/messages_controller_test.rb	class MessagesControllerTest 
+MessagesHelper	T:/rapidnomadic2/app/helpers/messages_helper.rb	module MessagesHelper
+MessagesHelperTest	T:/rapidnomadic2/test/unit/helpers/messages_helper_test.rb	class MessagesHelperTest 
+PagesController	T:/rapidnomadic2/app/controllers/pages_controller.rb	class PagesController 
+PagesControllerTest	T:/rapidnomadic2/test/functional/pages_controller_test.rb	class PagesControllerTest 
+PagesHelper	T:/rapidnomadic2/app/helpers/pages_helper.rb	module PagesHelper
+PagesHelperTest	T:/rapidnomadic2/test/unit/helpers/pages_helper_test.rb	class PagesHelperTest 
+PasswordResets	T:/rapidnomadic2/spec/requests/password_resets_spec.rb	describe "PasswordResets" do
+PasswordResetsController	T:/rapidnomadic2/app/controllers/password_resets_controller.rb	class PasswordResetsController 
+PasswordResetsControllerTest	T:/rapidnomadic2/test/functional/password_resets_controller_test.rb	class PasswordResetsControllerTest 
+PasswordResetsHelper	T:/rapidnomadic2/app/helpers/password_resets_helper.rb	module PasswordResetsHelper
+PasswordResetsHelperTest	T:/rapidnomadic2/test/unit/helpers/password_resets_helper_test.rb	class PasswordResetsHelperTest 
+Permission	T:/rapidnomadic2/app/models/permission.rb	class Permission
+Photo	T:/rapidnomadic2/app/models/photo.rb	class Photo 
+PhotoTest	T:/rapidnomadic2/test/unit/photo_test.rb	class PhotoTest 
+PhotosController	T:/rapidnomadic2/app/controllers/photos_controller.rb	class PhotosController 
+PhotosControllerTest	T:/rapidnomadic2/test/functional/photos_controller_test.rb	class PhotosControllerTest 
+PhotosHelper	T:/rapidnomadic2/app/helpers/photos_helper.rb	module PhotosHelper
+PhotosHelperTest	T:/rapidnomadic2/test/unit/helpers/photos_helper_test.rb	class PhotosHelperTest 
+Post	T:/rapidnomadic2/app/models/post.rb	class Post 
+PostTest	T:/rapidnomadic2/test/unit/post_test.rb	class PostTest 
+PostsController	T:/rapidnomadic2/app/controllers/posts_controller.rb	class PostsController 
+PostsControllerTest	T:/rapidnomadic2/test/functional/posts_controller_test.rb	class PostsControllerTest 
+PostsHelper	T:/rapidnomadic2/app/helpers/posts_helper.rb	module PostsHelper
+PostsHelperTest	T:/rapidnomadic2/test/unit/helpers/posts_helper_test.rb	class PostsHelperTest 
+Rapidnomadic2	T:/rapidnomadic2/config/application.rb	module Rapidnomadic2
+RemoveImageFromPhotos	T:/rapidnomadic2/db/migrate/20130626174410_remove_image_from_photos.rb	class RemoveImageFromPhotos 
+RemoveProfileFromPhotos	T:/rapidnomadic2/db/migrate/20130626190620_remove_profile_from_photos.rb	class RemoveProfileFromPhotos 
+SessionsController	T:/rapidnomadic2/app/controllers/sessions_controller.rb	class SessionsController 
+SessionsControllerTest	T:/rapidnomadic2/test/functional/sessions_controller_test.rb	class SessionsControllerTest 
+SessionsHelper	T:/rapidnomadic2/app/helpers/sessions_helper.rb	module SessionsHelper
+SessionsHelperTest	T:/rapidnomadic2/test/unit/helpers/sessions_helper_test.rb	class SessionsHelperTest 
+TestCase	T:/rapidnomadic2/test/test_helper.rb	class ActiveSupport::TestCase
+User	T:/rapidnomadic2/app/models/user.rb	class User 
+UserInfo	T:/rapidnomadic2/app/models/user_info.rb	class UserInfo 
+UserInfoController	T:/rapidnomadic2/app/controllers/user_info_controller.rb	class UserInfoController 
+UserInfoControllerTest	T:/rapidnomadic2/test/functional/user_info_controller_test.rb	class UserInfoControllerTest 
+UserInfoHelper	T:/rapidnomadic2/app/helpers/user_info_helper.rb	module UserInfoHelper
+UserInfoHelperTest	T:/rapidnomadic2/test/unit/helpers/user_info_helper_test.rb	class UserInfoHelperTest 
+UserInfoTest	T:/rapidnomadic2/test/unit/user_info_test.rb	class UserInfoTest 
+UserMailer	T:/rapidnomadic2/app/mailers/user_mailer.rb	class UserMailer 
+UserMailerTest	T:/rapidnomadic2/test/functional/user_mailer_test.rb	class UserMailerTest 
+UserTest	T:/rapidnomadic2/test/unit/user_test.rb	class UserTest 
+UsersController	T:/rapidnomadic2/app/controllers/users_controller.rb	class UsersController 
+UsersControllerTest	T:/rapidnomadic2/test/functional/users_controller_test.rb	class UsersControllerTest 
+UsersHelper	T:/rapidnomadic2/app/helpers/users_helper.rb	module UsersHelper
+UsersHelperTest	T:/rapidnomadic2/test/unit/helpers/users_helper_test.rb	class UsersHelperTest 
+VALID_EMAIL_REGEX	T:/rapidnomadic2/app/models/user.rb	 VALID_EMAIL_REGEX =
+accept	T:/rapidnomadic2/app/models/friendship.rb	   def self.accept(user, friend)
+accept	T:/rapidnomadic2/app/controllers/friendships_controller.rb	   def accept
+accept_one_side	T:/rapidnomadic2/app/models/friendship.rb	  def self.accept_one_side(user, friend, accepted_at)
+allow	T:/rapidnomadic2/app/models/permission.rb	  def allow(controllers, actions, &block)
+allow?	T:/rapidnomadic2/app/models/permission.rb	  def allow?(controller, action, resource = nil)
+allow_all	T:/rapidnomadic2/app/models/permission.rb	  def allow_all
+allow_param	T:/rapidnomadic2/app/models/permission.rb	  def allow_param(resources, attributes)
+allow_param?	T:/rapidnomadic2/app/models/permission.rb	  def allow_param?(resource, attribute)
+authorize	T:/rapidnomadic2/app/controllers/application_controller.rb	   def authorize
+change	T:/rapidnomadic2/db/migrate/20130710160937_add_accepted_at_to_friendships.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130710155536_add_index_to_friendships.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130710154758_create_friendships.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130709230709_create_messages.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130706024145_add_privacy_to_comments.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130705200215_create_user_infos.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130620213009_create_posts.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130620014514_add_user_id_to_comments.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130619213507_create_comments.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130606190011_add_descripton_to_photos.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130606185345_add_user_id_to_photos.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130605220806_add_image_to_photos.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130605220146_create_photos.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130528011739_add_admin_to_users.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130527172744_add_password_reset_to_users.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130527140137_add_cookie_token_to_users.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130525162207_add_date_of_birth_to_users.rb	  def change
+change	T:/rapidnomadic2/db/migrate/20130524223017_create_users.rb	  def change
+change	T:/rapidnomadic2/app/controllers/photos_controller.rb	  def change
+create	T:/rapidnomadic2/app/controllers/users_controller.rb	  def create
+create	T:/rapidnomadic2/app/controllers/sessions_controller.rb	  def create
+create	T:/rapidnomadic2/app/controllers/posts_controller.rb	  def create
+create	T:/rapidnomadic2/app/controllers/photos_controller.rb	  def create
+create	T:/rapidnomadic2/app/controllers/password_resets_controller.rb	  def create
+create	T:/rapidnomadic2/app/controllers/messages_controller.rb		def create
+create	T:/rapidnomadic2/app/controllers/friendships_controller.rb	  def create
+create	T:/rapidnomadic2/app/controllers/comments_controller.rb	  def create
+current_permission	T:/rapidnomadic2/app/controllers/application_controller.rb	  def current_permission
+current_user	T:/rapidnomadic2/app/controllers/application_controller.rb	  def current_user
+dashboard	T:/rapidnomadic2/app/controllers/pages_controller.rb	  def dashboard
+destroy	T:/rapidnomadic2/app/controllers/sessions_controller.rb	  def destroy
+destroy	T:/rapidnomadic2/app/controllers/photos_controller.rb	  def destroy
+down	T:/rapidnomadic2/db/migrate/20130627220250_add_attachment_profile_to_users.rb	  def self.down
+down	T:/rapidnomadic2/db/migrate/20130626190620_remove_profile_from_photos.rb	  def down
+down	T:/rapidnomadic2/db/migrate/20130626182351_add_attachment_image_to_photos.rb	  def self.down
+down	T:/rapidnomadic2/db/migrate/20130626174410_remove_image_from_photos.rb	  def down
+edit	T:/rapidnomadic2/app/controllers/user_info_controller.rb	  def edit
+edit	T:/rapidnomadic2/app/controllers/password_resets_controller.rb	  def edit
+emails user when requesting password reset	T:/rapidnomadic2/spec/requests/password_resets_spec.rb	it "emails user when requesting password reset" do
+exists?	T:/rapidnomadic2/app/models/friendship.rb	  def self.exists?(user,friend)
+friend_activity	T:/rapidnomadic2/app/controllers/pages_controller.rb	  def friend_activity
+friends_for	T:/rapidnomadic2/app/helpers/application_helper.rb	  def friends_for(user)
+friendship_status	T:/rapidnomadic2/app/helpers/friendships_helper.rb	  def friendship_status(user,friend)
+full_name	T:/rapidnomadic2/app/models/user.rb	  def full_name
+generate_token	T:/rapidnomadic2/app/models/user.rb	  def generate_token(column)
+index	T:/rapidnomadic2/app/controllers/users_controller.rb	  def index
+index	T:/rapidnomadic2/app/controllers/user_info_controller.rb	  def index
+index	T:/rapidnomadic2/app/controllers/posts_controller.rb	  def index
+index	T:/rapidnomadic2/app/controllers/photos_controller.rb	  def index
+index	T:/rapidnomadic2/app/controllers/messages_controller.rb	 	def index
+index	T:/rapidnomadic2/app/controllers/games_controller.rb	  def index
+index	T:/rapidnomadic2/app/controllers/comments_controller.rb	  def index
+info_for	T:/rapidnomadic2/app/helpers/application_helper.rb	  def info_for(user)
+initialize	T:/rapidnomadic2/app/models/permission.rb	    def initialize(user)
+javascript	T:/rapidnomadic2/app/helpers/layout_helper.rb	  def javascript(*args)
+last_email	T:/rapidnomadic2/spec/support/mailer_macros.rb		def last_email
+load_commentable	T:/rapidnomadic2/app/controllers/comments_controller.rb	  def load_commentable
+logged_in	T:/rapidnomadic2/app/controllers/application_controller.rb	  def logged_in
+new	T:/rapidnomadic2/app/controllers/users_controller.rb	  def new
+new	T:/rapidnomadic2/app/controllers/sessions_controller.rb	  def new
+new	T:/rapidnomadic2/app/controllers/posts_controller.rb	  def new
+new	T:/rapidnomadic2/app/controllers/photos_controller.rb	  def new
+new	T:/rapidnomadic2/app/controllers/password_resets_controller.rb	  def new
+new	T:/rapidnomadic2/app/controllers/comments_controller.rb	  def new
+not_logged_in	T:/rapidnomadic2/app/controllers/application_controller.rb	  def not_logged_in
+password_reset	T:/rapidnomadic2/app/mailers/user_mailer.rb	  def password_reset(user)
+permit_params!	T:/rapidnomadic2/app/models/permission.rb	  def permit_params!(params)
+photos_for	T:/rapidnomadic2/app/helpers/application_helper.rb	  def photos_for(user)
+profile	T:/rapidnomadic2/app/controllers/users_controller.rb	   def profile
+profile_for	T:/rapidnomadic2/app/helpers/application_helper.rb	  def profile_for(user)
+request	T:/rapidnomadic2/app/models/friendship.rb	  def self.request(user,friend)
+reset_email	T:/rapidnomadic2/spec/support/mailer_macros.rb		def reset_email
+send_password_reset	T:/rapidnomadic2/app/models/user.rb	     def send_password_reset
+sent_status	T:/rapidnomadic2/app/helpers/friendships_helper.rb	  def sent_status(user,friend)
+should be invalid	T:/rapidnomadic2/spec/models/user_spec.rb	it "should be invalid" do
+should be valid	T:/rapidnomadic2/spec/models/user_spec.rb	it "should be valid" do
+show	T:/rapidnomadic2/app/controllers/users_controller.rb	  def show
+show	T:/rapidnomadic2/app/controllers/photos_controller.rb	   def show
+show	T:/rapidnomadic2/app/controllers/games_controller.rb	  def show
+show	T:/rapidnomadic2/app/controllers/friendships_controller.rb	    def show
+show_title?	T:/rapidnomadic2/app/helpers/layout_helper.rb	  def show_title?
+stylesheet	T:/rapidnomadic2/app/helpers/layout_helper.rb	  def stylesheet(*args)
+test_homepage	T:/rapidnomadic2/test/performance/browsing_test.rb	  def test_homepage
+thumb	T:/rapidnomadic2/app/helpers/users_helper.rb		def thumb(user, width = 80,  height = 80)
+title	T:/rapidnomadic2/app/helpers/layout_helper.rb	  def title(page_title, show_title = true)
+title	T:/rapidnomadic2/app/controllers/application_controller.rb	  def title(page_title)
+up	T:/rapidnomadic2/db/migrate/20130627220250_add_attachment_profile_to_users.rb	  def self.up
+up	T:/rapidnomadic2/db/migrate/20130626190620_remove_profile_from_photos.rb	  def up
+up	T:/rapidnomadic2/db/migrate/20130626182351_add_attachment_image_to_photos.rb	  def self.up
+up	T:/rapidnomadic2/db/migrate/20130626174410_remove_image_from_photos.rb	  def up
+update	T:/rapidnomadic2/app/controllers/users_controller.rb	 def update
+update	T:/rapidnomadic2/app/controllers/photos_controller.rb	  def update
+update	T:/rapidnomadic2/app/controllers/password_resets_controller.rb	  def update
+wall	T:/rapidnomadic2/app/controllers/users_controller.rb	   def wall
+when email format is invalid	T:/rapidnomadic2/spec/models/user_spec.rb	describe "when email format is invalid" do
+when email format is valid	T:/rapidnomadic2/spec/models/user_spec.rb	describe "when email format is valid" do
+when email is not present	T:/rapidnomadic2/spec/models/user_spec.rb	describe "when email is not present" do
+when password doesn't match confirmation	T:/rapidnomadic2/spec/models/user_spec.rb	describe "when password doesn't match confirmation" do
+when password is not present	T:/rapidnomadic2/spec/models/user_spec.rb	describe "when password is not present" do
+when username is too long	T:/rapidnomadic2/spec/models/user_spec.rb	describe "when username is too long" do
+world_wall	T:/rapidnomadic2/app/controllers/pages_controller.rb	  def world_wall
+yield_or_default	T:/rapidnomadic2/app/controllers/application_controller.rb	  def yield_or_default(section, default = "")

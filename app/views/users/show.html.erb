@@ -460,7 +460,7 @@
                   <a href="#" onclick="return false;" onmousedown="toggleElement('avatar_form');">Change Profile Photo</a>
               <% end %>
           <% end %>
-          <%= image_tag @user.profile.url.to_s, :width => 250, :height => 250 %>
+          <%= image_tag @user.avatar_url.url.to_s, :width => 250, :height => 250 %>
         </div>
         <h3><%= @user.full_name %></h3>
 
@@ -484,7 +484,7 @@
             <ul id="requested_friends_list">
               <%	 @user.requested_friends.each do |rf| %>
                   <div class="friendship_friend">
-                    <li>   <%=	 image_tag rf.profile(:menubar) %>   <%=	link_to rf.full_name, profile_for(rf) %>
+                    <li>   <%=	 image_tag rf.avatar_url(:menubar) %>   <%=	link_to rf.full_name, profile_for(rf) %>
                       <%=	 link_to 'Accept', {:controller => 'friendships', action: 'accept', :id => rf.id } , class: 'btn btn-info' %>
                     </li>
                   </div>

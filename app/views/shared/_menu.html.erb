@@ -2,9 +2,17 @@
   <div class="navbar-inner">
 	<a class="brand" href="<%=	 root_url %>"><%=	 image_tag 'logo_opt.gif', :mouseover => 'logohover_opt.png', :width => '50px', :height => '40px' %><%=	 image_tag 'Untitled-2letters_opt.png', height: '40px' %></a>
 
-	<form class="navbar-search pull-left">
-	  <input type="text" class="search-query" placeholder="Search">
-	</form>
+    <%=	 form_tag posts_path, method: :get, :style => "display:inline;", :class => 'navbar-form pull-left', :id => 'post_search_form' do %>
+        <%=	 text_field_tag :search, params[:search], style: 'background-color:transparent;color: white;border:none;', :placeholder => 'Search...' %>
+        <a href="#" onclick="
+       _('post_search_form').submit();
+                return false;
+        ">
+          <i class="icon-search icon-white icon-large" style="color: #ffffff;line-height: normal;"></i>
+        </a>
+        <%=	 submit_tag "", name: nil, :style => "background-color:transparent;border:none;padding:10px;margin:0;", class: 'icon-search icon-white' %>
+
+    <%	end %>
 	<ul class="nav">
 	  <li>
 		<%= link_to 'World Wall', :controller => 'pages', :action => 'world_wall' %>
@@ -19,22 +27,11 @@
 	<ul class="nav pull-right">
 	  <% if current_user %>
 
-		  <li class="dropdown"><a href="#" id="menubar_drop" role="button" class="dropdown-toggle" data-toggle="dropdown"><%=  image_tag current_user.profile(:menubar).to_s %> <%=  "#{current_user.full_name}" %><strong style="color: white" class="caret"></strong></a>
+		  <li class="dropdown"><a href="#" id="menubar_drop" role="button" class="dropdown-toggle" data-toggle="dropdown"><%=  image_tag current_user.avatar_url(:menubar).to_s %> <%=  "#{current_user.full_name}" %><strong style="color: white" class="caret"></strong></a>
 
 			<ul class="dropdown-menu" role='menu'>
 			  <li role="presentation"><%=	 link_to 'View My Profile', profile_for(current_user) %></li>
-			  <li>
-				<h3> Friend Requests </h3>
-				<ul id="requested_friends_list">
-				  <%   current_user.requested_friends.each do |rf| %>
-					  <div class="friendship_friend">
-						<li>   <%=   image_tag rf.profile(:menubar) %>   <%=  link_to rf.full_name, profile_for(rf) %>
-						  <%=  link_to 'Accept', {:controller => 'friendships', action: 'accept', :id => rf.id } , class: 'btn btn-info' %>
-						</li>
-					  </div>
-				  <%   end %>
-				</ul>
-			  </li>
+
 			  <li><%= link_to "Messages", messages_url %></li>
 			</ul>
 

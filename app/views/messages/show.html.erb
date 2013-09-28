@@ -1,0 +1,101 @@
+<%	 content_for :head do %>
+    <%=	 javascript_include_tag 'autogrow' %>
+    <%	 end %>
+<ul class="nav nav-tabs" id ="profile_sidebar" style="margin: 0 auto;">
+  <li class="active">
+    <%= link_to 'Wall', profile_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Info', info_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Friends', friends_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Photos', photos_for(@user) %>
+  </li>
+  <li>
+    <%= link_to 'Videos', '#' %>
+  </li>
+  <li>
+    <%= link_to 'Messages', messages_for(@user) %>
+  </li>
+</ul>
+
+<h2>Your Messages</h2>
+ <%	 title "#{@user.full_name}'s Messages'" %>
+<%	 @user.friends.each do |fr| %>
+
+
+      <table width="800px;" cellspacing=0 cellpadding=0>
+      <tr>
+        <td width="89px" valign="top">
+        <div id="<%= fr.id %>_box" style="display: inline-block">
+        <h4><%= fr.full_name %></h4>
+        <%=	image_tag fr.avatar_url(:thumb) %>
+      </div>
+        </td>
+        <td width="604px"  valign="top">
+      <div id='messages' style="float: none;">
+      <div id="messages-box-<%= fr.id %>" style="width: 600px;overflow: scroll;background-color: white;height: 450px;">
+
+        <ul class="" style="margin: 0px;">
+          <%	 @mes.each do |m| %>
+              <div class="message_content"  style="display: block;">
+                <% if m.user == fr %>
+                    <li style="display: inline-block;width: 600px;background: url(<%= asset_path('msg2.png') %>) no-repeat center center;margin-bottom: 10px;
+                            background-size:100% 100%;">
+                      <p style="margin-left: 35px;"><%= m.content %></p>
+                      <span style="float:right"><%= m.created_at.strftime('%l:%M') %></span>
+                    </li>
+                <% else %>
+                    <li style="display: inline-block;width: 600px;margin-bottom: 10px;" id="<%=	 "#{m.id}_#{m.user.id}" %>">
+                      <p style="float: right;vertical-align: middle;margin-top: 6px;"><%= m.content %>
+                      <br/>
+                        <span style="float:right"><%= m.created_at.strftime('%l:%M') %></span></p>
+
+
+                    </li>
+                <% end %>
+              </div>
+
+          <%	 end %>
+        </ul>
+
+      </div>
+      <%= form_for Message.new do |f| %>
+          <%= f.text_area :content, :style => 'width: 587px;border-radius:0;border:1px solid black;resize:vertical', rows: 2, placeholder: "Send a message to #{fr.full_name}" %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+
+          <%= f.hidden_field :reciever_id, :value => fr.id %>
+          <%= f.submit 'Send', :style => 'display: none;' %>
+      <%	 end %>
+      <script type="text/javascript">
+          $(function() {
+              $('#message_content').autogrow();
+          });
+          $('#message_content').keydown(function() {
+              if (event.keyCode == 13) {
+                  this.form.submit();
+                  return false;
+              }
+          });
+      </script>
+</div>
+        </td>
+     <td width="100px"  valign="top">
+      <div id="<%= @user.id %>_box" style="display:block">
+        <h4><%= @user.full_name %></h4>
+        <%=	image_tag @user.avatar_url(:thumb) %>
+      </div>
+        </td>
+    </tr>
+      </table>
+
+
+<%	end  %>
+    <div class="span6">
+      <% @user.friends.each do |fr| %>
+           <%=	 link_to "#{fr.full_name}", message_friend(@user, fr) %>
+      <% end %>
+    </div>

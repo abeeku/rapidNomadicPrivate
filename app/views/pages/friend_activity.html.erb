@@ -14,7 +14,7 @@
   <br>
   <h2><%=h link_to post.user.full_name, :controller => 'users', :action => 'wall', :username => post.user.username  if post.user %></h2>
   <br>
-   <%= image_tag post.user.profile(:thumb).to_s, :width => 80, :height => 80 if post.user %>
+   <%= image_tag post.user.avatar_url(:thumb).to_s, :width => 80, :height => 80 if post.user %>
   <p>
   <%=h truncate post.content, length:160 %>
   </p>
@@ -23,7 +23,7 @@
   </span>
 
 </div></div>
-    <!--    <%# image_tag post.user.profile(:thumb).to_s, :width => 80, :height => 80 if post.user %>
+    <!--    <%# image_tag post.user.avatar_url(:thumb).to_s, :width => 80, :height => 80 if post.user %>
         <%#h link_to post.user.full_name, :controller => 'users', :action => 'wall', :username => post.user.username  if post.user %>
         <span style="float: right"><%# time_ago_in_words(post.created_at).gsub('about','') + ' ago' %></span>
 

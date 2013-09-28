@@ -1,0 +1,6 @@
+--- 
+cursor_positions: 
+  - :path: spec/requests/password_resets_spec.rb
+    :cursor_offset: 452
+    :timestamp: 2013-08-06 13:41:46 -04:00
+files_to_retain: 0

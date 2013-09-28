@@ -1,12 +1,7 @@
-<h1>Pages#world_wall</h1>
-<!--Paste the code below into your pages exactly as is. The counter contains links back to us. By using this service you agree to maintain these links.-->
-<center>
-  <A href="http://www.ratehub.com.au/"><img src='http://www.speedcounter.com/count.php?counterid=32155&theme=61' ALT="RateHub" ></a><br>
-  <script>CID=32155;</script>
-  <script language="Javascript" SRC='http://www.speedcounter.com/count.js'></script>
-  <i><font size="1" color="666666" face="Times new roman, Times, serif"><A href="http://www.speedcounter.com/cccsignup.php">Get SpeedCounter</a></font></i></center>
-<!--End SpeedCounter-->
-<p>Find me in app/views/pages/world_wall.html.erb</p>
+
+<h1 style="font-family: 'Roboto Condensed',arial,helvetica,san-serif;text-align: center">World Wall</h1>
+<hr/>
+
   <ul id="profile_posts">
     <%	 @posts.each do |post| %>
 
@@ -16,7 +11,7 @@
         class="first"
         <% end %>
         >
-          <%= image_tag post.user.profile(:thumb).to_s, :width => 80, :height => 80 if post.user %>
+          <%= image_tag post.user.avatar_url(:thumb).to_s, :width => 80, :height => 80 if post.user %>
           <%=h link_to post.user.full_name, :controller => 'users', :action => 'wall', :username => post.user.username  if post.user %>
           <span style="float: right"><%= time_ago_in_words(post.created_at).gsub('about','') + ' ago' %></span>
 

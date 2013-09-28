@@ -1,20 +1,24 @@
 class User < ActiveRecord::Base
+
+   acts_as_voter
+
   has_secure_password
   before_save { |user| user.email = email.downcase }
   
-
+  mount_uploader :avatar, AvatarUploader
   
- has_attached_file :profile, :styles => {  :medium => ["250x250>", :jpg], :thumb => ["80x80#", :jpg ], :menubar => ["40x40#", :jpg] } , 
-                  :default_url => '/assets/missing_:style.png',
-                  :path => ":rails_root/app/assets/:class/:attachment/:id/:hash_:style.:extension",
-                  :hash_secret => "spongetianabob"#,
-                  #:url => "/:class/:attachment/:id/:hash_:style.:extension" 
+ has_attached_file :profile, :styles => {  :medium => ["250x250>", :jpg], :thumb => ["80x80#", :jpg ], :menubar => ["40x40#", :jpg] }# ,
+                 # :default_url => '/assets/missing_:style.png',
+
+                  #:hash_secret => "sptongeibanaob",
+                 # :url => "/assets/:style/:hash.:extension"
                   
      
                 
 
   
   has_one :user_info
+   accepts_nested_attributes_for :user_info
   has_many :friendships, dependent: :destroy
   has_many :friends, :through => :friendships,:source => :friend, :conditions => "status ='accepted'"
   has_many :pending_friends, :through => :friendships,:source => :friend, :conditions => "status ='pending'"
@@ -37,7 +41,8 @@ validates_attachment_size :profile, :less_than => 6.megabytes
                   :password_confirmation,
                   :date_of_birth,
                   :admin,
-                  :profile, :requested_friends, :pending_friends
+                  :profile, :requested_friends, :pending_friends,
+                  :avatar, :avatar_cache, :remove_avatar
   #Remember Me Cookie Token
   before_create { generate_token(:cookie_token) }
 
@@ -97,5 +102,5 @@ validates_attachment_size :profile, :less_than => 6.megabytes
  #   extension = File.extname(profile_file_name).downcase
  #   self.image.instance_write(:file_name, "#{SecureRandom.urlsafe_base64}#{extension}")
   #end
-  
+
 end
