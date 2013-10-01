@@ -44,7 +44,11 @@ include ApplicationHelper
     else
       @post.created_at = Time.now
       if @post.save
-        redirect_to request.referrer
+        respond_to do |format|
+          format.html { redirect_to request.referrer }
+          format.js { render 'users/post' }
+        end
+
       else
         flash[:notice] = 'Post could\'nt be saved'
         redirect_to request.referrer

@@ -111,6 +111,7 @@ end
 #match '/:username' => redirect('/:username/wall')
 #match '/:username' => 'users#show', as: 'profile'
   match '/:username' => 'users#wall', as: 'profile'
+  match '/messcount/:user/:friend' => 'messages#count'
   match '/:username/messages' => 'messages#show', as: 'user_messages'
   match '/:username/messages/:friend' => 'messages#show', as: 'user_messages'
   match '/:username/info' => 'user_info#index', as: 'show_user_info'

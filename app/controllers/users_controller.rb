@@ -90,7 +90,7 @@ layout 'profile', :only => :wall
 
      @all_posts = Post.where(:whose_wall => @user.id).paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
      respond_to do |format|
-       format.js
+       format.js { render 'post' if params[:post]  }
        format.html # show.html.erb
        format.xml  { render :xml => @all_posts }
      end

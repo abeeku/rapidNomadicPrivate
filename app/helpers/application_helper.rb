@@ -10,7 +10,7 @@ module ApplicationHelper
      user_messages_url(:username => user.username)
    end
   def message_friend(user, friend)
-    user_messages_url(:username => user.username, :friend => friend.id)
+    user_messages_path(:username => user.username, :friend => friend.id)
   end
   def photos_for(user)
     user_photos_url(:username => user.username)

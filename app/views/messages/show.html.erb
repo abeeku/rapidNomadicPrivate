@@ -1,5 +1,10 @@
 <%	 content_for :head do %>
     <%=	 javascript_include_tag 'autogrow' %>
+    <style>
+      body {
+          background-color: white;
+      }
+    </style>
     <%	 end %>
 <ul class="nav nav-tabs" id ="profile_sidebar" style="margin: 0 auto;">
   <li class="active">
@@ -27,7 +32,7 @@
 <%	 @user.friends.each do |fr| %>
 
 
-      <table width="800px;" cellspacing=0 cellpadding=0>
+      <table width="800px;" cellspacing=0 cellpadding=0 style="float:left;border-right: 1px solid black">
       <tr>
         <td width="89px" valign="top">
         <div id="<%= fr.id %>_box" style="display: inline-block">
@@ -43,16 +48,16 @@
           <%	 @mes.each do |m| %>
               <div class="message_content"  style="display: block;">
                 <% if m.user == fr %>
-                    <li style="display: inline-block;width: 600px;background: url(<%= asset_path('msg2.png') %>) no-repeat center center;margin-bottom: 10px;
+                    <li style="display: inline-block;width: 600px;background: url(<%= asset_path('msg3.png') %>) no-repeat center center;margin-bottom: 10px;
                             background-size:100% 100%;">
-                      <p style="margin-left: 35px;"><%= m.content %></p>
-                      <span style="float:right"><%= m.created_at.strftime('%l:%M') %></span>
+                      <p style="margin-left: 35px;margin-right: 15px;"><%= m.content %></p>
+                      <span style="float:right;border: 2px solid blue;" ><%= m.created_at.strftime('%l:%M %p %b %d') %></span>
                     </li>
                 <% else %>
                     <li style="display: inline-block;width: 600px;margin-bottom: 10px;" id="<%=	 "#{m.id}_#{m.user.id}" %>">
-                      <p style="float: right;vertical-align: middle;margin-top: 6px;"><%= m.content %>
+                      <p style="float: right;vertical-align: middle;margin-top: 6px;margin-right: 15px;"><%= m.content %>
                       <br/>
-                        <span style="float:right"><%= m.created_at.strftime('%l:%M') %></span></p>
+                        <span style="float:right;border: 2px solid blue;"><%= m.created_at.strftime('%l:%M %p %b %d') %></span></p>
 
 
                     </li>
@@ -64,12 +69,17 @@
 
       </div>
       <%= form_for Message.new do |f| %>
-          <%= f.text_area :content, :style => 'width: 587px;border-radius:0;border:1px solid black;resize:vertical', rows: 2, placeholder: "Send a message to #{fr.full_name}" %>
+          <%= f.text_area :content, :style => 'width: 587px;border-radius:0;border:1px solid black;resize:vertical;', rows: 2, placeholder: "Send a message to #{fr.full_name}" %>
           <%= f.hidden_field :user_id, :value => current_user.id %>
 
           <%= f.hidden_field :reciever_id, :value => fr.id %>
           <%= f.submit 'Send', :style => 'display: none;' %>
       <%	 end %>
+        <script type="text/javascript">
+          $(window).resize(function() {
+              if ($(window).height() < 978){ $('body').css("padding-top", "0") }
+          });
+        </script>
       <script type="text/javascript">
           $(function() {
               $('#message_content').autogrow();
@@ -81,6 +91,17 @@
               }
           });
       </script>
+        <button onclick="
+        $.get('/messcount/<%= @user.id %>/<%= fr.id %> #count', function(data) {
+            $('#get').append(data);
+                if (parseInt(data) > <%= @mes.count %>)  {
+
+                   }
+                });
+
+        ">Get Messages count
+        </button>
+        <p id="get"></p>
 </div>
         </td>
      <td width="100px"  valign="top">
@@ -94,8 +115,29 @@
 
 
 <%	end  %>
-    <div class="span6">
-      <% @user.friends.each do |fr| %>
-           <%=	 link_to "#{fr.full_name}", message_friend(@user, fr) %>
-      <% end %>
-    </div>
+    <div class="span3" style="float:right;">
+        <ul>
+          <% @user.friends.each do |fr| %>
+              <!-- Do this for each of the user's friends -->
+
+
+              <li class="friend-message=box" style="background-color: white;height: 90px;border-bottom: 1px solid #ccc;list-style: none;<%= 'background-color: #019AD2;color:yellow;' if fr == @friend %>">
+
+
+
+                <div style="padding: 20px 0;">
+                  <%= image_tag fr.avatar_url(:thumb), width: 60, style: 'display:inline;' %>
+                  <%=	 link_to "#{fr.full_name}", message_friend(@user, fr),
+                                  style: 'color:yellow' if fr == @friend %>
+                  <br/>
+
+                </div>
+
+              </li>
+
+          <% end %>
+        </ul>
+
+   </div>
+    
+    
